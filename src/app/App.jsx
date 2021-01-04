@@ -1,10 +1,10 @@
 import { hot } from "react-hot-loader/root";
 
 import "normalize.css";
+import "_theme/main.scss";
 
 const App = () => (
     <React.StrictMode>
-        <h1>Hello world</h1>
     </React.StrictMode>
 );
 
