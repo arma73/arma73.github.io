@@ -9,7 +9,6 @@ const sassLoader = require("../loaders/sassLoader");
 const styleLoader = require("../loaders/styleLoader");
 const cacheLoader = require("../loaders/cacheLoader");
 const threadLoader = require("../loaders/threadLoader");
-const postcssLoader = require("../loaders/postcssLoader");
 const miniCssExtract = require("../loaders/miniCssExtract");
 
 module.exports = () => {
@@ -25,27 +24,19 @@ module.exports = () => {
         ].filter(Boolean);
     };
     
-    // TODO: Separate .css and m.css
     return [
         {
             "test": /\.css$/,
             "use": [
                 ...baseLoader(),
-                cssLoader({
-                    "importLoaders": 2,
-                }),
-                postcssLoader({
-                    "sourceMap": development,
-                })
+                cssLoader(),
             ],
         },
         {
             "test": /\.s(a|c)ss$/,
             "use": [
                 ...baseLoader(),
-                cssLoader({
-                    "importLoaders": 2,
-                }),
+                cssLoader(),
                 sassLoader({
                     "sourceMap": development,
                 }),
