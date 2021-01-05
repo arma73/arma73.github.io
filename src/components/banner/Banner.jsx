@@ -1,17 +1,14 @@
 import Container from "_components/container";
-import Logo from "_components/logo";
-import Navigation from "_components/navigation";
 
 import "./Banner.scss";
 
 // TODO: change Banner name later
-const Banner = () => (
-    <header className="banner">
+const Banner = ({ children }) => (
+    <div className="banner">
         <Container className="banner--inner">
-            <Logo theme="light" />
-            <Navigation />
+            {children}
         </Container>
-    </header>
+    </div>
 );
 
 export default Banner;
