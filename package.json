@@ -102,6 +102,7 @@
   "dependencies": {
     "clsx": "^1.1.1",
     "history": "^5.0.0",
+    "modularscale-sass": "^3.0.10",
     "normalize.css": "^8.0.1",
     "postcss": "^8.1.14",
     "react": "^17.0.1",
