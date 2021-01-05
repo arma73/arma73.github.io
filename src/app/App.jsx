@@ -1,15 +1,12 @@
 import { hot } from "react-hot-loader/root";
-import Logo from "_components/logo";
-import Container from "_components/container";
+import Banner from "_components/logo";
 
 import "normalize.css";
 import "_theme/main.scss";
 
 const App = () => (
     <React.StrictMode>
-        <Container>
-            <Logo />
-        </Container>
+        <Banner />
     </React.StrictMode>
 );
 
