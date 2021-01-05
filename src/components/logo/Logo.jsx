@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import Icon from "_components/icon";
 
 import "./Logo.scss";
 
 const Logo = ({ theme = "light" }) => (
-    <a className={`logo logo--${theme}`}> 
+    <Link to="/" className={`logo logo--${theme}`}> 
         <Icon theme={theme} depth={50} />
         <span className="logo__text"> amollo </span>
-    </a>
+    </Link>
 );
 
 export default Logo;
