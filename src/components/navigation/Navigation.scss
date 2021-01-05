@@ -10,12 +10,25 @@
         margin-left: 2.5em;
         text-transform: uppercase;
         text-decoration: none;
-        color: map-get($colors, alto);
+        color: map-get($map: $colors, $key: dusty-grey);
         transition: color 250ms;
+    }
 
-        &:hover,
-        &--active { 
-            color: map-get($colors, white); 
+    &--dark {
+        .nav__link{
+            &:hover,
+            &--active {
+                color: map-get($colors, white);
+            }
+        }
+    }
+
+    &--light {
+        .nav__link {
+            &:hover,
+            &--active {
+                color: map-get($map: $colors, $key: mine-shaft);
+            }
         }
     }
 }

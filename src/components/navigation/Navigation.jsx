@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 import "./Navigation.scss";
 
-const Navigation = () => {
+const Navigation = ({ theme }) => {
     const mapNavItems = () => {
         const items = ["guides", "reference", "contribute", "analyze", "donate"];
 
@@ -19,7 +19,7 @@ const Navigation = () => {
     };
 
     return (
-        <nav className="nav">
+        <nav className={`nav nav--${theme}`}>
             {mapNavItems()}
         </nav>
     );

@@ -4,11 +4,11 @@ import Navigation from "_components/navigation";
 
 import "./Header.scss";
 
-const Header = () => (
-    <header className="header">
+const Header = ({ theme = "light" }) => (
+    <header className={`header header--${theme}`}>
         <Container className="header--inner">
-            <Logo theme="light" />
-            <Navigation />
+            <Logo theme={theme} />
+            <Navigation theme={theme} />
         </Container>
     </header>
 );
