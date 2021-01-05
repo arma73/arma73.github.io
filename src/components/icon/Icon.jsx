@@ -4,7 +4,7 @@ import { range } from "_utils/range";
 
 import "./Icon.scss";
 
-const Icon = ({ depth = 50 }) => {
+const Icon = ({ depth = 50, theme = "light" }) => {
     const [isHovered, bind] = useHover();
 
     const getRings = () => [...range(4, 96, 40)].map((rotation, index) => (
@@ -30,7 +30,10 @@ const Icon = ({ depth = 50 }) => {
                 <figure 
                     className={clsx(
                         "icon__figure",
-                        { "icon__figure--gold": isHovered }
+                        `icon__figure--${theme}`,
+                        {
+                            "figure--gold": isHovered,
+                        }
                     )}
                     {...bind}
                 >

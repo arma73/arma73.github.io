@@ -32,19 +32,27 @@
                 border-style: solid;
                 border-radius: 50%;
                 opacity: 1;
-                color: map-get($colors, dusty-grey);
-                background-color: transparentize(map-get($colors, alto), .9);
-
-                
             }
 
-            &--gold .figure__ring {
+            &.figure--gold .figure__ring {
                 color: map-get($colors, calico);
                 transition: 700ms;
                 background: radial-gradient(transparent 30%, map-get($colors, tussock) 100%);
             }
+
+            &--light {
+                .figure__ring {
+                    color: map-get($colors, mine-shaft);
+                    background-color: transparentize(map-get($colors, alto), .9);
+                }
+            }
+
+            &--dark {
+                .figure__ring {
+                    color: map-get($colors, parchment);
+                    background-color: transparentize(map-get($colors, alto), .9);
+                }
+            }
         }
     }
-
- 
 }
