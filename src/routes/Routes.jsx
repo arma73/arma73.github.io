@@ -1,4 +1,3 @@
-import { createBrowserHistory } from "history";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Frame from "_components/frame";
@@ -10,11 +9,9 @@ import Analyze from "_pages/analyze";
 import Donate from "_pages/donate";
 import PageNotFound from "_pages/error/404";
 
-const history = createBrowserHistory();
-
 // TODO: change path to constants
 const Routes = () => (
-    <BrowserRouter history={history}>
+    <BrowserRouter>
         <Frame>
             <Switch>
                 <Route exact path="/" component={Splash} />
