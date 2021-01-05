@@ -8,7 +8,7 @@ const Footer = () => (
     <footer className="footer">
         <Container className="footer--inner">
             <section className="footer--inner-left">
-                <Link className="footer--inner-link" to="/license">License</Link>
+                <Link className="footer__link--inner" to="/license">License</Link>
                 <a className="footer__link--inner" href="https://github.com/arma73/amollo/graphs/contributors">
                     Contributors
                 </a>
