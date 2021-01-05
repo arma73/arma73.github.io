@@ -1,9 +1,9 @@
-import Banner from "_components/banner";
-import Footer from "_components/footer";
+import Header from "_components/layouts/header";
+import Footer from "_components/layouts/footer";
 
 const Frame = ({ children }) => (
     <div className="frame">
-        <Banner />
+        <Header />
         {children}
         <Footer />
     </div>
