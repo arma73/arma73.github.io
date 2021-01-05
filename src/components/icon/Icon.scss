@@ -1,0 +1,50 @@
+@import "_theme/var";
+
+@keyframes round {
+    to {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+.icon__block {    
+    .icon__combine {
+        width: 100%;
+        height: 100%;
+        transform: rotateX(45deg) rotateY(46deg);
+        transform-style: preserve-3d;
+        
+        .icon__figure {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            animation: round 3.5s 1s 2 cubic-bezier(0.645, 0.045, 0.355, 1);
+            
+            .figure__ring {
+                transition: 1s;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 3px;
+                border-style: solid;
+                border-radius: 50%;
+                opacity: 1;
+                color: map-get($colors, dusty-grey);
+                background-color: transparentize(map-get($colors, alto), .9);
+
+                
+            }
+
+            &--gold .figure__ring {
+                color: map-get($colors, calico);
+                transition: 700ms;
+                background: radial-gradient(transparent 30%, map-get($colors, tussock) 100%);
+            }
+        }
+    }
+
+ 
+}
