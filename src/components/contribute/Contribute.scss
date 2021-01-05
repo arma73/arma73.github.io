@@ -1,0 +1,13 @@
+@import "_theme/var"; 
+
+.contribute {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+
+    span { 
+        text-transform:uppercase; 
+        color: map-get($map: $grey, $key: 800); 
+    }
+} 
