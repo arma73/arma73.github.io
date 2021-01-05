@@ -1,10 +1,11 @@
-import { useState } from "react";
+import clsx from "clsx";
+import { useHover } from "_hooks";
 import { range } from "_utils/range";
 
 import "./Icon.scss";
 
 const Icon = ({ depth = 50 }) => {
-    const [theme, setTheme] = useState("");
+    const [isHovered, bind] = useHover();
 
     const getRings = () => [...range(4, 96, 40)].map((rotation, index) => (
         <section
@@ -27,9 +28,11 @@ const Icon = ({ depth = 50 }) => {
         >
             <div className="icon__combine">
                 <figure 
-                    className={`icon__figure icon__figure--${theme}`}
-                    onMouseEnter={() => setTheme("gold")}
-                    onMouseLeave={() => setTheme("")}
+                    className={clsx(
+                        "icon__figure",
+                        { "icon__figure--gold": isHovered }
+                    )}
+                    {...bind}
                 >
                     {getRings()}
                 </figure>
