@@ -1,12 +1,12 @@
 import { hot } from "react-hot-loader/root";
-import Splash from "_components/splash";
+import Routes from "_routes/Routes";
 
 import "normalize.css";
 import "_theme/main.scss";
 
 const App = () => (
     <React.StrictMode>
-        <Splash />
+        <Routes />
     </React.StrictMode>
 );
 
