@@ -1,0 +1,7 @@
+@import "_theme/var";
+
+.container {
+    width: 100%;
+    max-width: map-get($map: $screens, $key: large);
+    margin: 0 auto;
+}
