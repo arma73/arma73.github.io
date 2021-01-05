@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Frame from "_components/frame";
+import About from "_pages/about";
 import Splash from "_pages/splash";
 import Guides from "_pages/guides";
 import Reference from "_pages/reference";
@@ -15,6 +16,7 @@ const Routes = () => (
         <Frame>
             <Switch>
                 <Route exact path="/" component={Splash} />
+                <Route exact path="/about" component={About} />
                 <Route exact path="/guides" component={Guides} />
                 <Route exact path="/reference" component={Reference} />
                 <Route exact path="/contribute" component={Contribute} />
