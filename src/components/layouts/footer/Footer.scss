@@ -4,6 +4,7 @@
 .footer {
     min-width: map-get($map: $screens, $key: large);
     background-color: map-get($map: $colors, $key: alto);
+    z-index: map-get($map: $z-layers, $key: footer);
 
     &--inner {
         display: flex;
