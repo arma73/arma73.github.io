@@ -4,7 +4,11 @@
     // TODO: change min-width
     min-width: map-get($map: $screens, $key: large);
     transition:background 250ms;
-
+    position: fixed;
+    z-index: map-get($map: $z-layers, $key: header);
+    width:100%;
+    top:0;
+    
     &--inner {
         display: flex;
         align-items: center;
