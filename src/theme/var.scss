@@ -31,5 +31,16 @@ $screens: (
     medium                      : 768px,
 );
 
+$z-layers: (
+    top                         : 2000,
+    modal                       : 1000,
+    header                      : 500,
+    footer                      : 10,
+    base                        : 5,
+    bottom                      : 1,
+    default                     : 0,
+    below                       : -1,
+);
+
 $font-stack-body: "Averia Sans Libre", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 $font-stack-heading: "Averia Sans Libre", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
