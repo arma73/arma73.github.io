@@ -1,5 +1,5 @@
 {
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaVersion": 2020,
         "ecmaFeatures": {
@@ -38,6 +38,9 @@
         "react": {
             "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
         }
+    },
+    "globals": {
+        "__PROD__": true
     },
     "rules": {
         //prettier
