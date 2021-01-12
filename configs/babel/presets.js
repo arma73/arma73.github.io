@@ -1,20 +1,26 @@
 "use-strict";
 
-module.exports = ({ production, loose, spec, useBuiltIns, modules }) => {
+module.exports = ({ development, production, loose, spec, modules }) => {
     const configs = [
-        "@babel/preset-react"
+        [
+            "@babel/preset-react",
+            {
+                "runtime": "automatic"
+            }
+        ]
     ];
 
+    development && 
+        configs.unshift("@babel/preset-env");
+
     production &&
-        configs.push([
-            "@babel/env",
+        configs.unshift([
+            "@babel/preset-env",
             {
                 spec,
                 loose,
                 modules,
-                useBuiltIns,
                 "debug": false,
-                "corejs": "3",
             }
         ]);
 
