@@ -1,8 +1,8 @@
 {
-  "name": "amollo",
+  "name": "arma73.github.io",
   "version": "0.0.1",
   "main": "index.js",
-  "repository": "https://github.com/arma73/amollo",
+  "repository": "https://github.com/arma73/arma73.github.io",
   "author": "Arman Khilko <arma.biz9805@gmail.com>",
   "license": "MIT",
   "private": true,
