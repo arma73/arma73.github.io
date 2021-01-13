@@ -15,7 +15,9 @@
     "debug:dev": "cross-env-shell NODE_ENV=development ndb node \"./configs/scripts\"",
     "debug:prod": "cross-env-shell NODE_ENV=production ndb node \"./configs/scripts\"",
     "analyze:prod": "cross-env-shell NODE_ENV=production node \"./configs/scripts\" --analyze",
-    "build:prod": "run-s content && cross-env-shell NODE_ENV=production node \"./configs/scripts\" --ssg",
+    "build:ssg": "cross-env-shell NODE_ENV=production node \"./configs/scripts\" --ssg",
+    "build:prod": "cross-env-shell NODE_ENV=production node \"./configs/scripts\"",
+    "build": "run-s content build:ssg build:prod",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "lint:fix": "eslint src/**/*.{js,jsx} --quiet --fix"
   },
