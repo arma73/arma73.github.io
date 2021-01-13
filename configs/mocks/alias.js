@@ -22,6 +22,7 @@ module.exports = {
     "_theme": servedSepOS(appSrc, "theme"),
     "_utils": servedSepOS(appSrc, "utils"), 
     "_routes": servedSepOS(appSrc, "routes"),
+    "_content": servedSepOS(appSrc, "content"), 
     "_layouts": servedSepOS(appSrc, "layouts"),
     "_services": servedSepOS(appSrc, "services"),
     "_settings": servedSepOS(appSrc, "settings"),
