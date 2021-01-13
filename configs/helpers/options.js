@@ -43,4 +43,5 @@ module.exports = {
     "analyze": argv.analyze || false,
     "compression": argv.release || false,
     "release": argv.release || argv.analyze || false,
+    "ssg": argv.ssg || false,
 };
