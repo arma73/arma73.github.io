@@ -1,7 +1,6 @@
 "use-strict";
 
 // Plugins
-const htmlWebpackPlugin = require("./htmlWebpackPlugin");
 const cleanWebpackPlugin = require("./cleanWebpackPlugin");
 const copyWebpackPlugin = require("./copyWebpackPlugin");
 const caseSensitivePathsWebpackPlugin = require("./caseSensitivePathsWebpackPlugin");
@@ -11,7 +10,6 @@ const miniCssExtractPlugin = require("./miniCssExtractPlugin");
 module.exports = {
     "plugins": [
         ...cleanWebpackPlugin(),
-        ...htmlWebpackPlugin(),
         ...copyWebpackPlugin(),
         ...caseSensitivePathsWebpackPlugin(),
         ...webpackPlugins(),

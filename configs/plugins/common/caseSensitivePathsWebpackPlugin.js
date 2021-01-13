@@ -6,6 +6,7 @@ const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 /**
  * This Webpack plugin enforces the entire path of all required
  * modules match the exact case of the actual path on disk.
+ * FIXME: change example
  * @example
  *   ERROR in ./src/containers/SearchProducts.js Module not found: Error: 
  *   [CaseSensitivePathsPlugin] 
