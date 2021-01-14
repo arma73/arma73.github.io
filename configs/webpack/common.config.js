@@ -11,7 +11,6 @@ const mode = require("../parts/common/mode");
 const node = require("../parts/common/node");
 const modules = require("../parts/common/module");
 const output = require("../parts/common/output");
-const target = require("../parts/common/target");
 const devtool = require("../parts/common/devtool");
 const externals = require("../parts/common/externals");
 const resolve = require("../parts/common/resolve");
@@ -27,7 +26,6 @@ module.exports = merge(
     modules,
     mode,
     node,
-    target,
     devtool,
     externals,
     plugins,
