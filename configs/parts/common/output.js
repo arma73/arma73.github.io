@@ -27,10 +27,7 @@ module.exports = {
             : development && `js/${hashName}.c.js`,
 
         // We inferred the "public path" (such as / or /my-project) from homepage.
-        // We use "/" in development
-        "publicPath": development
-            ? "/"
-            : "", // TODO: Correct later
+        "publicPath": "/",
 
         // Point sourcemap entries to original disk location (format as URL on Windows)
         "devtoolModuleFilenameTemplate": production
