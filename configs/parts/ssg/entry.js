@@ -5,6 +5,6 @@
 // can configure the entry property, in addition to explaining why it may be useful to you.
 module.exports = {
     "entry": {
-        "index": "./server"
+        "index": "./server/Static"
     },
 };
