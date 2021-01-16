@@ -11,11 +11,11 @@ const servedSepOS = require("../../utils/servedSepOS");
 
 module.exports = () => [
     new WebpackPwaManifest({
-        "name": "amollo Documentation",
-        "short_name": "amollo",
-        "description": "amollo documentation web application",
-        "background_color": "#2b3a42",
-        "theme_color": "#2b3a42",
+        "name": "arma73 github portfolio",
+        "short_name": "arma73",
+        "description": "arma73 github portfolio",
+        "background_color": "#3d1163",
+        "theme_color": "#3d1163",
         "display": "fullscreen",
         "inject": false,
         "fingerprints": false,
@@ -29,7 +29,7 @@ module.exports = () => [
                 "sizes": [72, 96, 128, 144, 150, 192, 384, 512],
             },
             {
-                "src": servedSepOS(appAssets, "images", "icons", "icon-pwa-512x512.png"),
+                "src": servedSepOS(appAssets, "images", "icons", "apple-touch-icon.png"),
                 "sizes": [120, 152, 167, 180],
                 "ios": true,
             },
