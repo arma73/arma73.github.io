@@ -1,0 +1,32 @@
+@import "_theme/var";
+
+.top-bar {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 22px;
+    border-bottom: 2px solid map-get($map: $colors, $key: dodger);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: map-get($map: $colors, $key: melrose);
+
+    .dot {
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        width: 5px;
+        height: 5px;
+        border-radius: 100%;
+        background-color: white;
+
+        &:nth-child(2) {
+            left: 20px;
+        }
+        &:nth-child(3) {
+            left: 30px;
+        }
+    }
+}
+
