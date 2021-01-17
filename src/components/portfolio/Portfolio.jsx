@@ -1,6 +1,7 @@
 import TopBar from "./topbar";
 import AboutMe from "./aboutme";
 import MountainPhoto from "./mountainphoto";
+import BlogTower from "./blogtower";
 
 import "./Portfolio.scss";
 import "./Base.scss";
@@ -12,6 +13,7 @@ const Portfolio = () => (
                 <TopBar />
                 <AboutMe />
                 <MountainPhoto />
+                <BlogTower />
             </div>
         </div>
     </div>
