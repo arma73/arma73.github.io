@@ -1,4 +1,4 @@
-import Bar from "./bar";
+import TopBar from "./topbar";
 
 import "./Portfolio.scss";
 
@@ -6,7 +6,7 @@ const Portfolio = () => (
     <div className="portfolio--layout">
         <div className="portfolio--illustration preserve-3d">
             <div className="portfolio">
-                <Bar />
+                <TopBar />
             </div>
         </div>
     </div>

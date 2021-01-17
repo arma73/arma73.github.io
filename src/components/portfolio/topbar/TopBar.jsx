@@ -1,4 +1,4 @@
-import "./Bar.scss";
+import "./TopBar.scss";
 
 const TopBar = () => (
     <div className="top-bar">
