@@ -3,14 +3,13 @@
 .logo {
     cursor: pointer;
     display: inline-flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     &__text {
         font-size: 1.3em;
         font-family: $font-stack-heading;
-        // margin-left: 0.25em;
+        margin-left: 0.5em;
         vertical-align: text-bottom;
         transition: color 250ms;
     }
