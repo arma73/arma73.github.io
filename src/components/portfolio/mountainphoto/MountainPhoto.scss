@@ -1,0 +1,44 @@
+.mountain-photo-parent {
+    position: relative;
+    left: -20px;
+    top: 0px;
+    width: 62%;
+    padding: 25px;
+    float: left;
+    -webkit-perspective: 9999px;
+    perspective: 9999px;
+}
+
+.arrow-line {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 54px;
+    display: block;
+    width: 2px;
+    height: 42px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fff;
+}
+
+.arrow-line-small {
+    position: absolute;
+    left: -4px;
+    right: 0px;
+    bottom: 0px;
+    width: 2px;
+    height: 10px;
+    background-color: #fff;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+    &.v2 {
+        left: 4px;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
