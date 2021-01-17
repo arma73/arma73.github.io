@@ -4,12 +4,12 @@
 const hot = require("webpack-hot-middleware");
 
 // Helpers
-const { development } = require("../../helpers/options");
 const { "areaEnv": { "REACT_APP_PORT": PORT, "REACT_APP_HOST": HOST } } = require("../../helpers/env");
+const { appBuild } = require("../../helpers/paths");
 
 // This set of options is picked up by webpack-dev-server and
 // can be used to change its behavior in various ways.
-module.exports = compiler => development && ({
+module.exports = {
     // Enable webpack's Hot Module Replacement feature:
     "hot": true,
     // Tells dev-server to open the browser after server had been started.
@@ -35,6 +35,7 @@ module.exports = compiler => development && ({
     "port": PORT,
     // Use the local IP to open devServer instead of localhost.
     "useLocalIp": true,
+    "static": appBuild,
 
     // You can proxy the APIs of other servers through proxy.
     // proxy: {
@@ -42,9 +43,6 @@ module.exports = compiler => development && ({
     // }
     // Will be used to determine where the bundles should be served from, and takes precedence.
     // "publicPath": "/", // correct later
-    // Tell the server where to serve content from. This is only 
-    // necessary if you want to serve static files.
-    // "contentBase": "./dist/",
 
     // Adds headers to all responses:
     "headers": {
@@ -53,11 +51,11 @@ module.exports = compiler => development && ({
 
     // Provides the ability to execute custom middleware after 
     // all other middleware internally within the server.
-    onAfterSetupMiddleware(app) {
+    onAfterSetupMiddleware({ app, compiler }) {
         app.use(
             hot(compiler, {
                 "log": false,
             }),
         );
     },
-});
+};

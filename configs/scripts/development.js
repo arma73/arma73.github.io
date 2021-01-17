@@ -12,7 +12,7 @@ const { "areaEnv": { "REACT_APP_PORT": PORT, "REACT_APP_HOST": HOST } } = requir
 const choosePort = require("../utils/choosePort");
 
 // Parts
-const getOptionsDevServer = require("../parts/development/devServer");
+const options = require("../parts/development/devServer");
 
 const setupCompiler = async config => {
     try {
@@ -26,7 +26,6 @@ const setupCompiler = async config => {
         }
 
         const compiler = await webpack(config);
-        const options = getOptionsDevServer(compiler);
         const server = new WebpackDevServer(compiler, options);
 
         server.listen(String(chosenPort), options.host, () => {
