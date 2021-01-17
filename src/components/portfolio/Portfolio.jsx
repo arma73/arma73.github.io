@@ -2,6 +2,7 @@ import TopBar from "./topbar";
 import AboutMe from "./aboutme";
 import MountainPhoto from "./mountainphoto";
 import BlogTower from "./blogtower";
+import Summary from "./summary";
 
 import "./Portfolio.scss";
 import "./Base.scss";
@@ -14,6 +15,7 @@ const Portfolio = () => (
                 <AboutMe />
                 <MountainPhoto />
                 <BlogTower />
+                <Summary />
             </div>
         </div>
     </div>
