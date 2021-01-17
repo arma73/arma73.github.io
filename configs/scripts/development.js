@@ -16,23 +16,25 @@ const options = require("../parts/development/devServer");
 
 const setupCompiler = async config => {
     try {
-        const chosenPort = await choosePort(+PORT);
-
+        const chosenPort = await choosePort(PORT, options.host);
         if (!chosenPort) {
             console.log(
                 chalk.yellowBright("➡ It's impossible to run the app 😢")
             );
             return null;
         }
+        const openPage = `http://${HOST}:${chosenPort}`;
+        Object.assign(options, {
+            "port": chosenPort,
+            openPage,
+        });
 
         const compiler = await webpack(config);
         const server = new WebpackDevServer(compiler, options);
 
-        server.listen(String(chosenPort), options.host, () => {
+        server.listen(chosenPort, options.host, () => {
             console.log(
-                `${chalk.greenBright("➡ Server listening on")} ${chalk.blueBright(
-                    `http://${HOST}:${chosenPort}`
-                )}`
+                `${chalk.greenBright("➡ Server listening on")} ${chalk.blueBright(openPage)}`
             );
         });
     } catch (error) {
