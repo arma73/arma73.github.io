@@ -65,10 +65,7 @@
     margin-right: auto;
     margin-left: auto;
     border-radius: 5px;
-    background-image: -webkit-linear-gradient(270deg, #dee2ff, #b6bdff);
     background-image: linear-gradient(180deg, #dee2ff, #b6bdff);
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 
     &._2 {
@@ -78,7 +75,6 @@
         right: 0px;
         width: 90%;
         height: 110%;
-        background-image: -webkit-linear-gradient(0deg, hsla(0, 0%, 100%, 0.7), rgba(182, 189, 255, 0.66) 51%);
         background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0.7), rgba(182, 189, 255, 0.66) 51%);
     }
 }
