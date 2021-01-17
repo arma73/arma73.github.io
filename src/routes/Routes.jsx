@@ -1,31 +1,32 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-import Frame from "_components/frame";
-import About from "_pages/about";
-import Splash from "_pages/splash";
-import Guides from "_pages/guides";
-import Reference from "_pages/reference";
-import Contribute from "_pages/contribute";
-import Analyze from "_pages/analyze";
-import Donate from "_pages/donate";
-import PageNotFound from "_pages/error/404";
+import { useEffect } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import SiteRoutes from "./Site.routes";
 
 // TODO: change path to constants
-const Routes = () => (
-    <BrowserRouter>
-        <Frame>
-            <Switch>
-                <Route exact path="/" component={Splash} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/guides" component={Guides} />
-                <Route exact path="/reference" component={Reference} />
-                <Route exact path="/contribute" component={Contribute} />
-                <Route exact path="/analyze" component={Analyze} />
-                <Route exact path="/donate" component={Donate} />
-                <Route exact path="**" component={PageNotFound} />
-            </Switch>
-        </Frame>
-    </BrowserRouter>
-);
+const Routes = () => {
+    useEffect(() => {
+        if ("serviceWorker" in navigator) {
+            // This fires when the service worker controlling this page
+            // changes, eg a new worker has skipped waiting and become
+            // the new active worker.
+            navigator.serviceWorker.addEventListener("controllerchange", () => {
+                window.location.reload();
+            });
+        }
+    }, []);
 
+    return (
+        <BrowserRouter>
+            <Route
+                path="/"
+                render={props => (
+                    <SiteRoutes
+                        {...props}
+                        import={path => import(`../content/${path}`)}
+                    />
+                )}
+            />
+        </BrowserRouter>
+    );
+};
 export default Routes;
