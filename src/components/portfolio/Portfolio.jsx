@@ -5,6 +5,7 @@ import BlogTower from "./blogtower";
 import Summary from "./summary";
 import StraightLine from "./straightline";
 import Passions from "./passions";
+import Contacts from "./contacts";
 
 import "./Portfolio.scss";
 import "./Base.scss";
@@ -20,6 +21,7 @@ const Portfolio = () => (
                 <Summary />
                 <StraightLine />
                 <Passions />
+                <Contacts />
             </div>
         </div>
     </div>
