@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import SiteRoutes from "./Site.routes";
 
-// TODO: change path to constants
 const Routes = () => {
     useEffect(() => {
         if ("serviceWorker" in navigator) {
