@@ -1,10 +1,11 @@
+import Layout from "_components/layout";
 import Portfolio from "_components/portfolio";
 import "./Main.scss";
 
 const Main = () => (
-    <main className="portfolio--page">
+    <Layout className="portfolio--page">
         <Portfolio />
-    </main>
+    </Layout>
 );
 
 export default Main;
