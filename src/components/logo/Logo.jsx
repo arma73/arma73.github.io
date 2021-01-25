@@ -8,7 +8,6 @@ const Logo = ({ theme = "light" }) => (
         <IconLogo  
             width={"35px"}
         />
-        <span className="logo__text"> arma73 </span>
     </Link>
 );
 
