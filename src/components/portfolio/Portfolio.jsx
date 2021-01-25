@@ -1,7 +1,7 @@
 import Container from "_components/container";
 import Block from "_components/block";
 import AboutMe from "_components/aboutme";
-import BlogTower from "_components/blogtower";
+import ArticlesTower from "_components/articlestower";
 import LineGroup from "_components/decorators/LineGroup";
 import Passions from "_components/passions";
 import Avatar from "_components/avatar";
@@ -22,7 +22,7 @@ const Portfolio = () => (
                     <Container className="portfolio--container row">
                         <Block className="portfolio--block col col-md-1">
                             <AboutMe />
-                            <BlogTower />
+                            <ArticlesTower />
                             <LineGroup />
                             <Passions />
                         </Block>

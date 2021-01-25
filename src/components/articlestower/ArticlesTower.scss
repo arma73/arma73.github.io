@@ -1,7 +1,7 @@
 @import "_theme/var";
 @import "_theme/mixins";
 
-.blog--tower {
+.tower--articles {
     @include core-size(100%, max-content);
     @include core-animation-show;
     position: relative;
