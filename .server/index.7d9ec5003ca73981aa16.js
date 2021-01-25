@@ -3628,7 +3628,7 @@ if (true) {
 
 /***/ }),
 
-/***/ 308:
+/***/ 493:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5870,6 +5870,87 @@ function toVal(mix) {
 	}
 	return str;
 }
+
+;// CONCATENATED MODULE: ./utils/isClient.js
+var isClient = window !== undefined && window.document !== undefined;
+/* harmony default export */ const utils_isClient = (isClient);
+;// CONCATENATED MODULE: ./containers/hoc/withServiceWorker.jsx
+/* provided dependency */ var withServiceWorker_React = __webpack_require__(378);
+
+
+var withServiceWorker_this = undefined;
+
+
+
+
+var withServiceWorker = function withServiceWorker(WrappedComponent) {
+  newArrowCheck_default()(this, withServiceWorker_this);
+
+  return function ServiceWorkerRegister(props) {
+    var _this2 = this;
+
+    (0,react.useEffect)(function () {
+      var _this3 = this;
+
+      newArrowCheck_default()(this, _this2);
+
+      if (utils_isClient) {
+        if (true) {
+          // only register sw.js in production
+          if ("serviceWorker" in navigator) {
+            // dynamic load sw https://developers.google.com/web/tools/workbox/modules/workbox-window
+            __webpack_require__.e(/* import() */ 849).then(__webpack_require__.bind(__webpack_require__, 849)).then(function (_ref) {
+              var _this4 = this;
+
+              newArrowCheck_default()(this, _this3);
+
+              var Workbox = _ref.Workbox;
+              var wb = new Workbox("/sw.js"); // listen to `waiting` event
+
+              wb.addEventListener("waiting", function () {
+                newArrowCheck_default()(this, _this4);
+
+                // log and show updateBox
+                console.log("A new service worker has installed, but it can't activate until all tabs \
+                                    running the current version have been unloaded");
+              }.bind(this)); // register the service worker
+
+              wb.register();
+            }.bind(this));
+          }
+        }
+      }
+    }.bind(this), []);
+    return /*#__PURE__*/withServiceWorker_React.createElement(WrappedComponent, props);
+  };
+}.bind(undefined);
+
+/* harmony default export */ const hoc_withServiceWorker = (withServiceWorker);
+;// CONCATENATED MODULE: ./components/layout/Layout.jsx
+/* provided dependency */ var Layout_React = __webpack_require__(378);
+
+
+
+
+var Layout_this = undefined;
+
+
+
+
+var Layout = function Layout(_ref) {
+  newArrowCheck_default()(this, Layout_this);
+
+  var children = _ref.children,
+      className = _ref.className,
+      restProps = objectWithoutProperties_default()(_ref, ["children", "className"]);
+
+  return /*#__PURE__*/Layout_React.createElement("main", extends_default()({
+    className: clsx_m("layout", className)
+  }, restProps), children);
+}.bind(undefined);
+
+/* harmony default export */ const layout_Layout = (hoc_withServiceWorker(Layout));
+;// CONCATENATED MODULE: ./components/layout/index.js
 
 ;// CONCATENATED MODULE: ./components/container/Container.jsx
 /* provided dependency */ var Container_React = __webpack_require__(378);
@@ -8869,7 +8950,8 @@ var Main_this = undefined;
 
 
 
-var Main_ref = /*#__PURE__*/Main_React.createElement("main", {
+
+var Main_ref = /*#__PURE__*/Main_React.createElement(layout_Layout, {
   className: "portfolio--page"
 }, /*#__PURE__*/Main_React.createElement(portfolio_Portfolio, null));
 
@@ -9091,6 +9173,9 @@ module.exports = require("stream");;
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -9116,6 +9201,39 @@ module.exports = require("stream");;
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "js/" + chunkId + "." + "7ba177" + "." + chunkId + ".c.js";
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get mini-css chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference all chunks
+/******/ 		__webpack_require__.miniCssF = (chunkId) => {
+/******/ 			// return url for filenames not based on template
+/******/ 			if (chunkId === 849) return "styles/849.7ba177b951b9bcdb848a.css";
+/******/ 			// return url for filenames based on template
+/******/ 			return "styles/" + "index" + "." + undefined + ".css";
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
@@ -9137,11 +9255,51 @@ module.exports = require("stream");;
 /******/ 		__webpack_require__.p = "/";
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/require chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded chunks
+/******/ 		// "1" means "loaded", otherwise not loaded yet
+/******/ 		var installedChunks = {
+/******/ 			826: 1
+/******/ 		};
+/******/ 		
+/******/ 		var installChunk = (chunk) => {
+/******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids, runtime = chunk.runtime;
+/******/ 			for(var moduleId in moreModules) {
+/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 				}
+/******/ 			}
+/******/ 			if(runtime) runtime(__webpack_require__);
+/******/ 			for(var i = 0; i < chunkIds.length; i++)
+/******/ 				installedChunks[chunkIds[i]] = 1;
+/******/ 		};
+/******/ 		
+/******/ 		// require() chunk loading for javascript
+/******/ 		__webpack_require__.f.require = function(chunkId, promises) {
+/******/ 		
+/******/ 			// "1" is the signal for "already loaded"
+/******/ 			if(!installedChunks[chunkId]) {
+/******/ 				if(true) { // all chunks have JS
+/******/ 					installChunk(require("../" + __webpack_require__.u(chunkId)));
+/******/ 				} else installedChunks[chunkId] = 1;
+/******/ 			}
+/******/ 		};
+/******/ 		
+/******/ 		// no external install chunk
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(308);
+/******/ 	return __webpack_require__(493);
 /******/ })()
 ;
 });
