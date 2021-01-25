@@ -23,7 +23,7 @@ module.exports = () => [
         "globals": {
             "window": {
                 "__ssgrun": true,
-                "requestAnimationFrame": raf, // requestAnimationFrame polyfill for node.
+                "requestAnimationFrame": raf, // requestAnimationFrame polyfill for node [use: react-spring].
             }
         },
         paths,
