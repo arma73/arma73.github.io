@@ -1,0 +1,38 @@
+@import "_theme/var";
+
+.logo {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+        font-size: 1.3em;
+        font-family: $font-stack-heading;
+        margin-left: 0.5em;
+        vertical-align: text-bottom;
+        transition: color 250ms;
+    }
+
+    &--light {
+        color: map-get($colors-hex, dove-grey);
+    }
+    
+    &--dark {
+        color: map-get($colors-hex, calico);
+    }
+
+    &:hover {
+        &.logo--light {
+            .logo__text {
+                color: map-get($colors-hex, mine-shaft);
+            }
+        }
+        
+        &.logo--dark {
+            .logo__text {
+                color: map-get($colors-hex, white);
+            }
+        }
+    }
+}

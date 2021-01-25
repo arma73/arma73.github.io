@@ -1,0 +1,18 @@
+@import "_theme/mixins";
+
+.packages {
+    @include core-size(100%, max-content, flex);
+    @include core-padding(35px, 20px, 30px, 30px);
+    justify-content: space-between;
+    
+    .card {
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                @include animation-fade-in($i, $i * .3s);
+                .circle {
+                    @include animation-pulse($i, $i * .4s);
+                }
+            }
+        }
+    }
+}

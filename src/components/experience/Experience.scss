@@ -1,0 +1,30 @@
+@import "_theme/var";
+@import "_theme/mixins";
+
+.experience {
+    @include core-margin-sides(35px, 10px);
+    // @include animation-rise-down(infinite);
+    position: relative;
+    width: 30%;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .square {
+        &:not(:first-child) {
+            margin-top: 20px;
+        }
+
+        &.connector {
+            &::after {
+                content: "";
+                @include core-position(absolute, 0px, 0px, 22px, auto);
+                @include core-size(2px, 25px);
+                @include core-margin-sides;
+                background-color: map-get($map: $colors-hex, $key: fog);
+                box-shadow: 11px 11px 0 0 map-get($map: $colors-hex, $key: dodger-blue);
+            }
+        }
+    }
+}

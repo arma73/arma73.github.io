@@ -1,0 +1,27 @@
+@import "_theme/mixins";
+
+.aboutme {
+    @include core-animation-show;
+    position: relative;
+    padding: 25px;
+    padding-top: 20px;
+
+    .box--aboutme {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .title {
+        width: 15%;
+        float: left;
+        color: white;
+        font-size: 21px;
+        line-height: 30px;
+    }
+
+    .tooltip {
+        top: 10%;
+        left: -60%;
+    }
+}

@@ -1,0 +1,116 @@
+@mixin core-position($position, $rigth: 0px, $left: 0px, $top: 0px, $bottom: 0px) {
+    position: $position;
+    right: $rigth;
+    left: $left;
+    top: $top;
+    bottom: $bottom;
+}
+
+@mixin core-size($width: 65px, $height: 65px, $display: block) {
+    display: $display;
+    width: $width;
+    height: $height;
+}
+
+@mixin core-padding($right: auto, $left: auto, $top: auto, $bottom: auto) {
+    padding-right: $right;
+    padding-left: $left;
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+@mixin core-margin-sides($right: auto, $left: auto) {
+    margin-right: $right;
+    margin-left: $left;
+}
+
+@mixin core-transition($property: all, $function: easy, $delay: 0.5s, $duration: 1s) {
+    transition-property: $property;
+    transition-timing-function: $function;
+    transition-delay: $delay;
+    transition-duration: $duration;
+}
+
+@mixin core-animation-show($time: 600ms, $delay: 1, $function: ease) {
+    animation: show $time $function $delay normal;
+
+    @keyframes show {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+@mixin animation-fade-in($name, $delay) {
+    animation: .3s ease-in-out both fade-in-#{$name};
+    animation-delay: $delay;
+
+    @keyframes fade-in-#{$name} {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+@mixin animation-pulse($name, $delay: 1) {
+    animation: 2s ease-in-out both pulse-#{$name};
+    animation-delay: $delay;
+
+    @keyframes pulse-#{$name} {
+        0% {
+            transform: scale(1);
+        }
+    
+        25% {
+            transform: scale(1.2);
+        }
+    
+        50% {
+            transform: scale(1);
+        }
+    }
+}
+
+@mixin animation-fill-line($name, $width: 100%, $time: 1500ms, $delay: 1) {
+    animation: animation-line-#{$name} $time ease $delay normal both;
+
+    @keyframes animation-line-#{$name} {
+        from {
+            width: 0%;
+            opacity: 0;
+        }
+
+        to {
+            width: $width;
+            opacity: 1;
+        }
+    }
+}
+
+@mixin animation-rise-down(
+    $delay: 1, 
+    $time: 3s, 
+    $function: ease-in-out, 
+    $toTransform: translateX(3px) translateY(3px),
+) {
+    animation: $time rise-down $delay $function;
+
+    @keyframes rise-down {
+        0% {
+            transform: translateX(0px) translateY(0px);
+        }
+        50% {
+            transform: $toTransform;
+        }
+    }
+}

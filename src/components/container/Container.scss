@@ -1,0 +1,13 @@
+@import "_theme/var";
+
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: map-get($map: $screens, $key: large);
+    margin: 0 auto;
+
+    &.row {
+        display: flex;
+        flex-direction: row;
+    }
+}

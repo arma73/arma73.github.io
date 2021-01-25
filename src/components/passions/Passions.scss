@@ -1,0 +1,33 @@
+@import "_theme/var";
+@import "_theme/mixins";
+
+.passions {
+    @include core-size(100%, max-content);
+    @include core-animation-show(2.2s, 1, ease-in-out);
+    position: relative;
+
+    .tooltip {
+        top: 50%;
+        left: -60%;
+    }
+
+    .bar--passions {
+        @include core-size(67%, 200px);
+        &:hover {
+            cursor: pointer;
+        }
+        position: relative;
+        opacity: .8;
+        margin-top: 54%;
+        margin-left: 25px;
+        border-radius: 5px;
+        background-image: linear-gradient(185deg,
+            map-get($map: $colors-rgb, $key: cornflower-blue), 
+            rgba(map-get($map: $colors-rgb, $key: dodger), 0) 86%
+        );
+    
+        @media (max-width: 767px) {
+            margin-top: 62%;
+        }
+    }
+}

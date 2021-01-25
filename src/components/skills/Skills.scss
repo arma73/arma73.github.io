@@ -1,0 +1,14 @@
+@import "_theme/var";
+@import "_theme/mixins";
+
+.skills {
+    @include core-size(100%, 60px);
+    @include core-margin-sides;
+    background-image: linear-gradient(315deg, 
+        rgba(map-get($map: $colors-rgb, $key: titan-white), .9), 
+        map-get($map: $colors-hex, $key: melrose)
+    );
+    position: relative;
+    border-radius: 1px;
+    margin-top: 30px;
+}

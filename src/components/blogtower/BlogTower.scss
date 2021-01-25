@@ -1,0 +1,96 @@
+@import "_theme/var";
+@import "_theme/mixins";
+
+.blog--tower {
+    @include core-size(100%, max-content);
+    @include core-animation-show;
+    position: relative;
+    perspective: map-get($map: $removed, $key: deep);
+    padding: 25px;
+    margin-top: 45px;
+    
+    @mixin core-margin {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tooltip {
+        top: 0%;
+        left: -60%;
+    }
+
+    .layer {
+        @include core-position(relative, 0px, 0px, 34px, 0px);
+        @include core-size;
+        @include core-margin;
+        z-index: map-get($map: $z-layers, $key: middle);
+        background-image: linear-gradient(135deg,
+                rgba(map-get($map: $colors-rgb, $key: cornflower-blue), .7),
+                rgba(map-get($map: $colors-rgb, $key: melrose), .7));
+        border: 2px solid white;
+        overflow: visible;
+        border-radius: 0px 3px 3px;
+        transform: translate(0px, -50%) translate3d(-81px, -75px, 85px);
+        transition: transform 1s ease;
+        
+        &:hover {
+            transform: translate(0px, -50%) translate3d(-89px, -82px, 85px);
+            cursor: pointer;
+        }
+
+        &__top-bar {
+            @include core-position(relative, 0px, -2px, -6px);
+            @include core-size(35%, 5px);
+            z-index: map-get($map: $z-layers, $key: default);
+            background-color: white;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        &__square-1 {
+            @include core-position(absolute, 0px, 0px, 50%, 0px);
+            @include core-size;
+            @include core-margin;
+            z-index: map-get($map: $z-layers, $key: base);
+            background-color: rgba(map-get($map: $colors-rgb, $key: periwinkle), .7);
+            transform: translate(0px, -50%) translate3d(-65px, -58px, 50px);
+            border-radius: 3px;
+            transition: transform 1s ease;
+
+            &.square-1__hovered {
+                transform: translate(0px, -50%) translate3d(-72px, -63px, 50px);
+            }
+        }
+
+        &__square-2 {
+            @include core-position(absolute, 0, 0, auto, 0);
+            @include core-size;
+            @include core-margin;
+            z-index: map-get($map: $z-layers, $key: bottom);
+            background-color: map-get($map: $colors-hex, $key: cornflower-blue);
+            background-image: linear-gradient(315deg,
+                map-get($map: $colors-hex, $key: cornflower-blue),
+                map-get($map: $colors-hex, $key: malibu)
+            );
+            border-radius: 3px;
+            transform: translate3d(-45px, -101%, 50px);
+            transition: transform 1s ease;
+
+            &.square-2__hovered {
+                transform: translate3d(-49px, -105%, 50px);
+            }
+        }
+
+        &__square-bottom {
+            @include core-position(absolute, 0px, 0px, auto, 0px);
+            @include core-size;
+            @include core-margin;
+            z-index: map-get($map: $z-layers, $key: default);
+            background-image: linear-gradient(335deg,
+                    rgba(map-get($map: $colors-rgb, $key: cornflower-blue), .62) 11%,
+                    rgba(map-get($map: $colors-rgb, $key: cornflower-blue), .33) 48%);
+            border-radius: 3px;
+            transform: translate(-28px, -71%);
+        }
+    }
+}
