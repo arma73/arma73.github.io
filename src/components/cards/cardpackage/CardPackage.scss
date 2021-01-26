@@ -1,7 +1,7 @@
 @import "_theme/var";
 @import "_theme/mixins";
 
-.card {
+.card--package {
     @include core-size(50px, max-content);
     
     &:hover {
@@ -12,7 +12,7 @@
         margin-left: 6px;
     }
 
-    &-column {
+    .card--column {
         @include core-margin-sides(1.11%, 3.11%);
         @include core-size(100%, auto);
         z-index: map-get($map: $z-layers, $key: middle);

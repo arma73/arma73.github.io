@@ -2,20 +2,20 @@ import { RiseAnimated } from "_components/animated";
 import StraightLine from "_components/straightline";
 import Circle from "_components/shapes/circle";
 
-import "./Card.scss";
+import "./CardPackage.scss";
 
-const Card = () => (
-    <div className="card">
+const CardPackage = () => (
+    <div className="card--package">
         <RiseAnimated
             toX="-4px"
             toY="-4px"
         >
-            <div className="card-column">
+            <div className="card--column">
                 <Circle />
                 <StraightLine />
             </div>
         </RiseAnimated>
-    </div >
+    </div>
 );
 
-export default Card;
+export default CardPackage;
