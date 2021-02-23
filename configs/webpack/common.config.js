@@ -4,27 +4,27 @@
 const { merge } = require("webpack-merge");
 
 // Parts
-const name = require("../parts/common/name");
-const cache = require("../parts/common/cache");
-const context = require("../parts/common/context");
 const mode = require("../parts/common/mode");
+const name = require("../parts/common/name");
 const node = require("../parts/common/node");
-const modules = require("../parts/common/module");
+const cache = require("../parts/common/cache");
 const output = require("../parts/common/output");
+const modules = require("../parts/common/module");
+const context = require("../parts/common/context");
 const devtool = require("../parts/common/devtool");
-const externals = require("../parts/common/externals");
 const resolve = require("../parts/common/resolve");
+const externals = require("../parts/common/externals");
 
 // Plugins
 const plugins = require("../plugins/common");
 
 module.exports = merge(
+    mode,
     name,
     cache,
     context,
     output,
     modules,
-    mode,
     node,
     devtool,
     externals,

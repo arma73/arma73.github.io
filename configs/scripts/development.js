@@ -17,12 +17,14 @@ const options = require("../parts/development/devServer");
 const setupCompiler = async config => {
     try {
         const chosenPort = await choosePort(PORT, options.host);
+
         if (!chosenPort) {
             console.log(
                 chalk.yellowBright("➡ It's impossible to run the app 😢")
             );
             return null;
         }
+        
         const openPage = `http://${HOST}:${chosenPort}`;
         Object.assign(options, {
             "port": chosenPort,

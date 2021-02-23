@@ -34,6 +34,6 @@ module.exports = {
             ? info =>
                 relative(appSrc, info.absoluteResourcePath).replace(/\\/g, "/")
             : development &&
-            (info => resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
+                (info => resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
     },
 };

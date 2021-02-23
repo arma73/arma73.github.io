@@ -5,7 +5,7 @@ module.exports = ({ development, production, loose, spec, modules }) => {
         [
             "@babel/preset-react",
             {
-                "runtime": "automatic"
+                "runtime": "automatic",
             }
         ]
     ];
