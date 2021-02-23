@@ -46,7 +46,7 @@
         "__PROD__": true
     },
     "rules": {
-        //react
+        // React
         "react/no-this-in-sfc": 0,
         "react/state-in-constructor": [
             2,
@@ -80,7 +80,8 @@
             }
         ],
         "react/prop-types": 0,
-        // props react
+
+        // Props react
         "react/jsx-first-prop-new-line": 0,
         "react/jsx-props-no-spreading": 0,
         "react/static-property-placement": 0,
@@ -88,7 +89,8 @@
             2,
             4
         ],
-        //JSX
+
+        // jsx-a11y
         "jsx-a11y/label-has-associated-control": 0,
         "jsx-a11y/interactive-supports-focus": 0,
         "jsx-a11y/click-events-have-key-events": 0,
@@ -109,7 +111,8 @@
                 ]
             }
         ],
-        //eslint-plugin-import
+
+        // eslint-plugin-import
         "import/no-unresolved": 0,
         "import/named": 0,
         "import/namespace": 0,
@@ -126,18 +129,19 @@
         "import/extensions": 0,
         "import/prefer-default-export": 0,
         "import/no-absolute-path": 0,
-        //filename react
+
+        // Filename react
         "react/jsx-filename-extension": [
             1,
             {
                 "extensions": [
                     ".jsx",
-                    ".ts",
                     ".tsx"
                 ]
             }
         ],
-        //quotes
+
+        // Quotes
         "jsx-quotes": [
             2,
             "prefer-double"
@@ -150,7 +154,8 @@
             "error",
             "always"
         ],
-        //coments
+
+        // Comments
         "capitalized-comments": 0,
         "spaced-comment": [
             "error",
@@ -165,12 +170,14 @@
             }
         ],
         "multiline-comment-style": 0,
-        //spacing react
+
+        // Spacing react
         "react/jsx-equals-spacing": [
             2,
             "never"
         ],
-        //spacing
+
+        // Spacing
         "comma-spacing": [
             2,
             {
@@ -193,9 +200,11 @@
                 "before": true
             }
         ],
-        //line react
+
+        // Line react
         "react/jsx-one-expression-per-line": 0,
-        //line
+
+        // Line
         "brace-style": [
             2,
             "1tbs",
@@ -238,7 +247,8 @@
                 }
             }
         ],
-        //core
+
+        // Core
         "indent": [
             "error",
             4,
@@ -247,9 +257,11 @@
             }
         ],
         "camelcase": 0,
-        //Tabs
+
+        // Tabs
         "no-tabs": 0,
-        //code...
+
+        // code...
         "arrow-body-style": [
             2,
             "as-needed"
