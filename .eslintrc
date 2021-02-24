@@ -16,6 +16,9 @@
         "es6": true
     },
     "plugins": ["@babel", "react", "jsx-a11y", "react-hooks", "prettier"],
+    "globals": {
+        "__PROD__": "readonly"
+    },
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended", // eslint-plugin-react
