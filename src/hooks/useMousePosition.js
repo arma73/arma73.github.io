@@ -5,7 +5,7 @@ export const useMousePosition = callback => {
 
     useEffect(() => {
         let setFromEvent;
-        
+
         if (callback) {
             setFromEvent = e => callback({ "x": e.clientX, "y": e.clientY });
             window.addEventListener("mousemove", setFromEvent);

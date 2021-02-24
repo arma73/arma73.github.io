@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
 import { useState, useEffect } from "react";
 
-const withPortal = dom => WrappedComponent => 
+const withPortal = dom => WrappedComponent =>
     function ProvidePortal(props) {
         const [node, setNode] = useState(null);
 
@@ -11,9 +11,11 @@ const withPortal = dom => WrappedComponent =>
         }, []);
 
         if (!dom) return WrappedComponent;
-        return node && dom
-            ? createPortal(<WrappedComponent {...props} />, node) 
-            : <WrappedComponent {...props} />;
+        return node && dom ? (
+            createPortal(<WrappedComponent {...props} />, node)
+        ) : (
+            <WrappedComponent {...props} />
+        );
     };
 
 export default withPortal;

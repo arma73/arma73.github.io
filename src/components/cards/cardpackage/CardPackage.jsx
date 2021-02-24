@@ -6,10 +6,7 @@ import "./CardPackage.scss";
 
 const CardPackage = () => (
     <div className="card--package">
-        <RiseAnimated
-            toX="-4px"
-            toY="-4px"
-        >
+        <RiseAnimated toX="-4px" toY="-4px">
             <div className="card--column">
                 <Circle />
                 <StraightLine />

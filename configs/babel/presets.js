@@ -7,7 +7,8 @@ module.exports = ({ development, production, loose, spec, modules }) => {
             {
                 "runtime": "automatic",
             }
-        ]
+        ],
+        "@babel/preset-typescript"
     ];
 
     development && 

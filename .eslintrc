@@ -1,6 +1,7 @@
 {
-    "parser": "@babel/eslint-parser",
+    "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
     "parserOptions": {
+        "warnOnUnsupportedTypeScriptVersion": false,
         "ecmaVersion": 2020,
         "ecmaFeatures": {
             "modules": true,
@@ -10,48 +11,49 @@
     },
     "env": {
         "browser": true,
-        "node": true,
         "es2020": true,
+        "node": true,
         "es6": true
     },
-    "plugins": [
-        "import",
-        "jsx-a11y",
-        "react",
-        "react-hooks"
-    ],
+    "plugins": ["@babel", "react", "jsx-a11y", "react-hooks", "prettier"],
+    "globals": {
+        "__PROD__": "readonly"
+    },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:jsx-a11y/recommended"
+        "plugin:react/recommended", // eslint-plugin-react
+        "plugin:jsx-a11y/recommended", // eslint-plugin-jsx-a11y
+        "plugin:react-hooks/recommended", // eslint-plugin-react-hooks
+        "plugin:prettier/recommended", // eslint-plugin-prettier
+        "./.eslint.typescript.js"
     ],
     "settings": {
-        "import/resolver": {
-            "babel-module": {},
-            "node": {
-                "extensions": [
-                    ".js",
-                    ".jsx"
-                ]
-            }
-        },
         "react": {
-            "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+            "version": "detect"
         }
     },
-    "globals": {
-        "__PROD__": true
-    },
     "rules": {
+        // Prettier
+        "prettier/prettier": ["error", {
+            "semi": true,
+            "singleQuote": false,
+            "printWidth": 80,
+            "useTabs": false,
+            "tabWidth": 4,
+            "quoteProps": "preserve",
+            "jsxSingleQuote": false,
+            "trailingComma": "es5",
+            "bracketSpacing": true,
+            "jsxBracketSameLine": false,
+            "arrowParens": "avoid",
+            "parser": "typescript",
+            "endOfLine": "auto"
+        }],
+
         // React
+        "react/jsx-fragments": ["error", "syntax"],
         "react/no-this-in-sfc": 0,
-        "react/state-in-constructor": [
-            2,
-            "never"
-        ],
+        "react/state-in-constructor": [2, "never"],
         "react/react-in-jsx-scope": 0,
         "react/no-unused-state": 0,
         "react/jsx-uses-react": 2,
@@ -69,9 +71,7 @@
                 "allowGlobals": false
             }
         ],
-        "react/require-default-props": [
-            0
-        ],
+        "react/require-default-props": [0],
         "react/sort-prop-types": 0,
         "react/no-unused-prop-types": [
             2,
@@ -80,15 +80,24 @@
             }
         ],
         "react/prop-types": 0,
+        "react/jsx-no-bind": [
+            "warn",
+            {
+                "ignoreRefs": true,
+                "allowArrowFunctions": true,
+                "ignoreDOMComponents": true
+            }
+        ],
+
+        // React hooks
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
 
         // Props react
         "react/jsx-first-prop-new-line": 0,
         "react/jsx-props-no-spreading": 0,
         "react/static-property-placement": 0,
-        "react/jsx-indent-props": [
-            2,
-            4
-        ],
+        "react/jsx-indent-props": [2, 4],
 
         // jsx-a11y
         "jsx-a11y/label-has-associated-control": 0,
@@ -99,61 +108,24 @@
         "jsx-a11y/anchor-is-valid": [
             2,
             {
-                "aspects": [
-                    "invalidHref",
-                    "preferButton"
-                ],
-                "components": [
-                    "Link"
-                ],
-                "specialLink": [
-                    "route"
-                ]
+                "aspects": ["invalidHref", "preferButton"],
+                "components": ["Link"],
+                "specialLink": ["route"]
             }
         ],
-
-        // eslint-plugin-import
-        "import/no-unresolved": 0,
-        "import/named": 0,
-        "import/namespace": 0,
-        "import/default": 0,
-        "import/export": 0, // https://github.com/babel/babel-eslint/issues/731
-        "import/no-useless-path-segments": 0,
-        "import/no-named-as-default-member": 0,
-        "import/no-named-as-default": 0,
-        "import/no-self-import": 0,
-        "import/no-duplicates": 0,
-        "import/no-extraneous-dependencies": 0,
-        "import/order": 0,
-        "import/no-cycle": 0,
-        "import/extensions": 0,
-        "import/prefer-default-export": 0,
-        "import/no-absolute-path": 0,
 
         // Filename react
         "react/jsx-filename-extension": [
             1,
             {
-                "extensions": [
-                    ".jsx",
-                    ".tsx"
-                ]
+                "extensions": [".jsx", ".tsx"]
             }
         ],
 
         // Quotes
-        "jsx-quotes": [
-            2,
-            "prefer-double"
-        ],
-        "quotes": [
-            2,
-            "double"
-        ],
-        "quote-props": [
-            "error",
-            "always"
-        ],
+        "jsx-quotes": [2, "prefer-double"],
+        "quotes": [2, "double"],
+        "quote-props": ["error", "always"],
 
         // Comments
         "capitalized-comments": 0,
@@ -161,21 +133,16 @@
             "error",
             "always",
             {
+                "markers": ["/"],
                 "block": {
-                    "exceptions": [
-                        "*",
-                        "-"
-                    ]
+                    "exceptions": ["*", "-"]
                 }
             }
         ],
         "multiline-comment-style": 0,
 
         // Spacing react
-        "react/jsx-equals-spacing": [
-            2,
-            "never"
-        ],
+        "react/jsx-equals-spacing": [2, "never"],
 
         // Spacing
         "comma-spacing": [
@@ -229,15 +196,9 @@
             }
         ],
         "multiline-ternary": 0,
-        "max-lines": [
-            2,
-            100
-        ],
+        "max-lines": [2, 100],
         "linebreak-style": 0,
-        "function-call-argument-newline": [
-            2,
-            "consistent"
-        ],
+        "function-call-argument-newline": [2, "consistent"],
         "object-curly-newline": [
             2,
             {
@@ -249,8 +210,9 @@
         ],
 
         // Core
+        "no-var": "error",
         "indent": [
-            "error",
+            "off",
             4,
             {
                 "SwitchCase": 1
@@ -262,24 +224,12 @@
         "no-tabs": 0,
 
         // code...
-        "arrow-body-style": [
-            2,
-            "as-needed"
-        ],
-        "arrow-parens": [
-            2,
-            "as-needed"
-        ],
+        "arrow-body-style": [2, "as-needed"],
+        "arrow-parens": [2, "as-needed"],
         "no-return-assign": 0,
         "comma-dangle": 0,
-        "eol-last": [
-            2,
-            "always"
-        ],
-        "eqeqeq": [
-            2,
-            "smart"
-        ],
+        "eol-last": [2, "always"],
+        "eqeqeq": [2, "smart"],
         "global-require": 0,
         "dot-notation": 0,
         "no-shadow": 0,
@@ -292,18 +242,9 @@
                 "allowTernary": true
             }
         ],
-        "unicode-bom": [
-            2,
-            "never"
-        ],
-        "padded-blocks": [
-            2,
-            "never"
-        ],
-        "max-params": [
-            2,
-            6
-        ],
+        "unicode-bom": [2, "never"],
+        "padded-blocks": [2, "never"],
+        "max-params": [2, 6],
         "max-len": [
             2,
             {
@@ -315,6 +256,18 @@
                 "ignoreRegExpLiterals": true,
                 "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\("
             }
-        ]
+        ],
+        "operator-linebreak": [
+            1,
+            "after",
+            {
+                "overrides": {
+                    "?": "before",
+                    ":": "before"
+                }
+            }
+        ],
+        "no-extra-semi": 1,
+        "semi-spacing": [1, { "before": false, "after": true }]
     }
 }

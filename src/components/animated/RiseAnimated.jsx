@@ -14,12 +14,19 @@ const RiseAnimated = ({ fromX = "0px", fromY = "0px", toX, toY, children }) => {
             to={{ "transform": `translateX(${toX}) translateY(${toY})` }}
             reverse={!isHovered}
         >
-            {props => Children.map(children, child => {
-                if (isValidElement(child)) {
-                    return cloneElement(child, { "style": props, ref, "data-hovered": isHovered, ...bind });
-                }
-                return child;
-            })}
+            {props =>
+                Children.map(children, child => {
+                    if (isValidElement(child)) {
+                        return cloneElement(child, {
+                            "style": props,
+                            ref,
+                            "data-hovered": isHovered,
+                            ...bind,
+                        });
+                    }
+                    return child;
+                })
+            }
         </Spring>
     );
 };

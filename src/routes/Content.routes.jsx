@@ -5,27 +5,18 @@ import Article from "_components/article";
 // FIXME: change directory name
 import PageNotFound from "_pages/error/404";
 
-const ContentRoute = ({
-    pages,
-    "import": importContent
-}) => {
-    const mapPages = () => pages.map(page => {
-        let path = page.path.replace("src/content/", "");
-        let content = importContent(path);
+const ContentRoute = ({ pages, "import": importContent }) => {
+    const mapPages = () =>
+        pages.map(page => {
+            let path = page.path.replace("src/content/", "");
+            let content = importContent(path);
 
-        return (
-            <Route
-                key={page.url}
-                exact
-                path={page.url}
-            >
-                <Article
-                    {...page}
-                    content={content}
-                />
-            </Route>
-        );
-    });
+            return (
+                <Route key={page.url} exact path={page.url}>
+                    <Article {...page} content={content} />
+                </Route>
+            );
+        });
 
     return (
         <Container>

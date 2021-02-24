@@ -2,11 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./CardArticle.scss";
 
-const CardArticle = ({ 
-    desc,
-    title,
-    url,
-}) => (
+const CardArticle = ({ desc, title, url }) => (
     <article className="card--article">
         <div className="article--body">
             <div className="body--content">

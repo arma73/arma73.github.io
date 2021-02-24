@@ -9,7 +9,7 @@ const Body = () => (
                 render={props => (
                     <SiteRoutes
                         {...props}
-                        import={path => require(`../../content/${path}`)} 
+                        import={path => require(`../../content/${path}`)}
                     />
                 )}
             />

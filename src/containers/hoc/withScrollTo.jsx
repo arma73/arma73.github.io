@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const withScrollTo = WrappedComponent => 
+const withScrollTo = WrappedComponent =>
     function ScrollTo(props) {
         useEffect(() => {
             const hash = window.location.hash;
@@ -14,11 +14,7 @@ const withScrollTo = WrappedComponent =>
             }
         }, []);
 
-        return (
-            <WrappedComponent
-                {...props}
-            />
-        );
+        return <WrappedComponent {...props} />;
     };
 
 export default withScrollTo;

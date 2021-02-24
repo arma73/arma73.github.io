@@ -9,7 +9,7 @@ module.exports = {
     "resolve": {
         alias,
         "mainFiles": ["index"],
-        "extensions": [".js", ".jsx", ".json"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"],
         "fallback": {
             "path": require.resolve("path-browserify"),
         },

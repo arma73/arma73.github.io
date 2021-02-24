@@ -6,10 +6,7 @@ import "./Personality.scss";
 
 const Personality = () => (
     <div className="personality">
-        <RiseAnimated
-            toX="-4px"
-            toY="-4px"
-        >
+        <RiseAnimated toX="-4px" toY="-4px">
             <div className="box--personality">
                 <Summary />
                 <Skills />

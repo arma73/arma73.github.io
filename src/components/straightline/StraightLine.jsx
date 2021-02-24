@@ -7,12 +7,12 @@ const StraightLine = ({ options = {}, lines = 3 }) => {
         <>
             {fill && <div className="straight-line" />}
             {new Array(lines).fill().map((_, index) => (
-                <div className="straight-line-full" key={index}/>
+                <div className="straight-line-full" key={index} />
             ))}
             {short && <div className="shortened straight-line-full" />}
         </>
     );
-    
+
     return mapLines();
 };
 

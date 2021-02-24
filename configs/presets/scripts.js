@@ -17,6 +17,11 @@ module.exports = () => [
         "sideEffects": true,
     },
     {
+        "test": /\.(ts)x?$/,
+        "use": "ts-loader",
+        "exclude": /node_modules/,
+    },
+    {
         "test": /\.(js)x?$/,
         "enforce": "pre",
         "exclude": /(node_modules)/,

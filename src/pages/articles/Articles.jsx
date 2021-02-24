@@ -6,15 +6,16 @@ import CardArticle from "_components/cards/cardarticle";
 import "./Articles.scss";
 
 const Articles = ({ listArticles }) => {
-    const mapArticles = () => listArticles.map(item => (
-        <CardArticle
-            content={item.content}
-            desc={item.desc}
-            title={item.title}
-            url={item.url}
-            key={item.url}
-        />
-    ));
+    const mapArticles = () =>
+        listArticles.map(item => (
+            <CardArticle
+                content={item.content}
+                desc={item.desc}
+                title={item.title}
+                url={item.url}
+                key={item.url}
+            />
+        ));
 
     return (
         <Layout className="articles">
