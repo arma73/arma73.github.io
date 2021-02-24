@@ -22,7 +22,7 @@
     "build": "run-s content build:ssg build:prod",
     "predeploy": "run-s build",
     "deploy": "node ./configs/deploy/ghPages",
-    "lint": "eslint **/*.{js,jsx,ts,tsx} --quiet",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx} --quiet",
     "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix"
   },
   "husky": {
