@@ -22,27 +22,12 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended", // eslint-plugin-react
-        "plugin:@typescript-eslint/recommended", // typescript-eslint/eslint-plugin
         "plugin:jsx-a11y/recommended", // eslint-plugin-jsx-a11y
         "plugin:react-hooks/recommended", // eslint-plugin-react-hooks
         "plugin:prettier/recommended", // eslint-plugin-prettier
-        "prettier/@typescript-eslint", // eslint-config-prettier
         "./.eslint.typescript.js"
     ],
     "settings": {
-        "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "import/parsers": {
-            "@typescript-eslint/parser": [".ts", ".tsx"]
-        },
-        "import/resolver": {
-            "babel-module": {},
-            "node": {
-                "extensions": [".js", ".jsx", ".ts", ".tsx"]
-            },
-            "typescript": {
-                "alwaysTryTypes": true
-            }
-        },
         "react": {
             "version": "detect"
         }
@@ -225,6 +210,7 @@
         ],
 
         // Core
+        "no-var": "error",
         "indent": [
             "off",
             4,
