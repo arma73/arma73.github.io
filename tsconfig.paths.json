@@ -1,45 +1,26 @@
 {
     "compilerOptions": {
-        "rootDir": "./",
-        "baseUrl": "src",
+        "baseUrl": ".",
         "outDir": "dist",
         "paths": {
-            "app/*": [
-                "app/*"
-            ],
-            "i18n/*": [
-                "i18n/*"
-            ],
-            "utils/*": [
-                "utils/*"
-            ],
-            "hooks/*": [
-                "hooks/*"
-            ],
-            "pages/*": [
-                "pages/*"
-            ],
-            "routes/*": [
-                "routes/*"
-            ],
-            "theme/*": [
-                "theme/*"
-            ],
-            "assets/*": [
-                "assets/*"
-            ],
-            "settings/*": [
-                "settings/*"
-            ],
-            "services/*": [
-                "services/*"
-            ],
-            "components/*": [
-                "components/*"
-            ],
-            "tslib": [
-                "node_modules/tslib/tslib.d.ts"
-            ]
+            "react-dom": ["@hot-loader/react-dom"],
+            "tslib": ["node_modules/tslib/tslib.d.ts"],
+            "_src/*": ["src/*"],
+            "_app/*": ["src/app/*"],
+            "_i18n/*": ["src/i18n/*"],
+            "_hooks/*": ["src/hooks/*"],
+            "_pages/*": ["src/pages/*"],
+            "_theme/*": ["src/theme/*"],
+            "_utils/*": ["src/utils/*"], 
+            "_routes/*": ["src/routes/*"],
+            "_content/*": ["src/content/*"],
+            "_context/*": ["src/context/*"],
+            "_assets/*": ["public/assets/*"],
+            "_static/*": ["public/static/*"],
+            "_services/*": ["src/services/*"],
+            "_settings/*": ["src/settings/*"],
+            "_components/*": ["src/components/*"],
+            "_containers/*": ["src/containers/*"],
         },
         "typeRoots": [
             "node_modules/@types",
