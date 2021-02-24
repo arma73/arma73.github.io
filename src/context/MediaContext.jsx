@@ -25,9 +25,7 @@ export const MediaProvider = ({ children }) => {
     const value = useReducer(reducer, initialState);
 
     return (
-        <MediaContext.Provider value={value}>
-            {children}
-        </MediaContext.Provider>
+        <MediaContext.Provider value={value}>{children}</MediaContext.Provider>
     );
 };
 

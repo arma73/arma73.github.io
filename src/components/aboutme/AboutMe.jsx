@@ -20,10 +20,7 @@ const AboutMe = () => {
                     lines={5}
                 />
             </div>
-            <Tooltip 
-                show={isHovered} 
-                text="About me"
-            />
+            <Tooltip show={isHovered} text="About me" />
         </Section>
     );
 };

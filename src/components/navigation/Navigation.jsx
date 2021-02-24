@@ -7,7 +7,7 @@ const Navigation = ({ theme }) => {
         const items = ["guides", "reference", "glossary", "analyze", "donate"];
 
         return items.map(item => (
-            <NavLink 
+            <NavLink
                 key={item}
                 className="nav__link"
                 activeClassName="nav__link--active"
@@ -18,11 +18,7 @@ const Navigation = ({ theme }) => {
         ));
     };
 
-    return (
-        <nav className={`nav nav--${theme}`}>
-            {mapNavItems()}
-        </nav>
-    );
+    return <nav className={`nav nav--${theme}`}>{mapNavItems()}</nav>;
 };
 
 export default Navigation;

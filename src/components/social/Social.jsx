@@ -11,10 +11,7 @@ const Social = () => {
     return (
         <Section className="social">
             <div className="box--social" {...bind}>
-                <RiseAnimated
-                    toX="-4px"
-                    toY="-4px"
-                >
+                <RiseAnimated toX="-4px" toY="-4px">
                     <div className="circles">
                         <div className="circle-top preserve-3d"></div>
                         <div className="circle-top preserve-3d"></div>
@@ -22,10 +19,7 @@ const Social = () => {
                     </div>
                 </RiseAnimated>
             </div>
-            <Tooltip
-                show={isHovered}
-                text="Social"
-            />
+            <Tooltip show={isHovered} text="Social" />
         </Section>
     );
 };

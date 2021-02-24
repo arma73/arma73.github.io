@@ -6,12 +6,14 @@ const TransitionShow = ({ show, render }) => {
         "enter": { "opacity": 1 },
         "leave": { "opacity": 0 },
     });
-    
-    return transitions.map(({ item, key, props}) => 
-        item && 
-            <animated.div key={key} style={props} className="non-selective">
-                {render}
-            </animated.div>
+
+    return transitions.map(
+        ({ item, key, props }) =>
+            item && (
+                <animated.div key={key} style={props} className="non-selective">
+                    {render}
+                </animated.div>
+            )
     );
 };
 

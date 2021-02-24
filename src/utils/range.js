@@ -6,11 +6,11 @@
  * @param {number} end The end of the range.
  * @param {number} step The value to increment or decrement by.
  * @param {boolean} [fromRight] Specify iterating from right to left.
- * 
+ *
  * @returns {Array} Returns the new array of numbers.
  */
 export const range = (start, end, step, fromRight) => {
-    var index = -1,
+    let index = -1,
         length = Math.max(Math.ceil((end - start) / (step || 1)), 0),
         result = Array(length);
 
@@ -18,5 +18,6 @@ export const range = (start, end, step, fromRight) => {
         result[fromRight ? length : ++index] = start;
         start += step;
     }
+
     return result;
 };

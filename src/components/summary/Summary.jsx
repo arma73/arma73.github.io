@@ -4,9 +4,9 @@ import "./Summary.scss";
 
 const Summary = () => (
     <div className="summary">
-        <StraightLine 
+        <StraightLine
             options={{
-                "short": true
+                "short": true,
             }}
             lines={4}
         />

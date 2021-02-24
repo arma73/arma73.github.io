@@ -1,6 +1,6 @@
 import { hot } from "react-hot-loader/root";
 import Routes from "_routes/Routes";
-import { MediaProvider } from "_context";
+import { MediaProvider } from "_context/MediaContext";
 
 import "normalize.css";
 import "_theme/main.scss";

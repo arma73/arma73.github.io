@@ -1,9 +1,9 @@
 /**
-   * Strip any non-applicable properties
-   *
-   * @param  {array} array - ...
-   * @return {array}       - ...
-   */
+ * Strip any non-applicable properties
+ *
+ * @param  {array} array - ...
+ * @return {array}       - ...
+ */
 export const _strip = array => {
     let anchorTitleIndex = array.findIndex(
         item => item.name.toLowerCase() === "index.md"
@@ -15,8 +15,8 @@ export const _strip = array => {
         array.splice(anchorTitleIndex + 1, 1);
     }
 
-    return array
-        .map(({ title, desc, name, url, group, sort, anchors, children }) => ({
+    return array.map(
+        ({ title, desc, name, url, group, sort, anchors, children }) => ({
             "title": title || name,
             "content": title || name,
             desc,
@@ -25,5 +25,6 @@ export const _strip = array => {
             sort,
             anchors,
             "children": children ? _strip(children) : [],
-        }));
+        })
+    );
 };

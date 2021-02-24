@@ -4,10 +4,8 @@ import IconLogo from "_theme/icons/logo-default.svg";
 import "./Logo.scss";
 
 const Logo = ({ theme = "light" }) => (
-    <Link to="/" className={`logo logo--${theme}`}> 
-        <IconLogo  
-            width={"35px"}
-        />
+    <Link to="/" className={`logo logo--${theme}`}>
+        <IconLogo width={"35px"} />
     </Link>
 );
 

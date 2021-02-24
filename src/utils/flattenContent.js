@@ -6,8 +6,12 @@
  */
 export const flattenContent = tree => {
     if (tree.children) {
-        return tree.children.reduce((flat, item) => flat.concat(
-            Array.isArray(item.children) ? flattenContent(item) : item
-        ), []);
+        return tree.children.reduce(
+            (flat, item) =>
+                flat.concat(
+                    Array.isArray(item.children) ? flattenContent(item) : item
+                ),
+            []
+        );
     } else return [];
 };

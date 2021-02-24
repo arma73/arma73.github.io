@@ -10,19 +10,13 @@ const Passions = () => {
 
     return (
         <Section className="passions">
-            <div className="box--passions" {...bind} >
-                <RiseAnimated
-                    toX="-4px"
-                    toY="-4px"
-                >
+            <div className="box--passions" {...bind}>
+                <RiseAnimated toX="-4px" toY="-4px">
                     <div className="bar--passions" />
                 </RiseAnimated>
             </div>
-            <Tooltip 
-                show={isHovered} 
-                text="Passions"
-            />
-        </Section >
+            <Tooltip show={isHovered} text="Passions" />
+        </Section>
     );
 };
 

@@ -4,10 +4,7 @@ import { PlaceholderString } from "_components/placeholder";
 
 import "./Article.scss";
 
-const Article = ({
-    content,
-    title
-}) => {
+const Article = ({ content, title }) => {
     const [pageContent, setPageContent] = useState(null);
 
     useEffect(() => {
@@ -32,10 +29,7 @@ const Article = ({
 
     return (
         <main className="article">
-            <Markdown
-                title={title}
-                pageContent={pageContent}
-            />
+            <Markdown title={title} pageContent={pageContent} />
         </main>
     );
 };
