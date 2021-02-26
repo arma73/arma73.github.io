@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { ComponentType, FC, useEffect } from "react";
 
-const withScrollTo = WrappedComponent =>
+type ScrollTo = <P>(WrappedComponent: ComponentType<P>) => FC<P>;
+
+const withScrollTo: ScrollTo = WrappedComponent =>
     function ScrollTo(props) {
         useEffect(() => {
             const hash = window.location.hash;
