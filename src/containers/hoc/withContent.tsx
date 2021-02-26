@@ -1,5 +1,5 @@
 import { ComponentType, FC } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, RouteComponentProps } from "react-router-dom";
 import {
     extractSections,
     extractCurrentSection,
@@ -14,10 +14,20 @@ import {
     FlattenContentChild,
 } from "_src/interfaces/content.interface";
 import { Articles, HeadArticles } from "_interfaces/articles.interface";
+import { Subtract } from "_interfaces/features/tools.interface";
 
-const withContent = <P extends ObjectOf<P>>(
+export interface InjectedContentProps {
+    "sections": DirectoryContentChilds[];
+    "currentSection": DirectoryContentChilds | undefined;
+    "pages": FlattenContentChild[];
+    "location": RouteComponentProps["location"];
+    "sidebarPages": Articles[];
+    "headArticles": HeadArticles[];
+}
+
+const withContent = <P extends InjectedContentProps>(
     WrappedComponent: ComponentType<P>
-): FC<P> =>
+): FC<Subtract<P, InjectedContentProps>> =>
     function ProvideContent(props) {
         const location = useLocation();
         const sections: DirectoryContentChilds[] = extractSections(content);
@@ -40,7 +50,7 @@ const withContent = <P extends ObjectOf<P>>(
 
         return (
             <WrappedComponent
-                {...props}
+                {...(props as P)}
                 sections={sections}
                 currentSection={currentSection}
                 pages={pages}
