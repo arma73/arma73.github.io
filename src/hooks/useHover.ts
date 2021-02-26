@@ -1,6 +1,14 @@
 import { useState, useMemo } from "react";
 
-export const useHover = () => {
+type SignatureUseHover = () => (
+    | boolean
+    | {
+          "onMouseOver": () => void;
+          "onMouseLeave": () => void;
+      }
+)[];
+
+export const useHover: SignatureUseHover = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const bind = useMemo(
