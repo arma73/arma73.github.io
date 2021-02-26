@@ -1,5 +1,5 @@
 import { FC } from "react";
-import withContent, { InjectedContentProps } from "_containers/hoc/withContent";
+import withContent, { InjectedContentProps } from "_hoc/withContent";
 import Layout from "_components/layout";
 import Header from "_components/layout/header";
 import CardArticle from "_components/cards/cardarticle";

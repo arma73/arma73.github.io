@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import withServiceWorker from "_containers/hoc/withServiceWorker";
+import withServiceWorker from "_hoc/withServiceWorker";
 
 const Layout = ({ children, className, ...restProps }) => (
     <main className={clsx("layout", className)} {...restProps}>

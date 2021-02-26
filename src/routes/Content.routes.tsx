@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Switch, Route, RouteComponentProps } from "react-router-dom";
-import withContent, { InjectedContentProps } from "_containers/hoc/withContent";
+import withContent, { InjectedContentProps } from "_hoc/withContent";
 import Container from "_components/container";
 import Article from "_components/article";
 // FIXME: change directory name
