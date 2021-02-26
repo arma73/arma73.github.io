@@ -21,10 +21,11 @@
             "_settings/*": ["src/settings/*"],
             "_components/*": ["src/components/*"],
             "_containers/*": ["src/containers/*"],
+            "_interfaces/*": ["src/interfaces/*"]
         },
         "typeRoots": [
             "node_modules/@types",
-            "./typings"
+            "typings"
         ]
     },
     "exclude": [
