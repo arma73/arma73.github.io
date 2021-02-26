@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { PUBLIC_URL } from "_settings/path.routes";
 import SiteRoutes from "./Site.routes";
 
 const Routes = () => {
@@ -17,11 +18,11 @@ const Routes = () => {
     return (
         <BrowserRouter>
             <Route
-                path="/"
+                path={PUBLIC_URL}
                 render={props => (
                     <SiteRoutes
                         {...props}
-                        import={path => import(`../content/${path}`)}
+                        importContent={path => import(`../content/${path}`)}
                     />
                 )}
             />

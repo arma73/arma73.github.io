@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { useHover } from "_hooks";
-import { ARTICLES_PAGE_ROUTE } from "_settings/path.routes";
+import { RoutePage } from "_settings/path.routes";
 import Section from "_components/form/Section.jsx";
 import Tooltip from "_components/tooltip";
 
@@ -14,7 +14,7 @@ const ArticlesTower = () => {
         <Section className="tower--articles">
             <div className="box--articles">
                 <Link
-                    to={ARTICLES_PAGE_ROUTE}
+                    to={RoutePage.ARTICLES}
                     className="layer preserve-3d"
                     {...bind}
                 >

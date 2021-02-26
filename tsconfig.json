@@ -27,7 +27,8 @@
         "lib": [
             "dom",
             "dom.iterable",
-            "esnext"
+            "esnext",
+            "es2015.Promise"
         ],
         "types": [
             "node",
