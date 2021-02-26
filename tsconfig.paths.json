@@ -7,6 +7,7 @@
             "tslib": ["node_modules/tslib/tslib.d.ts"],
             "_src/*": ["src/*"],
             "_app/*": ["src/app/*"],
+            "_hoc/*": ["src/hoc/*"],
             "_i18n/*": ["src/i18n/*"],
             "_hooks/*": ["src/hooks/*"],
             "_pages/*": ["src/pages/*"],
@@ -20,7 +21,6 @@
             "_services/*": ["src/services/*"],
             "_settings/*": ["src/settings/*"],
             "_components/*": ["src/components/*"],
-            "_containers/*": ["src/containers/*"],
             "_interfaces/*": ["src/interfaces/*"]
         },
         "typeRoots": [
