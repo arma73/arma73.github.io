@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 
-export const useMousePosition = callback => {
-    const [position, setPosition] = useState({ "x": 0, "y": 0 });
+interface Point {
+    "x": number;
+    "y": number;
+}
+
+export const useMousePosition = <T>(callback: FunctionOf<Point, T>): Point => {
+    const [position, setPosition] = useState<Point>({ "x": 0, "y": 0 });
 
     useEffect(() => {
-        let setFromEvent;
+        let setFromEvent: (e: MouseEvent) => T | void;
 
         if (callback) {
             setFromEvent = e => callback({ "x": e.clientX, "y": e.clientY });
