@@ -1,4 +1,4 @@
-import { getPageTitle } from "_utils/getPageTitle.js";
+import { getPageTitle } from "_utils/getPageTitle";
 import { enforceTrailingSlash } from "_utils/enforce";
 
 import Favicon from "_assets/images/favicon/favicon.ico";
