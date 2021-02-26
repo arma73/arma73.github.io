@@ -1,14 +1,14 @@
 import { useState, useMemo } from "react";
 
-type SignatureUseHover = () => (
-    | boolean
-    | {
-          "onMouseOver": () => void;
-          "onMouseLeave": () => void;
-      }
-)[];
+type HoverResponse = () => [
+    boolean,
+    {
+        "onMouseOver": () => void;
+        "onMouseLeave": () => void;
+    }
+];
 
-export const useHover: SignatureUseHover = () => {
+export const useHover: HoverResponse = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const bind = useMemo(
