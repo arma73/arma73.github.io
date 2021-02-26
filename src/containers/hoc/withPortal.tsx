@@ -1,17 +1,18 @@
 import { createPortal } from "react-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ComponentType, FC } from "react";
 
-const withPortal = dom => WrappedComponent =>
+type Portal = <P>(dom: string) => (WrappedComponent: ComponentType<P>) => FC<P>;
+
+const withPortal: Portal = (dom: string) => WrappedComponent =>
     function ProvidePortal(props) {
-        const [node, setNode] = useState(null);
+        const [node, setNode] = useState<Element | null>(null);
 
         useEffect(() => {
             const domNode = document.querySelector(dom);
             setNode(domNode);
         }, []);
 
-        if (!dom) return WrappedComponent;
-        return node && dom ? (
+        return node ? (
             createPortal(<WrappedComponent {...props} />, node)
         ) : (
             <WrappedComponent {...props} />
