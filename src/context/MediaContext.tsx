@@ -1,14 +1,27 @@
+import { ReactNode } from "react";
 import { createContext, useReducer, useContext } from "react";
-import * as types from "./types";
+import { BreakpointTypes } from "./types";
+import { Actions } from "_interfaces/store.interface";
+import { PayloadActiveBreakpoint } from "./actions";
 
-const initialState = {
+interface MediaState {
+    "name": string;
+    "size": number | null;
+}
+
+const initialState: MediaState = {
     "name": "default",
     "size": null,
 };
 
-const reducer = (state, { type, payload }) => {
+type ReducerActions = Actions<BreakpointTypes, PayloadActiveBreakpoint>;
+
+const reducer = (
+    state: MediaState,
+    { type, payload }: ReducerActions
+): MediaState => {
     switch (type) {
-        case types.SET_ACTIVE_BREAKPOINT:
+        case BreakpointTypes.SET_ACTIVE_BREAKPOINT:
             return {
                 ...state,
                 "name": payload.breakpointName,
@@ -21,7 +34,7 @@ const reducer = (state, { type, payload }) => {
 
 export const MediaContext = createContext([{}, () => {}]);
 
-export const MediaProvider = ({ children }) => {
+export const MediaProvider = ({ children }: { "children": ReactNode }) => {
     const value = useReducer(reducer, initialState);
 
     return (
