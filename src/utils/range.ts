@@ -9,10 +9,15 @@
  *
  * @returns {Array} Returns the new array of numbers.
  */
-export const range = (start, end, step, fromRight) => {
+export const range = (
+    start: number,
+    end: number,
+    step: number,
+    fromRight: boolean
+): Array<number> => {
     let index = -1,
-        length = Math.max(Math.ceil((end - start) / (step || 1)), 0),
-        result = Array(length);
+        length = Math.max(Math.ceil((end - start) / (step || 1)), 0);
+    const result = new Array<number>(length);
 
     while (length--) {
         result[fromRight ? length : ++index] = start;

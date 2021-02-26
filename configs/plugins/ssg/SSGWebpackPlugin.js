@@ -14,9 +14,7 @@ const flattenContentTree = require("../../utils/flattenContentTree");
 const contentTree = require(join(appSrc, "settings", "_content.json"));
 
 // content tree to path array
-const paths = [
-    ...flattenContentTree(contentTree)
-];
+const paths = [...flattenContentTree(contentTree)];
 
 module.exports = () => [
     new SSGWebpackPlugin({
@@ -24,11 +22,11 @@ module.exports = () => [
             "window": {
                 "__ssgrun": true,
                 "requestAnimationFrame": raf, // requestAnimationFrame polyfill for node [use: react-spring].
-            }
+            },
         },
         paths,
         "locals": {
-            "content": contentTree
-        }
+            "content": contentTree,
+        },
     }),
 ];

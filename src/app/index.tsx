@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import isClient from "_utils/isClient";
+import { isClient } from "_utils/isClient";
 
 import App from "./App";
 

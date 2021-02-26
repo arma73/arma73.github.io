@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import isClient from "_utils/isClient";
+import { isClient } from "_utils/isClient";
 
 const withServiceWorker = WrappedComponent =>
     function ServiceWorkerRegister(props) {

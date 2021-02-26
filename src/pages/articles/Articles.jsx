@@ -5,9 +5,9 @@ import CardArticle from "_components/cards/cardarticle";
 
 import "./Articles.scss";
 
-const Articles = ({ listArticles }) => {
+const Articles = ({ headArticles }) => {
     const mapArticles = () =>
-        listArticles.map(item => (
+        headArticles.map(item => (
             <CardArticle
                 content={item.content}
                 desc={item.desc}
