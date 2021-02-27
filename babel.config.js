@@ -4,9 +4,11 @@ const presets = require("./configs/babel/presets");
 const plugins = require("./configs/babel/plugins");
 
 module.exports = api => {
-    // NOTE: when you change the babel config, 
+    // NOTE: when you change the babel config,
     //   you need to delete the cache for the new changes to work.
-    const babel = api.caller(caller => Boolean(caller && caller.name === "babel-loader"));
+    const babel = api.caller(caller =>
+        Boolean(caller && caller.name === "babel-loader")
+    );
 
     const production = api.env("production");
     const development = api.env("development");

@@ -6,7 +6,9 @@ const WebpackDevServer = require("webpack-dev-server");
 const chalk = require("chalk");
 
 // Constants
-const { "areaEnv": { "REACT_APP_PORT": PORT, "REACT_APP_HOST": HOST } } = require("../helpers/env");
+const {
+    "areaEnv": { "REACT_APP_PORT": PORT, "REACT_APP_HOST": HOST },
+} = require("../helpers/env");
 
 // Utils
 const choosePort = require("../utils/choosePort");
@@ -24,7 +26,7 @@ const setupCompiler = async config => {
             );
             return null;
         }
-        
+
         const openPage = `http://${HOST}:${chosenPort}`;
         Object.assign(options, {
             "port": chosenPort,
@@ -36,7 +38,9 @@ const setupCompiler = async config => {
 
         server.listen(chosenPort, options.host, () => {
             console.log(
-                `${chalk.greenBright("➡ Server listening on")} ${chalk.blueBright(openPage)}`
+                `${chalk.greenBright(
+                    "➡ Server listening on"
+                )} ${chalk.blueBright(openPage)}`
             );
         });
     } catch (error) {

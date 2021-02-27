@@ -8,5 +8,5 @@ module.exports = () => [
         "redirects": {
             "support": "/contribute/",
         },
-    })
+    }),
 ];

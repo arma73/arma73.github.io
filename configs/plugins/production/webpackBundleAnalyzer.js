@@ -14,6 +14,6 @@ module.exports = () => {
     return [
         new BundleAnalyzerPlugin({
             "analyzerMode": "static",
-        })
+        }),
     ];
 };

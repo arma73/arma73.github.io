@@ -1,15 +1,15 @@
 /**
  * @package remark-slug
- * 
+ *
  * @description Add slugs to headings in HTML.
- * 
+ *
  * @example pass
  *  # Lorem ipsum 😪
  *  ## dolor—sit—amet
  *  ### consectetur &amp; adipisicing
  *  #### elit
  *  ##### elit
- * 
+ *
  * @example output
  *  <h1 id="lorem-ipsum-">Lorem ipsum 😪</h1>
  *  <h2 id="dolorsitamet">dolor—sit—amet</h2>

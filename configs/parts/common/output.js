@@ -7,8 +7,7 @@ const { relative, resolve } = require("path");
 const { hashName, production, development } = require("../../helpers/options");
 const { appBuild, appSrc } = require("../../helpers/paths");
 
-
-// The top-level output key contains set of options instructing webpack 
+// The top-level output key contains set of options instructing webpack
 // on how and where it should output your bundles, assets and anything
 // else you bundle or load with webpack.
 module.exports = {
@@ -32,8 +31,11 @@ module.exports = {
         // Point sourcemap entries to original disk location (format as URL on Windows)
         "devtoolModuleFilenameTemplate": production
             ? info =>
-                relative(appSrc, info.absoluteResourcePath).replace(/\\/g, "/")
+                  relative(appSrc, info.absoluteResourcePath).replace(
+                      /\\/g,
+                      "/"
+                  )
             : development &&
-                (info => resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
+              (info => resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
     },
 };

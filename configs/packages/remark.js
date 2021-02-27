@@ -1,8 +1,8 @@
 /**
  * @package remark
- * 
+ *
  * @description
- * unified processor to parse and serialize Markdown. Built on micromark. 
+ * unified processor to parse and serialize Markdown. Built on micromark.
  * Powered by plugins. Part of the unified collective.
  * - API by unified
  * - Parses Markdown to a syntax tree with remark-parse

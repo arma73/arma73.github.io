@@ -23,14 +23,11 @@ module.exports = () => {
             styleLoader(),
         ].filter(Boolean);
     };
-    
+
     return [
         {
             "test": /\.css$/,
-            "use": [
-                ...baseLoader(),
-                cssLoader(),
-            ],
+            "use": [...baseLoader(), cssLoader()],
         },
         {
             "test": /\.s(a|c)ss$/,
@@ -40,7 +37,7 @@ module.exports = () => {
                 sassLoader({
                     "sourceMap": development,
                 }),
-            ]
-        }
+            ],
+        },
     ];
 };

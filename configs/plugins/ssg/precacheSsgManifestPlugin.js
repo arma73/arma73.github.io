@@ -1,5 +1,5 @@
 // we need to precache some assets from ssg too
-// they're previously handled by 
+// they're previously handled by
 // require('./src/utilities/find-files-in-dist')(['.css', '.ico', '.svg'])
 
 const { Compilation, sources } = require("webpack");
@@ -13,10 +13,14 @@ class PrecacheSsgManifestPlugin {
                 compilation.hooks.processAssets.tapPromise(
                     {
                         "name": "PrecacheSsgManifestPlugin",
-                        "stage": Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER - 10,
+                        "stage":
+                            Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER -
+                            10,
                     },
                     async () => {
-                        const { sortedEntries } = await getManifestEntriesFromCompilation(
+                        const {
+                            sortedEntries,
+                        } = await getManifestEntriesFromCompilation(
                             compilation,
                             {
                                 // we don't want to include all html pages
@@ -36,6 +40,4 @@ class PrecacheSsgManifestPlugin {
     }
 }
 
-module.exports = () => [
-    new PrecacheSsgManifestPlugin()
-];
+module.exports = () => [new PrecacheSsgManifestPlugin()];

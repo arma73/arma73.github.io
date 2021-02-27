@@ -16,16 +16,10 @@ const remarkPlugins = [
 module.exports = () => [
     {
         "test": /\.mdx$/,
-        "use": [
-            babelLoader(),
-            mdxjsLoader({ remarkPlugins })
-        ],
+        "use": [babelLoader(), mdxjsLoader({ remarkPlugins })],
     },
     {
         "test": /\.md$/,
-        "use": [
-            htmlLoader(),
-            remarkLoader({ remarkPlugins })
-        ],
-    }
+        "use": [htmlLoader(), remarkLoader({ remarkPlugins })],
+    },
 ];

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 const fs = require("fs");
 const frontMatter = require("../packages/front-matter");
 const remark = require("../packages/remark");
@@ -23,11 +24,15 @@ const { normalizeAbsoluteToRelative } = require("./normalizePath");
  *    sort: 4,
  *    contributors: [ 'alex' ]
  *  }
- * @param {*} tree 
- * @param {*} options 
+ * @param {*} tree
+ * @param {*} options
  */
 const enhance = (tree, options) => {
-    tree.url = normalizeAbsoluteToRelative(tree.path, tree.extension, options.dir);
+    tree.url = normalizeAbsoluteToRelative(
+        tree.path,
+        tree.extension,
+        options.dir
+    );
 
     if (tree.type === "file") {
         let anchors = [];
@@ -56,9 +61,13 @@ const enhance = (tree, options) => {
 
         tree.anchors = anchors;
 
-        Object.assign(tree, {
-            "path": tree.path.replace(/\\/g, "/")
-        }, attributes);
+        Object.assign(
+            tree,
+            {
+                "path": tree.path.replace(/\\/g, "/"),
+            },
+            attributes
+        );
     }
 };
 

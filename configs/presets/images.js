@@ -9,7 +9,7 @@ module.exports = () => [
         "type": "asset/resource",
         "generator": {
             "filename": "img/[name].[hash][ext][query]",
-        }
+        },
     },
     {
         "test": /\.svg$/i,
@@ -23,5 +23,5 @@ module.exports = () => [
         "test": /\.svg$/i,
         "use": ["@svgr/webpack"],
         "include": [appStyleIcons],
-    }
+    },
 ];

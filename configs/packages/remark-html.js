@@ -1,13 +1,13 @@
 /**
  * @package remark-html
- * 
+ *
  * @description Serialize Markdown as HTML.
- * 
+ *
  * @example pass
  *  # Hello & World
  *  > A block quote.
  *  * Some _emphasis_, **importance**, and `code`.
- * 
+ *
  * @example output
  *  <h1>Hello &#x26; World</h1>
  *  <blockquote>
