@@ -18,5 +18,5 @@ const { appBuild } = require("../../helpers/paths");
 module.exports = () => [
     new CleanWebpackPlugin({
         "cleanOnceBeforeBuildPatterns": [appBuild],
-    })
+    }),
 ];

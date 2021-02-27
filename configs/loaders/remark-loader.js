@@ -7,7 +7,7 @@ module.exports = ({ remarkPlugins }) => ({
     "loader": "remark-loader",
     "options": {
         "remarkOptions": {
-            "plugins": [...remarkPlugins, remarkHtml()]
+            "plugins": [...remarkPlugins, remarkHtml()],
         },
     },
 });

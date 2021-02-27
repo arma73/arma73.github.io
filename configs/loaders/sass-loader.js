@@ -10,5 +10,5 @@ module.exports = ({ ...props }) => ({
             "webpackImporter": true,
         },
         ...props,
-    }
+    },
 });

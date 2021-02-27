@@ -13,6 +13,6 @@ module.exports = {
         ...webpackPlugins(),
         ...webpackBundleAnalyzer(),
         ...workboxWebpackPlugin(),
-        ...provideAssetsPlugin()
+        ...provideAssetsPlugin(),
     ].filter(Boolean),
 };

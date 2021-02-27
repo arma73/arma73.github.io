@@ -4,7 +4,9 @@
 const hot = require("webpack-hot-middleware");
 
 // Helpers
-const { "areaEnv": { "REACT_APP_PORT": PORT, "REACT_APP_HOST": HOST } } = require("../../helpers/env");
+const {
+    "areaEnv": { "REACT_APP_PORT": PORT, "REACT_APP_HOST": HOST },
+} = require("../../helpers/env");
 const { appBuild } = require("../../helpers/paths");
 
 // This set of options is picked up by webpack-dev-server and
@@ -20,13 +22,13 @@ module.exports = {
         // Output running progress to console.
         "progress": true,
     },
-    // Shows a full-screen overlay in the browser when there are compiler 
+    // Shows a full-screen overlay in the browser when there are compiler
     // errors or warnings. If you want to show only compiler errors:
     "overlay": true,
     // Enable gzip compression for everything served:
     "compress": true,
-    // When using the HTML5 History API, the index.html page will likely 
-    // have to be served in place of any 404 responses. 
+    // When using the HTML5 History API, the index.html page will likely
+    // have to be served in place of any 404 responses.
     // Enable devServer.historyApiFallback by setting it to true:
     "historyApiFallback": true,
     // Set to 0.0.0.0 and cooperate with useLocalIp to access the LAN.
@@ -49,13 +51,13 @@ module.exports = {
         // "Access-Control-Allow-Origin": "*"
     },
 
-    // Provides the ability to execute custom middleware after 
+    // Provides the ability to execute custom middleware after
     // all other middleware internally within the server.
     onAfterSetupMiddleware({ app, compiler }) {
         app.use(
             hot(compiler, {
                 "log": false,
-            }),
+            })
         );
     },
 };

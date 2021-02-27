@@ -14,6 +14,6 @@ module.exports = {
         ...SSGWebpackPlugin(),
         ...webpackPwaManifest(),
         ...redirectWebpackPlugin(),
-        ...precacheSsgManifestPlugin()
+        ...precacheSsgManifestPlugin(),
     ].filter(Boolean),
 };

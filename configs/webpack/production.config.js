@@ -13,11 +13,4 @@ const target = require("../parts/production/target");
 // Plugins
 const plugins = require("../plugins/production");
 
-module.exports = merge(
-    entry,
-    bail,
-    performance,
-    plugins,
-    optimization,
-    target
-);
+module.exports = merge(entry, bail, performance, plugins, optimization, target);

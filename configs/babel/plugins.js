@@ -6,13 +6,13 @@ module.exports = ({ development, production }) => {
             "@babel/plugin-transform-runtime",
             {
                 "regenerator": true,
-            }
+            },
         ],
         [
             "@babel/plugin-proposal-decorators",
             {
                 "legacy": true,
-            }
+            },
         ],
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-proposal-export-default-from",
@@ -23,8 +23,7 @@ module.exports = ({ development, production }) => {
         "@babel/plugin-transform-react-constant-elements",
     ];
 
-    development &&
-        plugins.push("react-hot-loader/babel");
+    development && plugins.push("react-hot-loader/babel");
 
     production &&
         plugins.push([
@@ -32,9 +31,9 @@ module.exports = ({ development, production }) => {
             {
                 "mode": "remove",
                 "removeImport": true,
-                "ignoreFilenames": ["node_modules"]
-            }
+                "ignoreFilenames": ["node_modules"],
+            },
         ]);
-        
+
     return plugins;
 };

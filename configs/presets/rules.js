@@ -12,5 +12,5 @@ module.exports = [
     ...styles(),
     ...fonts(),
     ...images(),
-    ...markdown()
+    ...markdown(),
 ];

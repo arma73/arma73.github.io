@@ -17,12 +17,9 @@ module.exports = () => [
                 "from": appPublic,
                 "to": appBuild,
                 "globOptions": {
-                    "ignore": [
-                        "**/public/static/**",
-                        "**/public/assets/**",
-                    ],
+                    "ignore": ["**/public/static/**", "**/public/assets/**"],
                 },
-            }
+            },
         ],
-    })
+    }),
 ];

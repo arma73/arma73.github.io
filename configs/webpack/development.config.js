@@ -12,10 +12,4 @@ const externalsType = require("../parts/development/externalsType");
 // Plugins
 const plugins = require("../plugins/development");
 
-module.exports = merge(
-    entry,
-    plugins,
-    target,
-    externalsPresets,
-    externalsType,
-);
+module.exports = merge(entry, plugins, target, externalsPresets, externalsType);

@@ -19,23 +19,33 @@ function main() {
 
 function buildContentTree(source, output) {
     if (!source) {
-        return console.error("build-content-tree: you must provide a source path");
+        return console.error(
+            "build-content-tree: you must provide a source path"
+        );
     }
     if (!output) {
-        return console.error("build-content-tree: you must provide a output file name");
+        return console.error(
+            "build-content-tree: you must provide a output file name"
+        );
     }
 
     let content = directoryTree(source, { "extensions": /\.(md|mdx)/ });
 
     content = restructure(content, {
-        "dir": source
+        "dir": source,
     });
 
-    fs.writeFileSync(path.resolve(output), JSON.stringify(content, 2), error => {
-        if (error) {
-            console.log("build-content-tree: ", error);
-        } else {
-            console.log("Successfully built content tree file at " + output);
+    fs.writeFileSync(
+        path.resolve(output),
+        JSON.stringify(content, 2),
+        error => {
+            if (error) {
+                console.log("build-content-tree: ", error);
+            } else {
+                console.log(
+                    "Successfully built content tree file at " + output
+                );
+            }
         }
-    });
+    );
 }

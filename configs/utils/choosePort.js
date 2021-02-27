@@ -19,7 +19,9 @@ const choosePort = async (defaultPort, host) => {
             const question = {
                 "type": "confirm",
                 "name": questionName,
-                "message": chalk.yellowBright(`${message} Do you want to run the app on another port?`),
+                "message": chalk.yellowBright(
+                    `${message} Do you want to run the app on another port?`
+                ),
                 "default": true,
             };
 
