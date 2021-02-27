@@ -1,7 +1,7 @@
-export type DynamicImportType = Promise<{
-    "default": React.ComponentType<any>;
+import { ComponentType, LazyExoticComponent } from "react";
+
+export type DynamicImportType<T = any> = Promise<{
+    "default": T;
 }>;
 
-export type LazyComponentType = React.LazyExoticComponent<
-    React.ComponentType<any>
->;
+export type LazyComponentType = LazyExoticComponent<ComponentType<any>>;
