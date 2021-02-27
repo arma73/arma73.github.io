@@ -23,10 +23,10 @@ module.exports = {
     "_utils": servedSepOS(appSrc, "utils"),
     "_routes": servedSepOS(appSrc, "routes"),
     "_context": servedSepOS(appSrc, "context"),
+    "_content": servedSepOS(appSrc, "content"),
     "_services": servedSepOS(appSrc, "services"),
     "_settings": servedSepOS(appSrc, "settings"),
     "_components": servedSepOS(appSrc, "components"),
-    "_containers": servedSepOS(appSrc, "containers"),
     "_interfaces": servedSepOS(appSrc, "interfaces"),
     ...dependencies,
 };
