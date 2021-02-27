@@ -23,7 +23,9 @@ module.exports = () => [
     // That's where DefinePlugin shines, set it and forget it rules for 
     // development and production builds.
     new DefinePlugin({
-        "env": convertObjectValuesTOJSON(process.env || areaEnv),
+        "process": {
+            "env": convertObjectValuesTOJSON(process.env || areaEnv),
+        },
         "BROWSER": true,
         "NODE_ENV": JSON.stringify(environment),
         "__DEV__": development,
