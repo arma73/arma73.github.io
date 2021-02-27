@@ -12,9 +12,7 @@ const flattenContentTree = require("./flattenContentTree");
 const contentTree = require(join(appSrc, "settings", "_content.json"));
 
 // content tree to path array
-const paths = [
-    ...flattenContentTree(contentTree)
-];
+const paths = [...flattenContentTree(contentTree)];
 
 exports.executiveAssets = ({ jsmodules, cssmodules }) => {
     for (let path of paths) {
@@ -27,21 +25,31 @@ exports.executiveAssets = ({ jsmodules, cssmodules }) => {
                         if (err) throw err;
                         const $ = cheerio.load(data);
                         jsmodules.forEach(item => {
-                            $("body").append(`<script src="/${item}"></script>`);
+                            $("body").append(
+                                `<script src="/${item}"></script>`
+                            );
                         });
                         cssmodules.forEach(item => {
-                            $("head").append(`<link rel="stylesheet" href="/${item}" />`);
+                            $("head").append(
+                                `<link rel="stylesheet" href="/${item}" />`
+                            );
                         });
                         const html = $.html();
                         writeFile(pathHtml, html, "utf8", err => {
                             if (err) {
                                 console.error(
-                                    chalk.red(`${path + item} assets have not been added ❌`)
+                                    chalk.red(
+                                        `${
+                                            path + item
+                                        } assets have not been added ❌`
+                                    )
                                 );
                                 throw err;
                             }
                             console.log(
-                                chalk.greenBright(`${path + item} added assets ✔`)
+                                chalk.greenBright(
+                                    `${path + item} added assets ✔`
+                                )
                             );
                         });
                     });

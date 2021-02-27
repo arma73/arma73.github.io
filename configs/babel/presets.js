@@ -6,13 +6,12 @@ module.exports = ({ development, production, loose, spec, modules }) => {
             "@babel/preset-react",
             {
                 "runtime": "automatic",
-            }
+            },
         ],
-        "@babel/preset-typescript"
+        "@babel/preset-typescript",
     ];
 
-    development && 
-        configs.unshift("@babel/preset-env");
+    development && configs.unshift("@babel/preset-env");
 
     production &&
         configs.unshift([
@@ -22,7 +21,7 @@ module.exports = ({ development, production, loose, spec, modules }) => {
                 loose,
                 modules,
                 "debug": false,
-            }
+            },
         ]);
 
     return [...configs];

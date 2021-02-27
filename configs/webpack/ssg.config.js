@@ -12,10 +12,4 @@ const target = require("../parts/ssg/target");
 // Plugins
 const plugins = require("../plugins/ssg");
 
-module.exports = merge(
-    entry,
-    output,
-    optimization,
-    plugins,
-    target
-);
+module.exports = merge(entry, output, optimization, plugins, target);

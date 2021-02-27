@@ -11,6 +11,6 @@ module.exports = {
         ...copyWebpackPlugin(),
         ...caseSensitivePathsWebpackPlugin(),
         ...webpackPlugins(),
-        ...miniCssExtractPlugin()
+        ...miniCssExtractPlugin(),
     ].filter(Boolean),
 };

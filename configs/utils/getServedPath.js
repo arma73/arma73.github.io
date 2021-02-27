@@ -18,7 +18,7 @@ const { envPublicUrl } = require("../helpers/env");
 // like /todos/42/static/js/bundle.7289d.js. We have to know the root.
 /**
  * Served path
- * @param {*} appPackageJSON 
+ * @param {*} appPackageJSON
  */
 const getServedPath = appPackageJSON => {
     const publicUrl = getPublicUrl(appPackageJSON);

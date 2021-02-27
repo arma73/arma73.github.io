@@ -6,6 +6,6 @@ const { getUserData } = require("./getGitConfig");
 
     ghpages.publish("dist", {
         "dotfiles": true, // The usage below will push dotfiles (directories and files)
-        "message": `Deploy: from @${name}`
+        "message": `Deploy: from @${name}`,
     });
 })();

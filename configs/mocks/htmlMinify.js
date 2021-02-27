@@ -25,5 +25,12 @@ module.exports = {
     "removeScriptTypeAttributes": true,
     "removeStyleLinkTypeAttributes": true,
     "collapseInlineTagWhitespace": false,
-    "customAttrSurround": ["async", "defer", "checked", "disabled", "readonly", "crossorigin"],
+    "customAttrSurround": [
+        "async",
+        "defer",
+        "checked",
+        "disabled",
+        "readonly",
+        "crossorigin",
+    ],
 };

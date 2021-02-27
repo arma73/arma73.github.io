@@ -1,9 +1,9 @@
 /**
  * @package remark-gfm
- * 
- * @description Configures remark so that it can parse and serialize GFM (autolink literals, 
+ *
+ * @description Configures remark so that it can parse and serialize GFM (autolink literals,
  * strikethrough, tables, tasklists).
- * 
+ *
  * @example pass
  *  # GFM
  *  ## Autolink literals
@@ -16,7 +16,7 @@
  *  ## Tasklist
  *  * [ ] to do
  *  * [x] done
- * 
+ *
  * @example output
  *  <h1>GFM</h1>
  *  <h2>Autolink literals</h2>

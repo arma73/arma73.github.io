@@ -8,6 +8,6 @@ module.exports = () => [
         "extensions": /\.mdx?/,
         enhance,
         filter,
-        sort
-    })
+        sort,
+    }),
 ];
