@@ -1,8 +1,13 @@
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
 import "./Navigation.scss";
 
-const Navigation = ({ theme }) => {
+interface NavigationProps {
+    "theme": "dark" | "light";
+}
+
+const Navigation: FC<NavigationProps> = ({ theme }) => {
     const mapNavItems = () => {
         const items = ["guides", "reference", "glossary", "analyze", "donate"];
 

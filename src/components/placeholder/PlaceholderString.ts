@@ -1,4 +1,4 @@
-export const PlaceholderString = () => `
+export const PlaceholderString = (): string => `
   <div class="placeholder">
     <p class="placeholder__medium">&nbsp;</p>
     <p class="placeholder__large">&nbsp;</p>

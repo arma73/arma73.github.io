@@ -1,15 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC, ReactNode } from "react";
 
 import "./Markdown.scss";
 
-const Markdown = ({ children, title, pageContent }) => {
-    const [render, setRender] = useState(null);
+interface MarkdownProps {
+    "children"?: ReactNode;
+    "title"?: string;
+    "pageContent": string | null;
+}
+
+const Markdown: FC<MarkdownProps> = ({
+    children = null,
+    title = "",
+    pageContent,
+}) => {
+    const [render, setRender] = useState<ReactNode | null>(null);
 
     useEffect(() => {
         const renderElement = (
             <div
                 dangerouslySetInnerHTML={{
-                    "__html": pageContent,
+                    "__html": pageContent || "",
                 }}
             />
         );

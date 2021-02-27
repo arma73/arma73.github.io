@@ -1,18 +1,24 @@
+import { FC } from "react";
 import { getPageTitle } from "_utils/getPageTitle";
 import { enforceTrailingSlash } from "_utils/enforce";
+import { Locals } from "_src/server/Static";
 
 import Favicon from "_assets/images/favicon/favicon.ico";
 import Logo from "_assets/images/logo/logo-on-white-bg.svg";
 import OgImage from "_assets/images/icons/icon-pwa-512x512.png";
 
-const Head = ({ locals }) => {
-    let { assets } = locals.webpackStats.compilation;
-    let title = getPageTitle(locals.content, locals.path);
-    let description = "arma73 github portfolio";
+interface HeadProps {
+    "locals": Locals;
+}
+
+const Head: FC<HeadProps> = ({ locals }) => {
+    const { assets } = locals.webpackStats.compilation;
+    const title = getPageTitle(locals.content, locals.path);
+    const description = "arma73 github portfolio";
 
     return (
         <head>
-            <meta charset="utf-8" />
+            <meta charSet="utf-8" />
             <meta name="theme-color" content="#3d1163" />
             <meta
                 name="viewport"

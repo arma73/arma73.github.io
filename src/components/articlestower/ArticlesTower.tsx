@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import clsx from "clsx";
-import { useHover } from "_hooks";
+import { useHover } from "_hooks/useHover";
 import { RoutePage } from "_settings/path.routes";
-import Section from "_components/form/Section.jsx";
+import Section from "_components/form/Section";
 import Tooltip from "_components/tooltip";
 
 import "./ArticlesTower.scss";
