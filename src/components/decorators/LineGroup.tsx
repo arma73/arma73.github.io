@@ -7,7 +7,7 @@ const LineGroup = () => (
             className="decorators"
             style={{ "padding": "0px 55px 0px 25px" }}
         >
-            <StraightLine options={{ "short": true }} line={3} />
+            <StraightLine options={{ "short": true }} />
         </Section>
     </Section>
 );

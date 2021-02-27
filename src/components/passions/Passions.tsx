@@ -1,4 +1,4 @@
-import { useHover } from "_hooks";
+import { useHover } from "_hooks/useHover";
 import { RiseAnimated } from "_components/animated";
 import Section from "_components/form/Section";
 import Tooltip from "_components/tooltip";

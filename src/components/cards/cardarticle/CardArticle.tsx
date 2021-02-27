@@ -1,8 +1,19 @@
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import "./CardArticle.scss";
 
-const CardArticle = ({ desc, title, url }) => (
+interface CardArticleProps {
+    "desc"?: string;
+    "title"?: string;
+    "url"?: string;
+}
+
+const CardArticle: FC<CardArticleProps> = ({
+    desc = "",
+    title = "",
+    url = "",
+}) => (
     <article className="card--article">
         <div className="article--body">
             <div className="body--content">

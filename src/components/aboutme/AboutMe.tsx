@@ -1,4 +1,4 @@
-import { useHover } from "_hooks";
+import { useHover } from "_hooks/useHover";
 import Section from "_components/form/Section";
 import StraightLine from "_components/straightline";
 import Tooltip from "_components/tooltip";
