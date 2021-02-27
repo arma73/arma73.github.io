@@ -7,7 +7,7 @@ import Articles from "_pages/articles";
 import { DynamicImportType } from "_interfaces/dynamic.interface";
 
 export interface ContentDynamicImport {
-    "importContent": (path: string) => Promise<DynamicImportType>;
+    "importContent": (path: string) => DynamicImportType<string>;
 }
 
 const SiteRoutes: FC<RouteComponentProps & ContentDynamicImport> = props => (
