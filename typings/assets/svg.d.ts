@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, SVGProps } from "react";
 
 declare global {
     declare module "*.svg" {
@@ -7,7 +7,7 @@ declare global {
     }
 
     declare module "_theme/icons/*.svg" {
-        export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
+        export const ReactComponent: FC<SVGProps<SVGSVGElement>>;
         export default ReactComponent;
     }
 }
