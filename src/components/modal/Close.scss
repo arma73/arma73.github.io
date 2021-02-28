@@ -1,0 +1,13 @@
+.closeModal {
+    font-size: 1.35rem;
+    font-weight: bold;
+    margin-top: -10px;
+    float: right;
+
+    &:hover,
+    &:focus {
+        color: #12121260;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

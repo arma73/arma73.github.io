@@ -20,3 +20,5 @@ export type Subtract<T extends T1, T1 extends object> = Pick<
     T,
     SetComplement<keyof T, keyof T1>
 >;
+
+export type AllowNull<T> = T | null;
