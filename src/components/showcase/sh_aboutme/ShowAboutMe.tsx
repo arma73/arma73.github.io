@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import { RoutePage } from "_settings/path.routes";
 import Modal from "_components/modal";
 import { Container } from "_components/grid";
-import { Title, Name, Contacts, ContactItem, Text } from "./styled.sc";
+import * as S from "_components/styled";
 import IconLocation from "_theme/icons/location.svg";
 import IconMail from "_theme/icons/mail.svg";
 import IconTelephone from "_theme/icons/telephone.svg";
@@ -16,7 +16,7 @@ const ShowAboutMe = () => {
         <Modal
             visible={true}
             onClose={handleRoute}
-            title={<Title>About me</Title>}
+            title={<S.Title>About me</S.Title>}
             bodyProps={{
                 "style": {
                     "background": "#fff",
@@ -24,31 +24,31 @@ const ShowAboutMe = () => {
             }}
         >
             <Container>
-                <Name>Arman Khilko</Name>
+                <S.Name>Arman Khilko</S.Name>
             </Container>
-            <Contacts>
-                <ContactItem>
+            <S.Contacts>
+                <S.ContactItem>
                     {" "}
                     <IconLocation width="20px" /> Armenia, Erevan{" "}
-                </ContactItem>
-                <ContactItem>
+                </S.ContactItem>
+                <S.ContactItem>
                     {" "}
                     <IconMail width="20px" />{" "}
                     <a href="mailto:arma739805@gmail.com">
                         arma739805@gmail.com
                     </a>{" "}
-                </ContactItem>
-                <ContactItem>
+                </S.ContactItem>
+                <S.ContactItem>
                     {" "}
                     <IconTelephone width="20px" /> +37498220530{" "}
-                </ContactItem>
-                <ContactItem>
+                </S.ContactItem>
+                <S.ContactItem>
                     {" "}
                     <IconCalendar width="20px" /> 07.09.1998{" "}
-                </ContactItem>
-            </Contacts>
+                </S.ContactItem>
+            </S.Contacts>
             <Container>
-                <Text>
+                <S.Text>
                     Hi there{" "}
                     <span role="img" aria-label="wave">
                         👋
@@ -65,8 +65,8 @@ const ShowAboutMe = () => {
                     make great friendships. Currently, I continue to seek new
                     skills, learn and share my humble knowledge as much as
                     possible.
-                </Text>
-                <Text>
+                </S.Text>
+                <S.Text>
                     I strive to contribute to the success of the team hard work,
                     attention to detail, and excellent organizational skills. A
                     clear of the stack of network protocols and technologies
@@ -74,7 +74,7 @@ const ShowAboutMe = () => {
                     I&apos;m interested in the best practices for organizing
                     code, and I have a goal and desire to become an architect in
                     my field.
-                </Text>
+                </S.Text>
             </Container>
         </Modal>
     );
