@@ -142,6 +142,7 @@
   "dependencies": {
     "@mdx-js/react": "^1.6.22",
     "clsx": "^1.1.1",
+    "gsap": "^3.6.0",
     "history": "^5.0.0",
     "normalize.css": "^8.0.1",
     "postcss": "^8.1.14",
