@@ -1,12 +1,11 @@
 .closeModal {
-    font-size: 1.35rem;
-    font-weight: bold;
-    margin-top: -10px;
-    float: right;
+    position: absolute;
+    right: 10px;
+    top: 8px;
 
     &:hover,
     &:focus {
-        color: #12121260;
+        fill: #12121260 !important;
         text-decoration: none;
         cursor: pointer;
     }
