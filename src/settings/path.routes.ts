@@ -4,4 +4,5 @@ export const PUBLIC_URL = process.env.PUBLIC_URL || "/";
 export abstract class RoutePage {
     static readonly MAIN: string = PUBLIC_URL;
     static readonly ARTICLES: string = `${PUBLIC_URL}articles`;
+    static readonly ABOUTME: string = `${PUBLIC_URL}aboutme`;
 }

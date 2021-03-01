@@ -7,16 +7,16 @@ import {
     FC,
     SVGProps,
 } from "react";
-import { TypeContainer } from "_components/grid/Responsive";
-import View from "_components/grid/View";
-import ReactPortal from "_components/grid/Portal";
-import { useBlockScroll } from "_hooks/useBlockScroll";
-import { keyboard } from "_settings/keyboard";
-import { useOnClickOutside } from "_hooks/useOnClickOutside";
-import ModalView from "./ModalView";
-import ModalContent from "./ModalContent";
 import Close from "./Close";
+import { ModalView } from "./styled.sc";
+import { View } from "_components/grid";
+import ModalContent from "./ModalContent";
+import ReactPortal from "_components/portal";
+import { keyboard } from "_settings/keyboard";
+import { useBlockScroll } from "_hooks/useBlockScroll";
 import { HtmlTag } from "_interfaces/document.interface";
+import { useOnClickOutside } from "_hooks/useOnClickOutside";
+import { TypeContainer } from "_components/grid/Responsive";
 import { RefHtmlDivElement } from "_interfaces/reference.interface";
 
 interface ModalProps
@@ -129,21 +129,14 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function ModalRef(
             >
                 <ModalContent ref={ref} onClick={onModalClick} width={width}>
                     <View {...headerViewProps}>
-                        <View span="90%" xsmall="90%" small="90%">
+                        <View span="100%" xsmall="90%" small="90%">
                             {title}
                         </View>
-                        <View
-                            className="justify-end"
-                            span="10%"
-                            xsmall="3%"
-                            small="3%"
-                        >
-                            <Close
-                                color={closeColor}
-                                onClick={onClose}
-                                icon={closeIcon}
-                            />
-                        </View>
+                        <Close
+                            color={closeColor}
+                            onClick={onClose}
+                            icon={closeIcon}
+                        />
                     </View>
                     <View {...bodyViewProps}>{children}</View>
                     {!!footer && <View {...footerViewProps}>{footer}</View>}

@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // TODO: refactoring later
 /* eslint-disable max-lines */
-import "./Container.scss";
 
 type Props = {
     "time": number | string;
