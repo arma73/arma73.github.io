@@ -2,100 +2,13 @@
 @import "_theme/mixins";
 
 .social {
+    @include core-size(100%, 60px);
+    @include core-margin-sides;
+    background-image: linear-gradient(315deg, 
+        rgba(map-get($map: $colors-rgb, $key: titan-white), .9), 
+        map-get($map: $colors-hex, $key: melrose)
+    );
     position: relative;
-
-    .tooltip {
-        border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
-        top: -100px;
-        right: 60%;
-        width: 50px;
-        height: 50px;
-
-        &::after {
-            top: -18px;
-            left: 85%;
-            width: 20px;
-            height: 20px;
-        }
-    }
-
-    .box--social {
-        @include core-position(absolute, auto, 20px, -87px);
-        @include core-size(40px, 40px);
-        @include core-animation-show;
-        perspective: map-get($map: $removed, $key: deep-end);
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        .circles {
-            height: 40px;
-
-            .circle-top {
-                @include core-position(relative, 0px, 3px, 0px, unset);
-                @include core-size(40px, 40px);
-                z-index: map-get($map: $z-layers, $key: middle);
-                border-radius: 100%;
-                background-color: rgba(map-get($map: $colors-rgb, $key: fog), 0.8);
-                background-image: linear-gradient(315deg,
-                        rgba(white, 0.22),
-                        rgba(white, 0));
-                transform: translate3d(0px, 0px, 10px);
-
-                &:nth-child(2) {
-                    @include core-position(relative, 0px, 17px, -28px, unset);
-                    z-index: map-get($map: $z-layers, $key: base);
-                    transform: translate3d(0px, 0px, 10px);
-                }
-
-                &:last-child {
-                    @include core-position(relative, 0px, 30px, -57px, unset);
-                    z-index: map-get($map: $z-layers, $key: bottom);
-                    background-image: linear-gradient(180deg,
-                            map-get($map: $colors-hex, $key: dodger-blue),
-                            rgba(white, 0.76));
-                    box-shadow: 23px 19px 0 0 rgba(map-get($map: $colors-rgb, $key: dodger), 0.26);
-                    background-color: transparent;
-                    transform: translate(0px, 0px);
-                }
-            }
-        }
-    }
-
-    @media (max-width: map-get($map: $screens, $key: tablet)) {
-        @include core-position(relative, unset, 45px, -55px, unset);
-        
-        .tooltip {
-            @include core-position(absolute, 82%, auto, -38px, auto);
-            @include core-size(40px, 40px, flex);
-            font-size: .7rem;
-
-            &::after {
-                @include core-position(absolute, 85%, none, -9px, auto);
-                @include core-size(10px, 10px);
-            }
-        }
-
-        .box--social {
-            @include core-position(absolute);
-            
-            .circles {
-                .circle-top {
-                    @include core-position(absolute, unset, -17px, -15px, unset);
-                    @include core-size(30px, 30px);
-
-                    &:nth-child(2) {
-                        @include core-position(absolute, unset, -8px, -7px, unset);
-                    }
-
-                    &:last-child {
-                        @include core-position(absolute);
-                        // left: 5px;
-                        box-shadow: 21px 17px 0 0 rgba(67,83,255,0.26);
-                    }
-                }
-            }
-        }
-    }
+    border-radius: 1px;
+    margin-top: 30px;
 }
