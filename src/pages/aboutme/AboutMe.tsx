@@ -25,7 +25,8 @@ const PageAboutMe = () => (
             </S.ContactItem>
             <S.ContactItem>
                 {" "}
-                <IconTelephone width="20px" /> +37498220530{" "}
+                <IconTelephone width="20px" />{" "}
+                <a href="tel:+374-98-220-530">+374-98-220-530</a>{" "}
             </S.ContactItem>
             <S.ContactItem>
                 {" "}
