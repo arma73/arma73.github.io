@@ -1,4 +1,4 @@
-import { useEffect, useRef, ReactPortal } from "react";
+import { useEffect, useRef, ReactPortal, ReactNode } from "react";
 import ReactDOM from "react-dom";
 
 const canUseDOM = !!(
@@ -10,7 +10,8 @@ const canUseDOM = !!(
 type Props = {
     "element"?: keyof HTMLElementTagNameMap;
     "node"?: any;
-    "children": React.ReactNode;
+    "className"?: string;
+    "children": ReactNode;
 };
 
 const ReactPortal = ({
@@ -34,6 +35,12 @@ const ReactPortal = ({
 
     if (!props.node && !defaultNode.current) {
         defaultNode.current = document.createElement(element);
+        if (props.className && defaultNode.current) {
+            (defaultNode.current as Element).setAttribute(
+                "class",
+                props.className
+            );
+        }
         document.body.appendChild(defaultNode.current);
     }
 
