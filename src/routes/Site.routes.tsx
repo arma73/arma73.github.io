@@ -36,9 +36,7 @@ const SiteRoutes: FC<RouteComponentProps & ContentDynamicImport> = props => {
                 <Route exact path={RoutePage.MAIN} component={Main} />
                 <Route exact path={RoutePage.ARTICLES} component={Articles} />
                 <Route exact path={RoutePage.ABOUTME} component={PageAboutMe} />
-                <Route>
-                    <ContentRoutes {...props} />
-                </Route>
+                <Route render={() => <ContentRoutes {...props} />} />
             </Switch>
             {showcase && <ShowcaseRoutes />}
         </>
