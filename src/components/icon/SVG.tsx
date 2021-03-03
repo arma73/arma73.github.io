@@ -37,9 +37,15 @@ export type SVGId =
     | "webpack-logo"
     | "linux-logo"
     | "gitkraken-logo"
-    | "gitlab-logo";
+    | "gitlab-logo"
+    | "book"
+    | "coffee"
+    | "compose"
+    | "music"
+    | "sport"
+    | "travel";
 
-export type PathNames = "skills";
+export type PathNames = "skills" | "passions";
 
 interface ISVGProps {
     "id": SVGId;
