@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const isExternalLink = (url: string) =>
     typeof url === "string" &&
     (url.startsWith("http") ||
+        url.startsWith("https") ||
         url.startsWith("mailto") ||
         url.startsWith("tel:"));
 
