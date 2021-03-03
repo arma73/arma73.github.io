@@ -1,6 +1,15 @@
 @import "_theme/var";
 @import "_theme/mixins";
 
+$svg-radius: 50;
+$stroke-width: 10;
+$radius: $svg-radius - $stroke-width / 2;
+$diameter: $radius * 2;
+$pi: 3.14159265359;
+$circumference: $pi * $diameter;
+$revolution: 2000ms;
+$color-steps: 4;
+
 .avatar {
     @include core-size(100%, max-content);
     @include core-animation-show;
@@ -8,13 +17,27 @@
     position: relative;
 
     .avatar-photo--box {
-        @include core-size(65%, 100px);
+        @include core-size(65%, 100px, flex);
         position: relative;
         border-radius: 1px;
         background-image: linear-gradient(315deg, rgba(232, 235, 255, 0.9), #b4baff);
         box-shadow: 29px 29px 0 6px rgba(107, 119, 255, 0.8);
         transform: translate(-20px, -46px);
         margin: 0 auto;
+
+        .avatar-photo {
+            display: block;
+            path, circle {
+                stroke: hotpink;
+                stroke-width: $stroke-width;
+                stroke-linecap: round;
+                stroke-dasharray: 0, $circumference;
+                animation:
+                    stroke-dash $revolution linear infinite,
+                    stroke-width $revolution linear infinite,
+                    stroke-color $revolution * $color-steps steps($color-steps) infinite;
+            }
+        }
 
         .arrow-down {
             content: "";
@@ -44,4 +67,51 @@
             }
         }
     }
+}
+
+@keyframes svg-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes stroke-width {
+    0%,
+    100% {
+        stroke-width: 0;
+    }
+
+    45%,
+    55% {
+        stroke-width: $stroke-width / 2;
+    }
+
+    50% {
+        stroke-width: $stroke-width;
+    }
+}
+
+@keyframes stroke-dash {
+    0% {
+        stroke-dasharray: 0, $circumference;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: $circumference, 0;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dasharray: $circumference, $circumference;
+        stroke-dashoffset: -$circumference;
+    }
+}
+
+@keyframes stroke-color {
+    from {
+        stroke: hotpink;
+    }
+
+    to { stroke: white; }
 }
