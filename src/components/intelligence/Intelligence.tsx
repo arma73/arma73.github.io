@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Section from "_components/form/Section";
 import Personality from "_components/personality";
 import Experience from "_components/experience";
@@ -11,4 +12,4 @@ const Intelligence = () => (
     </Section>
 );
 
-export default Intelligence;
+export default memo(Intelligence);

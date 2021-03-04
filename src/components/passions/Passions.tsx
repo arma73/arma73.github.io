@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useHover } from "_hooks/useHover";
 import { useToggle } from "_hooks/useToggle";
 import { RiseAnimated } from "_components/animated";
@@ -30,4 +31,4 @@ const Passions = () => {
     );
 };
 
-export default Passions;
+export default memo(Passions);
