@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Section from "_components/form/Section";
 import CardPackage from "_components/cards/cardpackage";
 import NpmSVG from "_theme/icons/skills/npm-logo.svg";
@@ -20,4 +21,4 @@ const Packages = () => (
     </Section>
 );
 
-export default Packages;
+export default memo(Packages);

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useHover } from "_hooks/useHover";
 import { useToggle } from "_hooks/useToggle";
 import Section from "_components/form/Section";
@@ -30,4 +31,4 @@ const Skills = () => {
     );
 };
 
-export default Skills;
+export default memo(Skills);
