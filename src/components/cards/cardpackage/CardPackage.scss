@@ -3,13 +3,16 @@
 
 .card--package {
     @include core-size(50px, max-content);
-    
-    &:hover {
-        cursor: pointer;
-    }
 
     &:not(:first-child) {
         margin-left: 6px;
+    }
+
+    &.link--package {
+        width: inherit !important;
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .card--column {
