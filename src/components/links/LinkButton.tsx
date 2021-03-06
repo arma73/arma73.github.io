@@ -4,7 +4,6 @@ import { Link, LinkProps } from "react-router-dom";
 
 interface LinkButtonProps extends LinkProps {
     "children": ReactNode;
-    "to": string;
     "className"?: string;
     "onClick"?: FunctionOf;
 }
