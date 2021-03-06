@@ -21,6 +21,7 @@ const WorkOnJoinToHire = () => (
             <UnifiedLink to="https://jointohire.com/" target="_blank">
                 <Img
                     src={JoinToHireIcon}
+                    alt="JoinToHire"
                     style={{
                         "width": "120px",
                         "height": "20px",
