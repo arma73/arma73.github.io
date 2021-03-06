@@ -2,7 +2,7 @@ import { memo } from "react";
 import { useHover } from "_hooks/useHover";
 import { useToggle } from "_hooks/useToggle";
 import { RiseAnimated } from "_components/animated";
-import ShowPassions from "_components/showcase/sh_passions";
+import { ShowPassions } from "_components/showcase";
 import Section from "_components/form/Section";
 import Tooltip from "_components/tooltip";
 
