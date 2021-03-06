@@ -5,4 +5,5 @@ export abstract class RoutePage {
     static readonly MAIN: string = PUBLIC_URL;
     static readonly ARTICLES: string = `${PUBLIC_URL}articles/`;
     static readonly ABOUTME: string = `${PUBLIC_URL}aboutme/`;
+    static readonly EXPERIENCE: string = `${PUBLIC_URL}experience/`;
 }
