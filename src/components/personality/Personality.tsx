@@ -7,11 +7,11 @@ import "./Personality.scss";
 const Personality = () => (
     <div className="personality">
         <RiseAnimated toX="-4px" toY="-4px">
-            <div className="box--personality">
+            <div className="box--education">
                 <Education />
-                <Social />
             </div>
         </RiseAnimated>
+        <Social />
     </div>
 );
 

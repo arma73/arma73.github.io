@@ -15,8 +15,9 @@
             height: 20px;
         }
     }
-
-    &:hover {
-        cursor: pointer;
+    .box--education {
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
