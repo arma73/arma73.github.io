@@ -1,9 +1,9 @@
 import StraightLine from "_components/straightline";
 
-import "./Summary.scss";
+import "./Education.scss";
 
-const Summary = () => (
-    <div className="summary">
+const Education = () => (
+    <div className="education">
         <StraightLine
             options={{
                 "short": true,
@@ -13,4 +13,4 @@ const Summary = () => (
     </div>
 );
 
-export default Summary;
+export default Education;
