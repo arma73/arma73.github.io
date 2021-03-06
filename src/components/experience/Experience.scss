@@ -27,4 +27,13 @@
             }
         }
     }
+
+    .tooltip {
+        top: 20px;
+        left: 176px;
+
+        &::after {
+            left: 100%;
+        }
+    }
 }
