@@ -40,6 +40,16 @@ export const move = (id: number, color: string) => {
             },
             0
         )
+        .to(
+            "#bubble4",
+            {
+                "duration": 0.1,
+                "y": "120%",
+                "boxShadow": "none",
+                "ease": "ease-out",
+            },
+            0
+        )
         .to(".icon", { "duration": 0.05, "opacity": 0, "ease": "ease-out" }, 0)
         .to(
             "#bgBubble",

@@ -1,5 +1,7 @@
-import { FC, useEffect, useMemo } from "react";
+/* eslint-disable max-lines */
+import { FC, useEffect, useMemo, SVGProps } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
+import { To } from "history";
 import ReactPortal from "_components/portal";
 import { move } from "./move";
 import { RoutePage } from "_settings/path.routes";
@@ -8,6 +10,7 @@ import Icon3DHome from "_theme/icons/3d-house.svg";
 import { LinkButton } from "_components/links";
 import Icon3DPilled from "_theme/icons/piled-files.svg";
 import IconProfile from "_theme/icons/profile-user.svg";
+import IconWork from "_theme/icons/work.svg";
 
 import "./Navigation.scss";
 
@@ -16,12 +19,21 @@ interface NavigationProps {
     "sizeIcons"?: string;
 }
 
+interface ListBubbleType {
+    "Icon": FC<SVGProps<SVGSVGElement>>;
+    "to": To;
+    "color": string;
+    "count": number;
+}
+
+type ListBubblesType = ListBubbleType[];
+
 const Navigation: FC<NavigationProps & RouteComponentProps> = ({
     theme = "light",
     location,
     sizeIcons = "15px",
 }) => {
-    const listBubbles = useMemo(
+    const listBubbles = useMemo<ListBubblesType>(
         () => [
             {
                 "Icon": Icon3DHome,
@@ -41,6 +53,12 @@ const Navigation: FC<NavigationProps & RouteComponentProps> = ({
                 "color": "#ce93d8",
                 "count": 3,
             },
+            {
+                "Icon": IconWork,
+                "to": RoutePage.EXPERIENCE,
+                "color": "#2596be",
+                "count": 4,
+            },
         ],
         []
     );
@@ -49,15 +67,16 @@ const Navigation: FC<NavigationProps & RouteComponentProps> = ({
         const currentPath = equalsPath(location.pathname);
 
         for (const { to, color, count } of listBubbles) {
-            if (to === currentPath) {
+            const pathname = to instanceof Object ? to.pathname : to;
+            if (pathname === currentPath) {
                 move(count, color);
             }
         }
     }, [listBubbles, location.pathname]);
 
     const mapBubbles = () =>
-        listBubbles.map(({ Icon, to, count }) => (
-            <div id={`bubble${count}`} className="bubble" key={to}>
+        listBubbles.map(({ Icon, count }) => (
+            <div id={`bubble${count}`} className="bubble" key={count}>
                 <span className="icon">
                     <Icon width={sizeIcons} height={sizeIcons} />
                 </span>
@@ -67,7 +86,7 @@ const Navigation: FC<NavigationProps & RouteComponentProps> = ({
     const mapMenuElements = () =>
         listBubbles.map(({ to, Icon, color, count }) => (
             <LinkButton
-                key={to}
+                key={count}
                 id={`menu${count}`}
                 to={to}
                 className="menuElement"
