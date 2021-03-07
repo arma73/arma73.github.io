@@ -40,6 +40,21 @@ $grey: (
     800                         : #222426,
 );
 
+$themes: (
+    main-theme                  : rgb(35, 12, 51),
+    experience-theme            : rgb(37, 50, 55),
+    portfolio-theme             : rgb(249, 87, 56),
+);
+
+$colors-portfolio: (
+    topbar-color                : rgb(249, 87, 56),
+    skills-color                : rgb(249, 87, 56),
+    tower-color                 : rgb(249, 87, 56),
+    package                     : linear-gradient(135deg, rgb(233, 82, 56), #c64537),
+    package-empty               : linear-gradient(135deg , #7d7d7dd9, #5f5655),
+    experience                  : rgb(249, 87, 56),
+);
+
 $removed: (
     deep-end                    : 10000px,
     deep                        : 1000px,
@@ -68,5 +83,5 @@ $z-layers: (
     below                       : -1,
 );
 
-$font-stack-body: "Averia Sans Libre", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+$font-stack-body: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 $font-stack-heading: "Averia Sans Libre", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;

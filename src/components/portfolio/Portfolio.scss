@@ -5,11 +5,13 @@ $transform: translate(0px, -50%) rotateX(55deg) rotateY(-3deg) rotateZ(49deg);
 
 .portfolio--layout {
     @include core-size(100vw, 100vh, flex);
-    background-color: map-get($map: $colors-hex, $key: dodger);
+    position: relative;
     perspective: map-get($map: $removed, $key: deep-end);
+    z-index: map-get($map: $z-layers, $key: base);
 
     .portfolio--box {
         @include core-size(950px, 560px);
+
         .portfolio--illustration {
             @include core-position(relative, 0px, 33.3333%, 50%, 0px);
             @include core-size(332px, 611px);
@@ -21,8 +23,8 @@ $transform: translate(0px, -50%) rotateX(55deg) rotateY(-3deg) rotateZ(49deg);
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
                 background-image: linear-gradient(152deg,
-                        map-get($map: $colors-hex, $key: melrose),
-                        map-get($map: $colors-hex, $key: dodger) 74%);
+                        map-get($map: $themes, $key: portfolio-theme),
+                        rgba(map-get($map: $themes, $key: main-theme), 0) 74%);
                 perspective: map-get($map: $removed, $key: deep);
 
                 .portfolio--block {

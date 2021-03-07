@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { PUBLIC_URL } from "_settings/path.routes";
+import Navigation from "_components/navigation";
 import SiteRoutes from "./Site.routes";
 
 const Routes = () => {
@@ -17,6 +18,7 @@ const Routes = () => {
 
     return (
         <BrowserRouter>
+            <Navigation />
             <Route
                 path={PUBLIC_URL}
                 render={props => (

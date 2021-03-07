@@ -1,26 +1,36 @@
-import { useHover } from "_hooks/useHover";
-import Section from "_components/form/Section";
-import { RiseAnimated } from "_components/animated";
-import Tooltip from "_components/tooltip";
+import { UnifiedLink } from "_components/links";
+import GithubSVG from "_theme/icons/social/github.svg";
+import LinkedinSVG from "_theme/icons/social/linkedin.svg";
+import TwitterSVG from "_theme/icons/social/twitter.svg";
 
 import "./Social.scss";
 
-const Social = () => {
-    const [isHovered, bind] = useHover();
+const Social = () => (
+    <div className="social">
+        <div className="social-block">
+            <UnifiedLink
+                to="https://github.com/arma73"
+                target="_blank"
+                className="social-item"
+            >
+                <GithubSVG width="20px" height="20px" />
+            </UnifiedLink>
+            <UnifiedLink
+                to="https://www.linkedin.com/in/arman-khilko/"
+                target="_blank"
+                className="social-item"
+            >
+                <LinkedinSVG width="20px" height="20px" />
+            </UnifiedLink>
+            <UnifiedLink
+                to="https://twitter.com/_arma73"
+                target="_blank"
+                className="social-item"
+            >
+                <TwitterSVG width="20px" height="20px" />
+            </UnifiedLink>
+        </div>
+    </div>
+);
 
-    return (
-        <Section className="social">
-            <div className="box--social" {...bind}>
-                <RiseAnimated toX="-4px" toY="-4px">
-                    <div className="circles">
-                        <div className="circle-top preserve-3d"></div>
-                        <div className="circle-top preserve-3d"></div>
-                        <div className="circle-top"></div>
-                    </div>
-                </RiseAnimated>
-            </div>
-            <Tooltip show={isHovered} text="Social" />
-        </Section>
-    );
-};
 export default Social;

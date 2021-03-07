@@ -11,11 +11,11 @@ interface CloseProps {
 
 const Close: FC<CloseProps> = ({
     children = null,
-    color = "#505050",
+    color = "#807b7b",
     onClick,
-    icon = MdClose,
+    icon = <MdClose />,
 }) => (
-    <span className="closeModal" style={{ color }} onClick={onClick}>
+    <span className="closeModal" style={{ "fill": color }} onClick={onClick}>
         {icon}
         {children}
     </span>

@@ -1,6 +1,6 @@
 import { ElementType, HTMLAttributes } from "react";
 import { Properties } from "csstype";
-import Flex from "./Flex";
+import Flex from "./Flex.sc";
 import Collapse from "./Collapse";
 import { HtmlTag } from "_interfaces/document.interface";
 import { TypeText } from "_interfaces/type.interface";

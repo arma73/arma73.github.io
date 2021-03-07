@@ -3,8 +3,8 @@ import { useState, useCallback, Dispatch, SetStateAction } from "react";
 interface ToggleResponse {
     "isToggled": boolean;
     "setToggle": Dispatch<SetStateAction<boolean>>;
-    "positiveToggle": Dispatch<SetStateAction<true>>;
-    "negativeToggle": Dispatch<SetStateAction<false>>;
+    "positiveToggle": () => void;
+    "negativeToggle": () => void;
     "callToggle": () => void;
 }
 

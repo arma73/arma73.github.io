@@ -8,7 +8,7 @@ import Avatar from "_components/avatar";
 import Packages from "_components/packages";
 import Intelligence from "_components/intelligence";
 import TopBar from "_components/topbar";
-import Social from "_components/social";
+import Skills from "_src/components/skills";
 
 import "./Portfolio.scss";
 
@@ -18,7 +18,7 @@ const Portfolio = () => (
             <div className="portfolio--illustration preserve-3d">
                 <div className="portfolio">
                     <TopBar />
-                    <Social />
+                    <Skills />
                     <Container className="portfolio--container row">
                         <Block className="portfolio--block col col-md-1">
                             <AboutMe />
@@ -37,4 +37,5 @@ const Portfolio = () => (
         </div>
     </div>
 );
+
 export default Portfolio;
