@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+import { canUseDOM } from "_utils/isClient";
 
-export const useBlockScroll = (visible: boolean): void => {
+const useHookBlockScroll = (visible: boolean): void => {
     const domRef = useRef({ "overflowY": document.body.style.overflowY });
 
     useEffect(() => {
@@ -21,3 +22,5 @@ export const useBlockScroll = (visible: boolean): void => {
         };
     }, [visible]);
 };
+
+export const useBlockScroll = canUseDOM ? useHookBlockScroll : () => {};
