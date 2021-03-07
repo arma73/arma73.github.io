@@ -21,9 +21,9 @@
         margin-top: 54%;
         margin-left: 25px;
         border-radius: 5px;
-        background-image: linear-gradient(185deg,
-            map-get($map: $colors-rgb, $key: cornflower-blue), 
-            rgba(map-get($map: $colors-rgb, $key: dodger), 0) 86%
+        background-image: linear-gradient(154deg,
+            map-get($map: $themes, $key: portfolio-theme) -36%, 
+            rgba(map-get($map: $themes, $key: main-theme), 0) 65%
         );
     
         @media (max-width: 767px) {

@@ -25,8 +25,8 @@
         @include core-margin;
         z-index: map-get($map: $z-layers, $key: middle);
         background-image: linear-gradient(135deg,
-                rgba(map-get($map: $colors-rgb, $key: cornflower-blue), .7),
-                rgba(map-get($map: $colors-rgb, $key: melrose), .7));
+                rgba(map-get($map: $colors-portfolio, $key: tower-color), .7),
+                rgba(map-get($map: $colors-portfolio, $key: tower-color), .7));
         border: 2px solid white;
         overflow: visible;
         border-radius: 0px 3px 3px;
@@ -52,7 +52,7 @@
             @include core-size;
             @include core-margin;
             z-index: map-get($map: $z-layers, $key: base);
-            background-color: rgba(map-get($map: $colors-rgb, $key: periwinkle), .7);
+            background-color: rgba(map-get($map: $colors-portfolio, $key: tower-color), .7);
             transform: translate(0px, -50%) translate3d(-65px, -58px, 50px);
             border-radius: 3px;
             transition: transform 1s ease;
@@ -67,10 +67,10 @@
             @include core-size;
             @include core-margin;
             z-index: map-get($map: $z-layers, $key: bottom);
-            background-color: map-get($map: $colors-hex, $key: cornflower-blue);
+            // background-color: map-get($map: $colors-portfolio, $key: tower-color);
             background-image: linear-gradient(315deg,
-                map-get($map: $colors-hex, $key: cornflower-blue),
-                map-get($map: $colors-hex, $key: malibu)
+                map-get($map: $colors-portfolio, $key: tower-color),
+                rgba(map-get($map: $colors-portfolio, $key: tower-color), .1)
             );
             border-radius: 3px;
             transform: translate3d(-45px, -101%, 50px);
@@ -82,13 +82,13 @@
         }
 
         &__square-bottom {
-            @include core-position(absolute, 0px, 0px, auto, 0px);
+            @include core-position(absolute, 0px, 7px, auto, 0px);
             @include core-size;
             @include core-margin;
             z-index: map-get($map: $z-layers, $key: default);
             background-image: linear-gradient(335deg,
-                    rgba(map-get($map: $colors-rgb, $key: cornflower-blue), .62) 11%,
-                    rgba(map-get($map: $colors-rgb, $key: cornflower-blue), .33) 48%);
+                    rgba(map-get($map: $themes, $key: main-theme), 0) 0%,
+                    rgba(map-get($map: $themes, $key: main-theme), .1) 0%);
             border-radius: 3px;
             transform: translate(-28px, -71%);
         }

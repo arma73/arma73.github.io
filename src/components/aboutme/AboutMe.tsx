@@ -20,7 +20,7 @@ const AboutMe = () => {
                 }}
             >
                 <div className="box--aboutme" {...bind}>
-                    <div className="title">A</div>
+                    <h3 className="title">A</h3>
                     <StraightLine
                         options={{
                             "fill": true,

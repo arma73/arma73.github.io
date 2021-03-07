@@ -10,10 +10,11 @@ import { RoutePage } from "_settings/path.routes";
 import ContentRoutes from "./Content.routes";
 import Main from "_pages/main";
 import PageAboutMe from "_pages/aboutme";
-import Experience from "_pages/experience";
 import ShowcaseRoutes from "./Showcase.routes";
 import Articles from "_pages/articles";
 import { DynamicImportType } from "_interfaces/dynamic.interface";
+
+const Experience = React.lazy(() => import("_pages/experience"));
 
 export interface ContentDynamicImport {
     "importContent": (path: string) => DynamicImportType<string>;
@@ -37,11 +38,13 @@ const SiteRoutes: FC<RouteComponentProps & ContentDynamicImport> = props => {
                 <Route exact path={RoutePage.MAIN} component={Main} />
                 <Route exact path={RoutePage.ARTICLES} component={Articles} />
                 <Route exact path={RoutePage.ABOUTME} component={PageAboutMe} />
-                <Route
-                    exact
-                    path={RoutePage.EXPERIENCE}
-                    component={Experience}
-                />
+                <React.Suspense fallback="">
+                    <Route
+                        exact
+                        path={RoutePage.EXPERIENCE}
+                        component={Experience}
+                    />
+                </React.Suspense>
                 <Route render={() => <ContentRoutes {...props} />} />
             </Switch>
             {showcase && <ShowcaseRoutes />}
