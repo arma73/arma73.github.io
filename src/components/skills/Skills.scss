@@ -37,7 +37,7 @@
                 @include core-size(40px, 40px);
                 z-index: map-get($map: $z-layers, $key: middle);
                 border-radius: 100%;
-                background-color: rgba(map-get($map: $colors-rgb, $key: fog), 0.8);
+                background-color: rgba(map-get($map: $colors-portfolio, $key: skills-color), 0.8);
                 background-image: linear-gradient(315deg,
                         rgba(white, 0.22),
                         rgba(white, 0));
@@ -53,9 +53,9 @@
                     @include core-position(relative, 0px, 30px, -57px, unset);
                     z-index: map-get($map: $z-layers, $key: bottom);
                     background-image: linear-gradient(180deg,
-                            map-get($map: $colors-hex, $key: dodger-blue),
-                            rgba(white, 0.76));
-                    box-shadow: 23px 19px 0 0 rgba(map-get($map: $colors-rgb, $key: dodger), 0.26);
+                            map-get($map: $colors-portfolio, $key: skills-color),
+                            rgba(map-get($map: $colors-portfolio, $key: skills-color), 0.56));
+                    box-shadow: 23px 19px 0 0 rgba(map-get($map: $themes, $key: main-theme), 0.22);
                     background-color: transparent;
                     transform: translate(0px, 0px);
                 }
@@ -92,7 +92,7 @@
                     &:last-child {
                         @include core-position(absolute);
                         // left: 5px;
-                        box-shadow: 21px 17px 0 0 rgba(67,83,255,0.26);
+                        box-shadow: 21px 17px 0 0 rgba(map-get($map: $themes, $key: main-theme), .26);
                     }
                 }
             }

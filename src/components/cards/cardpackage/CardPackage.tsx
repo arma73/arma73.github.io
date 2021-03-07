@@ -26,7 +26,7 @@ const CardPackage: FC<CardPackageProps> = ({
                 </div>
             </RiseAnimated>
         ) : (
-            <div className="card--column">
+            <div className="card--column empty">
                 <Circle />
                 <StraightLine />
             </div>
