@@ -1,9 +1,11 @@
 import { ReactNode } from "react";
+import { To } from "history";
 import styled from "styled-components";
 import { Link, LinkProps } from "react-router-dom";
 
 interface LinkButtonProps extends LinkProps {
     "children": ReactNode;
+    "to": To;
     "className"?: string;
     "onClick"?: FunctionOf;
 }
