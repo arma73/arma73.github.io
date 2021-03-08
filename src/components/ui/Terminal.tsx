@@ -13,7 +13,7 @@ const Terminal: FC<TerminalProps> = ({ children, href, Icon, title }) => {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        let timeId: NodeJS.Timeout | undefined;
+        let timeId: number | undefined;
         const caretToggle = (): void => {
             if (ref.current?.classList.contains("blink")) {
                 ref.current.classList.remove("blink");
@@ -23,12 +23,12 @@ const Terminal: FC<TerminalProps> = ({ children, href, Icon, title }) => {
         };
 
         if (ref) {
-            timeId = global.setInterval(caretToggle, 500);
+            timeId = window.setInterval(caretToggle, 500);
         }
 
         return () => {
             if (timeId) {
-                clearInterval(timeId);
+                window.clearInterval(timeId);
             }
         };
     }, []);

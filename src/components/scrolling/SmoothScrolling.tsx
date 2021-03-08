@@ -12,7 +12,7 @@ interface Animation {
 class SmoothScrolling {
     private readonly element: HTMLElement;
     private readonly callback?: FunctionOf;
-    private timer: NodeJS.Timeout | null = null;
+    private timer: number | null = null;
     private startTime: number = Date.now();
     private duration: number;
     private percentage = 0;
@@ -44,7 +44,7 @@ class SmoothScrolling {
             clearInterval(this.timer);
         }
 
-        this.timer = global.setTimeout(this.step, 10);
+        this.timer = window.setTimeout(this.step, 10);
     }
 
     private step = () => {
@@ -70,7 +70,7 @@ class SmoothScrolling {
                 this.duration
             );
             window.scrollTo(0, yScroll);
-            this.timer = global.setTimeout(this.step, 10);
+            this.timer = window.setTimeout(this.step, 10);
         }
     };
 

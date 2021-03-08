@@ -22,9 +22,10 @@ const StyledWindowIOS = styled.div.attrs(
     left: 50%;
     transform: translate(-50%, -50%);
 
-    .viewport {
+    .window-viewport {
         width: 100%;
-        height: 300px;
+        min-height: 300px;
+        height: max-content;
         overflow: hidden;
     }
 `;
@@ -35,13 +36,13 @@ interface WindowIOSProps {
 }
 
 const WindowIOS: FC<WindowIOSProps> = ({ children, width, height }) => (
-    <StyledWindowIOS width={width} height={height}>
+    <StyledWindowIOS width={width} height={height} className="windowIOS">
         <div className="window-top">
             <div className="button x" />
             <div className="button min" />
             <div className="button max" />
         </div>
-        <div className="viewport">{children}</div>
+        <div className="window-viewport">{children}</div>
     </StyledWindowIOS>
 );
 

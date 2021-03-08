@@ -1,23 +1,23 @@
 import { BreakpointTypes } from "../types";
-import { Actions } from "_interfaces/store.interface";
+import { Action } from "_interfaces/store.interface";
+import { DisplayBreakpoints } from "_settings/breakpoint";
 
 export interface PayloadActiveBreakpoint {
-    "breakpointName": string;
+    "breakpointName": keyof typeof DisplayBreakpoints;
     "breakpointSize": number;
 }
 
-interface ActionActiveBreakpoint
-    extends Actions<
-        BreakpointTypes.SET_ACTIVE_BREAKPOINT,
-        PayloadActiveBreakpoint
-    > {}
+export type ActionActiveBreakpoint = Action<
+    BreakpointTypes.SET_ACTIVE_BREAKPOINT,
+    PayloadActiveBreakpoint
+>;
 
 /**
  * @description Changes the active breakpoint.
  */
 export const setActiveBreakpoint = (
-    breakpointName: string,
-    breakpointSize: number
+    breakpointName: PayloadActiveBreakpoint["breakpointName"],
+    breakpointSize: PayloadActiveBreakpoint["breakpointSize"]
 ): ActionActiveBreakpoint => ({
     "type": BreakpointTypes.SET_ACTIVE_BREAKPOINT,
     "payload": {

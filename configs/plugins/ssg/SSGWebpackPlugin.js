@@ -14,7 +14,7 @@ const flattenContentTree = require("../../utils/flattenContentTree");
 const contentTree = require(join(appSrc, "settings", "_content.json"));
 
 // content tree to path array
-const paths = [...flattenContentTree(contentTree)];
+const paths = [...flattenContentTree(contentTree), "/aboutme", "/experience"];
 
 module.exports = () => [
     new SSGWebpackPlugin({

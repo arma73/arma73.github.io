@@ -3,7 +3,8 @@ $apl-color-yell: #ffcc00;
 $apl-color-green: #28cd41;
 
 #term {
-    height: 20rem;
+    height: max-content;
+    min-height: 20rem;
     width: 25rem;
     background: #111;
     border: 1px solid #252525;

@@ -28,7 +28,7 @@ class Collapse extends React.Component<Props, any> {
         "checkTimeout": 50,
     };
 
-    timeout = undefined;
+    timeout: number | undefined = undefined;
 
     container = undefined;
 
@@ -74,11 +74,11 @@ class Collapse extends React.Component<Props, any> {
     }
 
     componentWillUnmount() {
-        global.clearTimeout(this.timeout!);
+        window.clearTimeout(this.timeout!);
     }
 
     onResize = () => {
-        global.clearTimeout(this.timeout!);
+        window.clearTimeout(this.timeout!);
 
         if (!this.container || !this.content) {
             return;
@@ -107,8 +107,10 @@ class Collapse extends React.Component<Props, any> {
                 containerHeight,
                 contentHeight,
             });
-            // @ts-ignore
-            this.timeout = setTimeout(() => this.onResize(), checkTimeout);
+            this.timeout = window.setTimeout(
+                () => this.onResize(),
+                checkTimeout
+            );
         }
     };
 
