@@ -19,7 +19,6 @@ exports.executiveAssets = ({ jsmodules, cssmodules }) => {
     for (let path of paths) {
         readdir(join(appBuild, path), (err, files) => {
             if (err) throw err;
-            console.log(files, "files");
             files.forEach(item => {
                 if (item.endsWith(".html")) {
                     const pathHtml = join(appBuild, path, item);
