@@ -22,9 +22,11 @@ if (!existsSync(envFile)) {
 
 // Parses the file of the area variable (.env. *) and returns in the "parsed"
 // key an object that contains the values of the area variables that we set
-const { parsed } = dotenv.config({
+let { parsed } = dotenv.config({
     "path": envFile,
 });
+
+if (!parsed) parsed = process.env;
 
 if (parsed && !parsed.REACT_APP_PORT) {
     parsed.REACT_APP_PORT = 3000;
