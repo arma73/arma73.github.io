@@ -61,11 +61,11 @@
       "type": "image/png"
     }
   ],
-  "name": "arma73 github portfolio",
+  "name": "arma73",
   "short_name": "arma73",
   "display": "fullscreen",
   "start_url": "/",
-  "description": "arma73 github portfolio",
+  "description": "portfolio for arma73",
   "background_color": "#3d1163",
   "theme_color": "#3d1163",
   "scope": "/"
