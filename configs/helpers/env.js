@@ -14,7 +14,7 @@ const environment = process.env.NODE_ENV || "development";
 const envPublicUrl = process.env.PUBLIC_URL;
 const isModern = process.env.BROWSERS_ENV === "modern";
 
-let envFile = servedSepOS(rootPath, `.env.${environment}`);
+let envFile = servedSepOS(rootPath, ".env");
 
 if (!existsSync(envFile)) {
     envFile = pathEnv;
