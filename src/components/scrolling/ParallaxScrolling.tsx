@@ -1,6 +1,11 @@
-import { forwardRef, memo, ReactNode } from "react";
+/* eslint-disable max-lines */
+import { forwardRef, ReactNode, RefAttributes } from "react";
 import styled from "styled-components";
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
+import withMediaQueryListener, {
+    InjectedMediaQueryListenerProps,
+} from "_hoc/withMediaQueryListener";
+import { breakpointIsGreaterThan } from "_utils/responsiveHelpers";
 import Saturn from "_components/ui/Saturn";
 import StarsSVG from "_theme/icons/experience/stars.svg";
 import EarthSVG from "_theme/icons/experience/earth.svg";
@@ -18,14 +23,16 @@ const StyledParallaxLayer = styled(ParallaxLayer).attrs(
     opacity: ${({ opacity }) => opacity};
 `;
 
-export interface ParallaxScrollingProps {
+export interface ParallaxScrollingProps
+    extends InjectedMediaQueryListenerProps {
     "handleScrollTo"?: (count: 0 | 1 | 2) => void;
     "viewFirst": ReactNode;
     "viewSecond": ReactNode;
 }
 
 const ParallaxScrolling = forwardRef<Parallax, ParallaxScrollingProps>(
-    function ParallaxComponent({ viewFirst, viewSecond }, ref) {
+    function ParallaxComponent({ viewFirst, viewSecond, breakpoint }, ref) {
+        console.log(ref);
         return (
             <Parallax ref={ref} pages={3}>
                 <StyledParallaxLayer offset={0} speed={0} factor={3}>
@@ -80,11 +87,16 @@ const ParallaxScrolling = forwardRef<Parallax, ParallaxScrollingProps>(
                 <StyledParallaxLayer offset={1} speed={0.1}>
                     <div className="center" style={{ "height": "100%" }}>
                         {viewSecond}
-                        <ServerSVG
-                            width="20%"
-                            height="40%"
-                            style={{ "marginLeft": "25px" }}
-                        />
+                        {breakpointIsGreaterThan(
+                            "MOBILE_MD",
+                            breakpoint.size
+                        ) ? (
+                            <ServerSVG
+                                width="20%"
+                                height="40%"
+                                style={{ "marginLeft": "25px" }}
+                            />
+                        ) : null}
                     </div>
                 </StyledParallaxLayer>
                 <StyledParallaxLayer offset={2} speed={-0}>
@@ -95,4 +107,6 @@ const ParallaxScrolling = forwardRef<Parallax, ParallaxScrollingProps>(
     }
 );
 
-export default memo(ParallaxScrolling);
+export default withMediaQueryListener<
+    ParallaxScrollingProps & RefAttributes<Parallax>
+>(ParallaxScrolling);
