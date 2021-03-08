@@ -1,9 +1,15 @@
 /* eslint-disable max-lines */
-import gsap from "gsap";
+import { canUseDOM } from "_utils/isClient";
 
-export const move = (id: number, color: string) => {
-    const tl = gsap.timeline();
-    const position = `${(id - 1) * 100 + 50}px`;
+export const move = async (id: number, color: string) => {
+    if (!canUseDOM) return;
+    const gsap: typeof globalThis.gsap = ((await import(
+        "gsap"
+    )) as unknown) as typeof globalThis.gsap;
+    // FIXME: right type declarations for gsap
+    // @ts-ignore
+    const tl = new gsap.TimelineMax();
+    const position = id !== 0 ? `${(id - 1) * 100 + 50}px` : "0px";
 
     tl.to(
         "#bgBubble",
@@ -62,7 +68,7 @@ export const move = (id: number, color: string) => {
             "-=0.2"
         )
         .to(
-            `#bubble${id}`,
+            `${id === 0 ? ".bubble" : `#bubble${id}`}`,
             {
                 "duration": 0.15,
                 "y": "0%",
@@ -74,12 +80,12 @@ export const move = (id: number, color: string) => {
             "-=0.1"
         )
         .to(
-            `#bubble${id}> span`,
+            `${id === 0 ? ".bubble" : `#bubble${id}> span`}`,
             {
                 "duration": 0.15,
                 "y": "9%",
                 "x": "1px",
-                "opacity": 0.7,
+                "opacity": id === 0 ? 1 : 0.7,
                 "ease": "ease-out",
             },
             "-=0.1"
