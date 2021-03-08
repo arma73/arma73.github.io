@@ -26,11 +26,11 @@ const { parsed } = dotenv.config({
     "path": envFile,
 });
 
-if (!parsed.REACT_APP_PORT) {
+if (!parsed?.REACT_APP_PORT) {
     parsed.REACT_APP_PORT = 3000;
 }
 
-if (!parsed.REACT_APP_HOST) {
+if (!parsed?.REACT_APP_HOST) {
     parsed.REACT_APP_HOST = "localhost";
 }
 
