@@ -1,44 +1,39 @@
-import { ReactNode } from "react";
+import { Dispatch, FC } from "react";
 import { createContext, useReducer, useContext } from "react";
-import { BreakpointTypes } from "./types";
-import { Actions } from "_interfaces/store.interface";
-import { PayloadActiveBreakpoint } from "./actions";
+import { mediaReducer, MediaReducerActions } from "./MediaReducer";
+import { Reducer } from "_interfaces/store.interface";
+import { DisplayBreakpoints } from "_settings/breakpoint";
 
-interface MediaState {
-    "name": string;
-    "size": number | null;
+export interface MediaState {
+    "breakpoint": keyof typeof DisplayBreakpoints;
+    "size": number;
 }
 
 const initialState: MediaState = {
-    "name": "default",
-    "size": null,
+    "breakpoint": "DESKTOP_MD",
+    "size": DisplayBreakpoints.MOBILE_MD,
 };
 
-type ReducerActions = Actions<BreakpointTypes, PayloadActiveBreakpoint>;
+export interface MediaContextResponse {
+    "state": MediaState;
+    "dispatch": Dispatch<MediaReducerActions>;
+}
 
-const reducer = (
-    state: MediaState,
-    { type, payload }: ReducerActions
-): MediaState => {
-    switch (type) {
-        case BreakpointTypes.SET_ACTIVE_BREAKPOINT:
-            return {
-                ...state,
-                "name": payload.breakpointName,
-                "size": payload.breakpointSize,
-            };
-        default:
-            return state;
-    }
-};
+export const MediaContext = createContext<MediaContextResponse>({
+    "state": initialState,
+    "dispatch": () => null,
+});
 
-export const MediaContext = createContext([{}, () => {}]);
+const mainReducer: Reducer<MediaState, MediaReducerActions> = (state, action) =>
+    mediaReducer(state, action);
 
-export const MediaProvider = ({ children }: { "children": ReactNode }) => {
-    const value = useReducer(reducer, initialState);
+export const MediaProvider: FC = ({ children }) => {
+    const [state, dispatch] = useReducer(mainReducer, initialState);
 
     return (
-        <MediaContext.Provider value={value}>{children}</MediaContext.Provider>
+        <MediaContext.Provider value={{ state, dispatch }}>
+            {children}
+        </MediaContext.Provider>
     );
 };
 
