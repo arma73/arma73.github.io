@@ -1,3 +1,9 @@
+@mixin break($size: laptop) {
+    @media (min-width: map-get($map: $screens, $key: $size)) {
+        @content;
+    }
+}
+
 @mixin core-position($position, $rigth: 0px, $left: 0px, $top: 0px, $bottom: 0px) {
     position: $position;
     right: $rigth;
@@ -74,11 +80,11 @@
         0% {
             transform: scale(1);
         }
-    
+
         25% {
             transform: scale(1.2);
         }
-    
+
         50% {
             transform: scale(1);
         }
@@ -102,10 +108,9 @@
     }
 }
 
-@mixin animation-rise-down(
-    $delay: 1, 
-    $time: 3s, 
-    $function: ease-in-out, 
+@mixin animation-rise-down($delay: 1,
+    $time: 3s,
+    $function: ease-in-out,
     $toTransform: translateX(3px) translateY(3px),
 ) {
     animation: $time rise-down $delay $function;
@@ -114,6 +119,7 @@
         0% {
             transform: translateX(0px) translateY(0px);
         }
+
         50% {
             transform: $toTransform;
         }
