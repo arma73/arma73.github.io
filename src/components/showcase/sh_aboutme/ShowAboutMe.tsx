@@ -29,7 +29,7 @@ const ShowAboutMe = () => {
             <S.Contacts>
                 <S.ContactItem>
                     {" "}
-                    <IconLocation width="20px" /> Armenia, Erevan{" "}
+                    <IconLocation width="20px" /> Armenia, Yerevan{" "}
                 </S.ContactItem>
                 <S.ContactItem>
                     {" "}

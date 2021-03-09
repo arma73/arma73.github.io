@@ -8,7 +8,7 @@ import IconTelephone from "_theme/icons/telephone.svg";
 import IconCalendar from "_theme/icons/calendar.svg";
 
 const PageAboutMe = () => (
-    <Layout className="articles">
+    <Layout className="aboutme">
         <Header />
         <Container>
             <S.Name>Arman Khilko</S.Name>
@@ -16,7 +16,7 @@ const PageAboutMe = () => (
         <S.Contacts>
             <S.ContactItem>
                 {" "}
-                <IconLocation width="20px" /> Armenia, Erevan{" "}
+                <IconLocation width="20px" /> Armenia, Yerevan{" "}
             </S.ContactItem>
             <S.ContactItem>
                 {" "}

@@ -1,15 +1,18 @@
+@import "_theme/var";
+
+$color-placeholder: map-get($map: $colors-article, $key: placeholder);
+
 .placeholder {
     h2,
     p {
-        // background-color: color;
-        background-color: black;
+        background-color: $color-placeholder;
         font-family: sans-serif;
         overflow: hidden;
         position: relative;
 
         &:after {
             animation: placeholderAnimation 1s infinite;
-            background: linear-gradient(to right, pink, #fcfcfc, red);
+            background: linear-gradient(to right, $color-placeholder, lighten($color-placeholder, 30));
             content: '';
             left: 0;
             height: 100%;

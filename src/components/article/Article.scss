@@ -1,0 +1,8 @@
+@import "_theme/var", "_theme/mixins";
+
+.article {
+    @include core-size(100%, max-content);
+    background-color: map-get($map: $themes, $key: article-theme);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

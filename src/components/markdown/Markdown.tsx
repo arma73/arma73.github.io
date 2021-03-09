@@ -28,7 +28,7 @@ const Markdown: FC<MarkdownProps> = ({
 
     return (
         <div className="markdown">
-            <h1>{title}</h1>
+            <h1 className="md--title">{title}</h1>
             {render}
             {children}
         </div>
