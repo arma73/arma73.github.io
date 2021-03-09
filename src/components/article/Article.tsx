@@ -39,9 +39,9 @@ const Article: FC<ArticleProps> = ({ content, title = "" }) => {
     }, [content]);
 
     return (
-        <main className="article">
+        <div className="article">
             <Markdown title={title} pageContent={pageContent} />
-        </main>
+        </div>
     );
 };
 

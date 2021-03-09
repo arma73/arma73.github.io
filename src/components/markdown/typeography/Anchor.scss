@@ -1,0 +1,17 @@
+$code-color: rgb(48, 185, 146);
+
+a {
+    color: map-get($map: $colors-article, $key: anchor);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .5s;
+
+    &:hover {
+        color: darken($color: map-get($map: $colors-article, $key: anchor), $amount: 20);
+        text-decoration: underline;
+    }
+}
+
+a code {
+    color: $code-color;
+}

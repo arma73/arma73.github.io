@@ -6,6 +6,7 @@ import {
     RouteComponentProps,
     useLocation,
 } from "react-router-dom";
+import { MDXProvider } from "@mdx-js/react";
 import { RoutePage } from "_settings/path.routes";
 import ContentRoutes from "./Content.routes";
 import Main from "_pages/main";
@@ -24,7 +25,7 @@ const SiteRoutes: FC<RouteComponentProps & ContentDynamicImport> = props => {
     const showcase = location.state && location.state.showcase;
 
     return (
-        <>
+        <MDXProvider components={{}}>
             <Switch location={showcase || location}>
                 <Route
                     exact
@@ -45,7 +46,7 @@ const SiteRoutes: FC<RouteComponentProps & ContentDynamicImport> = props => {
                 <Route render={() => <ContentRoutes {...props} />} />
             </Switch>
             {showcase && <ShowcaseRoutes />}
-        </>
+        </MDXProvider>
     );
 };
 
