@@ -1,0 +1,91 @@
+table {
+    margin: 1em 0;
+
+    @include break {
+        display: block;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    code {
+        padding-top: 0;
+    }
+}
+thead {
+    display: none;
+
+    @include break {
+        display: table-header-group;
+    }
+}
+
+th {
+    font-weight: bold;
+    text-align: left;
+    padding: 6px 12px;
+    background: darken(#f4f6f6, 1%);
+    border-right: 1px solid #cccccc;
+
+    &:last-child {
+        border-right: none;
+    }
+}
+
+tr {
+    border: 1px solid #cccccc;
+
+    &:nth-child(2n) {
+        background-color: #f8f8f8;
+    }
+
+    &:last-child {
+        border-bottom: 1px solid #cccccc;
+    }
+
+    display: block;
+    margin-bottom: 10px;
+
+    @include break {
+        margin-bottom: 0;
+        display: table-row;
+    }
+}
+
+td {
+    padding: 4px 12px;
+    border-right: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-bottom: 1px solid #f2f2f2;
+    text-align: left;
+
+    &::before {
+        content: attr(data-th);
+        font-weight: bold;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    @include break {
+        display: table-cell;
+        padding: 14px 22px;
+        text-align: unset;
+
+        &::before {
+            content: none;
+        }
+
+        border-right: 1px solid #cccccc;
+        border-bottom: none;
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+p {
+    color: map-get($map: $colors-article, $key: base);
+    font-family: $font-stack-body;
+}
+
+p {
+    strong {
+        letter-spacing: 0.5px;
+        border-left: inset;
+        padding-left: 6px;
+    }
+}

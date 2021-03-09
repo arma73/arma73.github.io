@@ -1,0 +1,60 @@
+ul,
+ol,
+dl {
+    margin: 0.5em 0 1em;
+}
+
+ul,
+ol {
+    padding-left: 30px !important;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+dl {
+    dt {
+        font-weight: bold;
+        font-style: italic;
+        margin: 15px 0 5px;
+
+        &:first-child {
+            padding: 0;
+        }
+    }
+
+    dd {
+        margin: 0 0 15px;
+        padding: 0 15px;
+    }
+
+    dt,
+    dd {
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+ul {
+    list-style-position: inside;
+    list-style-type: disc !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    color: map-get($map: $colors-article, $key: base);
+    font-family: $font-stack-body;
+}
+
+li {
+    margin: 0.5em 0;
+}
