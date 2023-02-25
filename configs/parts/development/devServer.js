@@ -36,7 +36,7 @@ module.exports = {
     // Specify a port number to listen for requests on:
     "port": PORT,
     // Use the local IP to open devServer instead of localhost.
-    "useLocalIp": true,
+    // "useLocalIp": true,
     "static": appBuild,
 
     // You can proxy the APIs of other servers through proxy.

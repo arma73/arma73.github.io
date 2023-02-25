@@ -57,7 +57,7 @@ module.exports = {
                 "@typescript-eslint/strict-boolean-expressions": "off",
                 "@typescript-eslint/triple-slash-reference": [
                     "off",
-                    { 
+                    {
                         "path": "always",
                         "types": "always",
                         "lib": "always"

@@ -22,6 +22,7 @@ module.exports = () => [
             "window": {
                 "__ssgrun": true,
                 "requestAnimationFrame": raf, // requestAnimationFrame polyfill for node [use: react-spring].
+                "cancelAnimationFrame": frame => clearTimeout(frame),
             },
         },
         paths,

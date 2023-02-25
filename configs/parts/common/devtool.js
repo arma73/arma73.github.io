@@ -1,8 +1,8 @@
 "use-strict";
 
-const { production } = require("../../helpers/options");
+const { development } = require("../../helpers/options");
 
-const devtool = production ? false : "eval-cheap-module-source-map";
+const devtool = development ? "eval-cheap-module-source-map" : false;
 
 // This option controls if and how source maps are generated.
 module.exports = {

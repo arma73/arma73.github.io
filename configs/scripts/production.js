@@ -6,7 +6,6 @@ const chalk = require("chalk");
 
 const setupCompiler = config => {
     const compiler = webpack(config);
-
     compiler.run((error, stats) => {
         if (error) {
             // error configuration
@@ -40,6 +39,9 @@ const setupCompiler = config => {
             // Compile-time warnings
             console.log(chalk.yellowBright("➡ Compile-time Warning!"));
         }
+
+        // FIXME: Webpack compilation hangs
+        process.exit(0);
     });
 };
 

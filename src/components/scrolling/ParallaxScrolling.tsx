@@ -32,7 +32,6 @@ export interface ParallaxScrollingProps
 
 const ParallaxScrolling = forwardRef<Parallax, ParallaxScrollingProps>(
     function ParallaxComponent({ viewFirst, viewSecond, breakpoint }, ref) {
-        console.log(ref);
         return (
             <Parallax ref={ref} pages={3}>
                 <StyledParallaxLayer offset={0} speed={0} factor={3}>

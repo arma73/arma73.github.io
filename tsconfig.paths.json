@@ -12,7 +12,7 @@
             "_hooks/*": ["src/hooks/*"],
             "_pages/*": ["src/pages/*"],
             "_theme/*": ["src/theme/*"],
-            "_utils/*": ["src/utils/*"], 
+            "_utils/*": ["src/utils/*"],
             "_routes/*": ["src/routes/*"],
             "_content/*": ["src/content/*"],
             "_context/*": ["src/context/*"],
@@ -24,7 +24,6 @@
             "_interfaces/*": ["src/interfaces/*"]
         },
         "typeRoots": [
-            "node_modules/@types",
             "typings"
         ]
     },

@@ -38,7 +38,7 @@ const Navigation: FC<NavigationProps & RouteComponentProps> = ({
             {
                 "Icon": Icon3DHome,
                 "to": RoutePage.MAIN,
-                "color": "transparent",
+                "color": "#f2a417",
                 "count": 1,
             },
             {

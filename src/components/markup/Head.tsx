@@ -11,6 +11,10 @@ interface HeadProps {
     "locals": Locals;
 }
 
+const underConstructionStyles = `
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:700);.ticker,.warn-text{white-space:nowrap}.ticker,.ticker-wrap{height:4rem;overflow:hidden;box-sizing:content-box}.under-construction{position:fixed;left:0;top:0;bottom:0;right:0}.canvas-container{display:flex;justify-content:center;align-items:center}.tape{font-family:"Roboto Condensed";text-transform:uppercase;width:100vw;position:fixed;bottom:30%;left:-30%;transform:rotate(30deg);user-select:none}.clearance-tape{padding:1rem;position:relative}.clearance-tape::before{content:"";position:absolute;z-index:-1;top:0;left:0;width:300%;height:100%;background:repeating-linear-gradient(-45deg,#f2a417,#f2a417 15px,#141617 15px,#141617 30px)}.warn-text{font-size:1.1em;margin-left:-10px;text-align:center}.content-block{overflow:hidden;display:block;background-color:rgba(242,165,23);width:max-content}canvas{display:block}.ticker-wrap{position:fixed;bottom:0;width:100%;background-color:rgba(#000,.9);padding-left:100%}.ticker{display:inline-block;line-height:4rem;padding-right:100%;animation-iteration-count:infinite;animation-timing-function:linear;animation-name:ticker;animation-duration:30s}.ticker__item{display:inline-block;padding:0 2rem;font-size:2rem;color:#fff}@keyframes ticker{0%{transform:translate3d(0,0,0);visibility:0}100%{transform:translate3d(-100%,0,0)}}
+`;
+
 const Head: FC<HeadProps> = ({ locals }) => {
     const { assets } = locals.webpackStats.compilation;
     const title = getPageTitle(locals.content, locals.path);
@@ -75,6 +79,10 @@ const Head: FC<HeadProps> = ({ locals }) => {
             <link rel="mask-icon" href={Logo} color="#3d1163" />
             <meta name="msapplication-TileImage" content="/icon_150x150.png" />
             <meta name="msapplication-TileColor" content="#3d1163" />
+            <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+            <style
+                dangerouslySetInnerHTML={{ "__html": underConstructionStyles }}
+            />
         </head>
     );
 };

@@ -3,7 +3,9 @@
 // require('./src/utilities/find-files-in-dist')(['.css', '.ico', '.svg'])
 
 const { Compilation, sources } = require("webpack");
-const getManifestEntriesFromCompilation = require("workbox-webpack-plugin/build/lib/get-manifest-entries-from-compilation");
+const {
+    getManifestEntriesFromCompilation,
+} = require("workbox-webpack-plugin/build/lib/get-manifest-entries-from-compilation");
 
 class PrecacheSsgManifestPlugin {
     apply(compiler) {
