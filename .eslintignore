@@ -1,6 +1,0 @@
-/public/**
-/.git
-/.vscode
-/dist
-/.cache
-node_modules

@@ -1,7 +1,0 @@
-@import "_theme/mixins";
-
-.intelligence {
-    @include core-size(100%, max-content, inline-flex);
-    @include core-padding(25px, 20px, 0, 0);
-    @include core-animation-show;
-}
