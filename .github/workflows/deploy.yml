@@ -5,9 +5,6 @@ on:
   push:
     branches: ["master"]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -60,7 +57,11 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }} --include=optional
       - name: Build Web
-        run: ${{ steps.detect-package-manager.outputs.runner }} nx build web
+        env:
+          HOST: "https://arma73.github.io"
+        run: |
+          echo "HOST Env: ${{ env.HOST }}"
+          ${{ steps.detect-package-manager.outputs.runner }} nx build web
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
