@@ -1,0 +1,10 @@
+{
+  "name": "@lib/utils",
+  "version": "0.0.1",
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^1.14.0"
+  },
+  "type": "commonjs",
+  "main": "./index.cjs"
+}

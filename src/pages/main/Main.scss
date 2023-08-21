@@ -1,8 +1,0 @@
-@import "_theme/var";
-
-.portfolio--page {
-    overflow: hidden;
-    background-color: map-get($map: $themes, $key: main-theme);
-    height: 100vh;
-    width: 100vw;
-}

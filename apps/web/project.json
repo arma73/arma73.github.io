@@ -1,0 +1,117 @@
+{
+  "name": "web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "dependsOn": [
+        {
+          "target": "prebuild"
+        }
+      ],
+      "options": {
+        "outputPath": "dist/apps/web",
+        "postcssConfig": "apps/web/postcss.config.js"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/web"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "web:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "web:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "web:build:production",
+          "dev": false
+        }
+      }
+    },
+    "dev": {
+      "command": "nx run-many --target contentlayer-dev serve -p web"
+    },
+    "prebuild": {
+      "command": "nx run-many --target rss -p web",
+      "dependsOn": [
+        {
+          "target": "contentlayer-build"
+        }
+      ]
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "web:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "apps/web/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/web/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "contentlayer-build": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "contentlayer build -c contentlayer.config.ts",
+        "cwd": "apps/web"
+      }
+    },
+    "contentlayer-dev": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "contentlayer dev -c contentlayer.config.ts",
+        "cwd": "apps/web"
+      }
+    },
+    "rss": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "cross-env NODE_OPTIONS='--experimental-json-modules' node ./lib/rss.mjs",
+        "cwd": "apps/web"
+      }
+    }
+  },
+  "tags": []
+}

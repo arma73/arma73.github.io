@@ -1,41 +1,66 @@
 {
-    "extends": "./tsconfig.paths.json",
-    "compileOnSave": false,
-    "compilerOptions": {
-        "moduleResolution": "node",
-        "jsx": "react-jsx",
-        "module": "esnext",
-        "target": "es5",
-        "pretty": true,
-        "sourceMap": false,
-        "esModuleInterop": true,
-        "allowUnreachableCode": true,
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
-        "allowJs": true,
-        "alwaysStrict": true,
-        "noImplicitReturns": true,
-        "skipLibCheck": true,
-        "resolveJsonModule": true,
-        "importHelpers": false,
-        "isolatedModules": false,
-        "preserveConstEnums": true,
-        "downlevelIteration": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "noFallthroughCasesInSwitch": true,
-        "forceConsistentCasingInFileNames": true,
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "esnext",
-            "es2015.Promise"
-        ],
-        "types": [
-            "node",
-            "react",
-            "react-dom",
-            "webpack",
-        ]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "#web/*": [
+        "apps/web/*"
+      ],
+      "#web/collections/*": [
+        "apps/web/collections/*"
+      ],
+      "#web/components/*": [
+        "apps/web/components/*"
+      ],
+      "#web/configs/*": [
+        "apps/web/configs/*"
+      ],
+      "#web/hooks/*": [
+        "apps/web/hooks/*"
+      ],
+      "#web/lib/*": [
+        "apps/web/lib/*"
+      ],
+      "#web/public/*": [
+        "apps/web/public/*"
+      ],
+      "#web/styles/*": [
+        "apps/web/styles/*"
+      ],
+      "#web/utils/*": [
+        "apps/web/utils/*"
+      ],
+      "@lib/interfaces": [
+        "libs/interfaces/src/index.ts"
+      ],
+      "@lib/ui": [
+        "libs/ui/src/index.ts"
+      ],
+      "@lib/utils": [
+        "libs/utils/src/index.ts"
+      ],
+      "contentlayer/generated": [
+        "apps/web/.contentlayer/generated"
+      ]
     }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

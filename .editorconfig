@@ -1,3 +1,4 @@
+# Editor configuration, see http://editorconfig.org
 root = true
 
 [*]
@@ -13,19 +14,31 @@ trim_trailing_whitespace = true
 file_type = jsx
 trim_trailing_whitespace = true
 
-[*.styl]
-indent_size = 4
-indent_style = space
-
-[*.yml]
+[*.{css,less,styl,scss,sass}]
 indent_size = 2
 indent_style = space
 
-[*.md]
+[*.svg]
+indent_size = 2
+indent_style = space
+
+[*.{yml,yaml}]
+indent_size = 2
+indent_style = space
+
+[*.{md,mdx}]
 max_line_length = 0
 trim_trailing_whitespace = false
 
-[package.json]
+[*.json]
+indent_size = 2
+indent_style = space
+
+[*.sh]
+indent_size = 2
+indent_style = space
+
+[*.{huskyrc,lintstagedrc,eslintrc,commitlintrc,babelrc}]
 indent_size = 2
 indent_style = space
 
