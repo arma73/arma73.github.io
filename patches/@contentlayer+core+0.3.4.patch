@@ -1,0 +1,101 @@
+diff --git a/node_modules/@contentlayer/core/dist/validate-tsconfig.js b/node_modules/@contentlayer/core/dist/validate-tsconfig.js
+index 0dba78b..8dc1de3 100644
+--- a/node_modules/@contentlayer/core/dist/validate-tsconfig.js
++++ b/node_modules/@contentlayer/core/dist/validate-tsconfig.js
+@@ -1,42 +1,74 @@
+ import path from 'node:path';
+-import { filePathJoin, fs } from '@contentlayer/utils';
+-import { Chunk, O, OT, pipe, T, Tagged } from '@contentlayer/utils/effect';
+-import { parse as parseJsonc } from 'comment-json';
++import { filePathJoin } from '@contentlayer/utils';
++import { OT, pipe, T, Tagged } from '@contentlayer/utils/effect';
++import ts from "typescript";
+ import { getCwd } from './cwd.js';
++
++function isObject (item) {
++  return (item && typeof item === 'object' && !Array.isArray(item));
++}
++
++function mergeDeep(target, source) {
++  let output = Object.assign({}, target);
++  if (isObject(target) && isObject(source)) {
++    Object.keys(source).forEach(key => {
++      if (isObject(source[key])) {
++        if (!(key in target))
++          Object.assign(output, { [key]: source[key] });
++        else
++          output[key] = mergeDeep(target[key], source[key]);
++      } else {
++        Object.assign(output, { [key]: source[key] });
++      }
++    });
++  }
++  return output;
++}
++
++function getCompilerOptionsJSONFollowExtends(filename) {
++    let compopts = {};
++    const config = ts.readConfigFile(filename, ts.sys.readFile).config;
++    if (config.extends) {
++        const rqrpath = path.resolve(path.dirname(filename), config.extends);
++        compopts = getCompilerOptionsJSONFollowExtends(rqrpath);
++    }
++    return mergeDeep(compopts, config.compilerOptions);
++}
++
+ export const validateTsconfig = pipe(T.gen(function* ($) {
+     const cwd = yield* $(getCwd);
+-    const possibleFileNames = ['tsconfig.json', 'jsconfig.json'].map((_) => filePathJoin(cwd, _));
+-    const tsconfigOption = yield* $(pipe(possibleFileNames, T.forEachPar(tryParseFile), T.map(Chunk.toArray), T.map((_) => O.getFirst(..._))));
+-    const warningMessage = (msg) => T.log(`\
++    const possibleFileName = filePathJoin(cwd, 'tsconfig.json');
++    const filename = path.basename(possibleFileName);
++
++    const compilerOptions = getCompilerOptionsJSONFollowExtends(possibleFileName);
++
++    const warningMessage = (msg) => `\
+ Contentlayer (Warning): Importing from \`contentlayer\/generated\` might not work.
+ ${msg}
+ 
+ For more information see https://www.contentlayer.dev/docs/getting-started
+ To disable this warning you can set \`disableImportAliasWarning: true\` in your Contentlayer config.
+-`);
+-    if (O.isNone(tsconfigOption)) {
+-        yield* $(warningMessage(`No tsconfig.json or jsconfig.json file found`));
++`;
++
++    if (!compilerOptions) {
++        console.error(warningMessage(`Config option \`compilerOptions.baseUrl\` not found in "${filename}".`));
+         return;
+     }
+-    const { config, fileName } = tsconfigOption.value;
+-    if (config.compilerOptions?.baseUrl === undefined) {
+-        yield* $(warningMessage(`Config option \`compilerOptions.baseUrl\` not found in "${fileName}".`));
++
++    if (compilerOptions?.baseUrl === undefined) {
++        console.warn(warningMessage(`Config option \`compilerOptions.baseUrl\` not found in "${filename}".`));
+         return;
+     }
+-    if (config.compilerOptions?.paths === undefined) {
+-        yield* $(warningMessage(`Config option \`compilerOptions.paths\` not found in "${fileName}".`));
++    if (compilerOptions?.paths === undefined) {
++        console.warn(warningMessage(`Config option \`compilerOptions.paths\` not found in "${filename}".`));
+         return;
+     }
+-    const paths = Object.values(config.compilerOptions.paths).flat();
+-    if (!paths.some((_) => _.includes('./.contentlayer/generated'))) {
+-        yield* $(warningMessage(`No path alias found for "contentlayer/generated" via \`compilerOptions.paths\` in "${fileName}".`));
++    const paths = Object.keys(compilerOptions.paths).flat();
++    if (!paths.some((_) => _.includes('contentlayer/generated'))) {
++        console.warn(warningMessage(`No path alias found for "contentlayer/generated" via \`compilerOptions.paths\` in "${filename}".`));
+     }
+ }), OT.withSpan('validateTsconfig'));
+-const tryParseFile = (filePath) => pipe(fs.readFile(filePath), T.chain((contents) => T.tryCatch(() => parseJsonc(contents, undefined, true), (error) => new InvalidTsconfigError({ error }))), T.map((config) => ({ fileName: path.basename(filePath), config })), T.tapError((error) => T.succeedWith(() => {
+-    if (error._tag === 'InvalidTsconfigError' || error._tag === 'fs.ReadFileError') {
+-        console.log(`Contentlayer: Invalid jsconfig/tsconfig file found: ${filePath}`);
+-    }
+-})), T.option);
++
+ export class InvalidTsconfigError extends Tagged('InvalidTsconfigError') {
+ }
+ //# sourceMappingURL=validate-tsconfig.js.map

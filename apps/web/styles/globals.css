@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 30 6% 94%;
+
+    --primary: 278 69% 53%;
+    --primary-foreground: 213 13% 14%;
+
+    --selection-bg: 173 81% 40%;
+
+    --consistent-tone: 60 2% 90%; /* border, ring */
+    --consistent-accent: 60 2% 75%; /* border, ring */
+
+    --z-index-popup: 500;
+    --z-index-tooltip: 500;
+    --z-index-lightbox: 500;
+    --z-index-mobile-nav: 200;
+    --z-index-header: 100;
+    --text-error: 4 80% 59%;
+    --text-warn: 40 100% 30%;
+    --text-info: 203 91% 43%;
+    --ui-icon: 0 0% 7%;
+
+    --color-title: 0 0% 7%;
+    --color-link: 203 94% 42%;
+    --color-link-hover: 203 94% 36%;
+    --color-link-underline: var(--color-link);
+    --color-link-underline-hover: var(--color-link-hover);
+    --color-quote-border: 0 0% 14%;
+    --color-text-bold: 0 0% 7%;
+    --color-text: 0 0% 7%;
+    --color-text-light: 240 5% 34%;
+    --color-text-medium: 240 4% 16%;
+    --color-button-primary: 240 4% 16%;
+    /* --color-block-border: ; */
+    /* --color-button-secondary: ; */
+    /* --color-button-primary-text: ; */
+    /* --color-button-primary-hover: ; */
+    /* --color-button-primary-active: ; */
+  }
+
+  .dark {
+    --background: 213 16% 11%;
+    --foreground: 213 14% 15%;
+
+    --primary: 278 69% 53%;
+    --primary-foreground: 205 32% 93%;
+
+    --selection-bg: 173 81% 40%;
+
+    --consistent-tone: 213 7% 24%; /* border, ring */
+    --consistent-accent: 212 7% 39%; /* border, ring */
+    --text-error: 0 80% 68%;
+    --text-warn: 40 100% 30%;
+    --text-info: 213 30% 39%;
+    --ui-icon: 240 5% 96%;
+
+    --color-title: 240 5% 96%;
+    --color-link: 192 66% 55%;
+    --color-link-hover: 192 66% 65%;
+    --color-link-underline: var(--color-link);
+    --color-link-underline-hover: var(--color-link-hover);
+    --color-quote-border: 0 0% 86%;
+    --color-text-bold: 240 5% 96%;
+    --color-text: 240 5% 96%;
+    --color-text-light: 240 5% 65%;
+    --color-text-medium: 240 6% 90%;
+    --color-button-primary: 240 4% 16%;
+  }
+
+  ::selection {
+    background: hsl(var(--selection-bg)/30%);
+  }
+
+
+  body {
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  hr {
+    @apply border-0 h-0.5 bg-gradient-to-r from-primary/0 via-primary/70 to-primary/0 dark:from-primary/0 dark:via-primary/70 dark:to-primary/0;
+  }
+}

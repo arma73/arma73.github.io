@@ -40,3 +40,13 @@ Thumbs.db
 
 # Next.js
 .next
+
+# local env files
+.env*.local
+.env
+
+# typescript
+*.tsbuildinfo
+
+# ContentLayer
+.contentlayer

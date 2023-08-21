@@ -22,7 +22,10 @@
       "inputs": [
         "production",
         "^production"
-      ]
+      ],
+      "options": {
+        "generatePackageJson": true
+      }
     },
     "test": {
       "inputs": [
@@ -65,6 +68,9 @@
     "@nx/react": {
       "application": {
         "babel": true
+      },
+      "library": {
+        "unitTestRunner": "jest"
       }
     },
     "@nx/next": {

@@ -1,0 +1,199 @@
+---
+title: FCM Web Push Notifications
+description: Web push notifications work by using a combination of browser APIs and Firebase services to send messages from a server to a user's browser.
+image: /images/articles/firebase-cloud-messaging.png
+favorite: true
+date: "2023-08-21"
+authors:
+  - arma73
+---
+
+## Introduction
+
+`FCM (Firebase Cloud Messaging)` web push notifications work by using a combination of browser APIs and Firebase services to send messages from a server to a user's browser. Here's a high-level overview of the process:
+
+  1. A user subscribes to receive web push notifications from your website by clicking on a "subscribe" button or by accepting a prompt from their browser.
+  2. When the user subscribes, the browser generates a unique endpoint URL for that user's subscription.
+  3. Your server sends a message to Firebase Cloud Messaging (FCM), including the user's endpoint URL and the content of the notification you want to send.
+  4. FCM sends the message to the user's browser using the endpoint URL.
+  5. The browser receives the message and displays the notification to the user.
+
+Here's a more detailed breakdown of the steps involved:
+
+  1. Subscribing to Web Push Notifications
+    When a user first visits your website and agrees to receive push notifications, their browser generates a unique endpoint URL for their subscription. This URL includes a unique token that identifies the user's device and the browser they're using.
+  2. Sending a Message to Firebase Cloud Messaging
+    To send a push notification to a user, your server sends a message to Firebase Cloud Messaging (FCM) that includes the user's endpoint URL and the content of the notification you want to send.
+  3. FCM Sends the Message to the User's Browser
+    FCM receives the message and sends it to the user's browser using the endpoint URL generated during the subscription process. The browser then displays the notification to the user.
+  4. Displaying the Notification
+    When the user receives the notification, they can choose to interact with it by clicking on it or dismissing it. If they click on it, your website can take them to a specific page or perform an action.
+  5. Managing Subscriptions
+    Users can manage their subscriptions in their browser's settings or by using the API provided by their browser. You can also manage subscriptions on your server by storing the endpoint URLs and other information about each user's subscription.
+
+
+## Implementation
+
+- ### **A user subscribes to receive web push notifications from your website by clicking on a "subscribe" button or by accepting a prompt from their browser.**
+
+  To allow users to subscribe to web push notifications on your website, you'll need to implement the following steps:
+
+    1. Check Browser Compatibility: Web push notifications are not supported by all browsers. Check the browser compatibility for your target audience to make sure that web push notifications are supported.
+    2. Request Permission: To subscribe a user to web push notifications, you must first request permission to send notifications. You can do this by calling the `Notification.requestPermission()` method in JavaScript. If the user grants permission, you can proceed with the subscription process.
+    3. Create a Service Worker: A service worker is a JavaScript file that runs in the background of your website and handles push notifications. Create a service worker file that listens for incoming push notifications and displays them to the user.
+    4. Subscribe User: After obtaining permission and creating a service worker, you can subscribe the user to web push notifications. To do this, call the `pushManager.subscribe()` method in JavaScript and pass in the options for the subscription, including the endpoint URL.
+
+- ### **When the user subscribes, the browser generates a unique endpoint URL for that user's subscription.**
+  
+  The endpoint URL for a user's web push notification subscription is generated automatically by the browser when the user grants permission to receive notifications. To obtain the endpoint URL for a user's subscription, you can call the `pushManager.subscribe()` method in JavaScript and handle the resulting subscription object.
+
+  Here's an example code snippet that demonstrates how to obtain the endpoint URL for a user's subscription:
+
+  ```javascript
+  if ('Notification' in window && navigator.serviceWorker) {
+    Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+        navigator.serviceWorker.ready.then(function(registration) {
+            registration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: 'YOUR_PUBLIC_KEY'
+            }).then(function(subscription) {
+            console.log('User subscribed:', subscription.endpoint);
+            // send the endpoint URL to your server to store the subscription
+            }).catch(function(error) {
+            console.error('Subscription failed:', error);
+            });
+        });
+        }
+    });
+  }
+  ```
+
+  In this example, the `subscribe()` method returns a Promise that resolves with a subscription object, which includes the endpoint URL for the user's subscription. The endpoint URL is accessed through the subscription.endpoint property.
+
+  Once you have obtained the endpoint URL for the user's subscription, you can send it to your server and store it for later use when sending push notifications. Note that the endpoint URL is unique to each user and each browser, so you'll need to store it separately for each user/browser combination.
+
+- ### **Your server sends a message to Firebase Cloud Messaging (FCM), including the user's endpoint URL and the content of the notification you want to send.**
+
+  To send a message to Firebase Cloud Messaging (FCM) from your server, you can use one of the FCM server APIs. Here are the general steps:
+
+    1. Obtain a Server Key: You'll need to obtain a Server Key from Firebase Console to authenticate your server and authorize it to send messages to FCM.
+    2. Set up the FCM server API: There are several APIs you can use to send messages to FCM, including HTTP and XMPP. Choose the API that best suits your needs.
+    3. Construct the Message: Construct a JSON payload that includes the notification content and any other options you want to include, such as the target audience or delivery time.
+    4. Send the Message: Send the message to FCM using the appropriate API. The FCM server will then handle the delivery of the notification to the user's browser via the endpoint URL.
+
+  Here's an example of how to use the HTTP API to send a notification message to FCM:
+
+    ```bash
+    POST https://fcm.googleapis.com/fcm/send
+
+    Content-Type: application/json
+    Authorization: key=YOUR_SERVER_KEY
+
+    {
+        "to" : "USER_ENDPOINT_URL",
+        "notification" : {
+            "title" : "New Message",
+            "body" : "You have a new message from John Doe"
+        }
+    }
+    ```
+
+    In this example, replace YOUR_SERVER_KEY with the Server Key you obtained from Firebase Console, and replace USER_ENDPOINT_URL with the endpoint URL of the user you want to send the notification to. You can customize the notification object to include the content and styling of the notification you want to send.
+
+- ### **FCM sends the message to the user's browser using the endpoint URL.**
+
+  When you send a web push notification using Firebase Cloud Messaging (FCM), FCM sends the notification message to the user's browser using the endpoint URL associated with the user's subscription. Here's an overview of how this process works:
+
+    1. Your server sends a notification message to FCM, including the message payload and the endpoint URL for the user's subscription. You can use the FCM API to send messages to individual devices or to groups of devices.
+    2. FCM receives the notification message and checks the endpoint URL to determine which browser to send the message to.
+    3. FCM sends the notification message to the user's browser using the Web Push protocol, which uses HTTP/2 to deliver messages in real-time.
+    4. The user's browser receives the notification message and displays it to the user.
+
+  To send a web push notification using FCM, you'll need to have a valid FCM project set up, and you'll need to obtain the endpoint URL for the user's subscription. Once you have these prerequisites in place, you can construct a message payload and send it to FCM using the FCM API.
+
+- ### **The browser receives the message and displays the notification to the user.**
+
+  When a user's browser receives a web push notification sent through Firebase Cloud Messaging (FCM), it displays the notification to the user. Here's an overview of how this process works:
+
+    1. The user's browser receives the notification message from FCM.
+    2. The browser checks to see if the user has granted permission for the website to display notifications. If the user hasn't granted permission, the browser will prompt the user to allow notifications.
+    3. If the user has granted permission, the browser displays the notification to the user. The appearance of the notification will depend on the browser and the notification payload.
+    4. The user can interact with the notification by clicking on it or dismissing it.
+    5. If the user clicks on the notification, the browser can take the user to a specified URL or perform other actions specified in the notification payload.
+
+  It's worth noting that the appearance and behavior of web push notifications can vary depending on the user's browser and operating system. For example, some browsers may display notifications in a pop-up window, while others may display them as a banner or in the notification center.
+
+  To ensure that your web push notifications are displayed correctly across different browsers and operating systems, it's important to test your notifications thoroughly and follow best practices for notification design and implementation.
+
+## Push Encryption
+Web Push Encryption is a mechanism that allows web developers to send secure push notifications to users who have subscribed to receive them. It ensures that the data transmitted between a website and a user's device is protected from unauthorized access and tampering.
+
+Web Push Encryption is achieved using a combination of two technologies: the Push API and the encryption algorithm ECDH (Elliptic Curve Diffie-Hellman). When a user subscribes to receive push notifications from a website, the website generates a unique endpoint URL for the user's device. This endpoint URL is used to send encrypted messages to the user's device.
+
+When a push message is sent, the website encrypts the message using ECDH with a randomly generated key pair. The public key is included in the push message, while the private key is stored on the website's server. When the user's device receives the push message, it uses its own private key to decrypt the message and access its contents.
+
+In addition to ECDH encryption, web push notifications also use HTTPS (HTTP Secure) to transmit the encrypted message. This ensures that the message is transmitted securely over the internet and cannot be intercepted by unauthorized parties.
+
+Overall, Web Push Encryption provides a secure and reliable way for websites to send push notifications to users while protecting the privacy and security of the data transmitted between the website and the user's device.
+
+## FCM Web Push Encryption
+
+FCM (Firebase Cloud Messaging) Web Push Encryption is a mechanism used by FCM to provide secure push notifications to users who have subscribed to receive them. It is similar to the Web Push Encryption mechanism used by other web push notification systems, but with some differences specific to FCM.
+
+When a user subscribes to receive push notifications from a website using FCM, the website generates a unique endpoint URL for the user's device. This endpoint URL is used to send encrypted messages to the user's device.
+
+When a push message is sent, FCM encrypts the message using the Advanced Encryption Standard (AES) with a randomly generated key. The encrypted message is then sent to the user's device using the endpoint URL.
+
+To ensure that only the intended recipient can access the message, FCM also includes a token in the message that is used by the user's device to authenticate itself with the FCM servers. The device uses this token to decrypt the message and access its contents.
+
+In addition to AES encryption, FCM also uses HTTPS (HTTP Secure) to transmit the encrypted message. This ensures that the message is transmitted securely over the internet and cannot be intercepted by unauthorized parties.
+
+Overall, FCM Web Push Encryption provides a secure and reliable way for websites to send push notifications to users while protecting the privacy and security of the data transmitted between the website and the user's device.
+
+- ### **FCM Web Push certificates and VAPID**
+
+  FCM (Firebase Cloud Messaging) Web Push Encryption supports two types of encryption mechanisms: `FCM Web Push certificates` and `VAPID (Voluntary Application Server Identification)`.
+
+  FCM Web Push certificates are a type of encryption mechanism that uses a unique certificate for each FCM project. When a user subscribes to receive push notifications from a website using FCM, the website sends the user's subscription information, including the endpoint URL, to the FCM servers. The FCM servers then use the project's unique certificate to encrypt the push message and send it to the user's device. This ensures that the message can only be decrypted by the user's device, which has access to the private key associated with the certificate.
+
+  VAPID is another type of encryption mechanism that uses a set of public and private keys to encrypt and authenticate push messages. VAPID allows web developers to generate their own keys and use them to encrypt push messages, instead of relying on a unique certificate from FCM. VAPID is not limited to FCM and can be used with other web push notification systems.
+
+  Both FCM Web Push certificates and VAPID provide secure and reliable encryption for web push notifications. The choice between the two depends on the specific needs and requirements of the web developer and their application.
+
+    #### VAPID (Voluntary Application Server Identification)
+
+    VAPID (Voluntary Application Server Identification) is limited to a specific set of push notification services in the sense that it is designed specifically for use with web push notifications and a limited number of push notification services that support the VAPID protocol.
+
+    While VAPID is an open standard and can be used with any push notification service that supports it, not all push notification services do. In addition, VAPID is not currently supported on all web browsers, which can limit its effectiveness.
+
+    Another limitation of VAPID is that it does not provide end-to-end encryption for push messages. While it enables secure communication between a website and the push notification service, the message itself is not encrypted, meaning that it could potentially be intercepted by a third party.
+
+    Finally, VAPID requires website owners to manage their own public and private keys, which can be a challenge for those who are not familiar with the process or who do not have the necessary technical expertise.
+
+    Despite these limitations, VAPID remains a popular and effective way for website owners to enable web push notifications in a secure and reliable manner. It offers a simple and standardized way for websites to communicate with push notification services, and provides a level of security that was previously unavailable in web push notifications.
+
+    #### FCM Web Push certificates
+
+    FCM (Firebase Cloud Messaging) Web Push certificates are a type of encryption mechanism used for web push notifications sent through the FCM service.
+
+    When a user subscribes to receive push notifications from a website using FCM, the website sends the user's subscription information, including the endpoint URL, to the FCM servers. The FCM servers then use the FCM project's unique certificate to encrypt the push message and send it to the user's device. This ensures that the message can only be decrypted by the user's device, which has access to the private key associated with the certificate.
+
+    FCM Web Push certificates use the HTTPS (HTTP Secure) protocol to transmit encrypted messages securely over the internet. HTTPS ensures that the message is transmitted securely between the website and the FCM servers, and cannot be intercepted by unauthorized parties.
+
+    To use FCM Web Push certificates, web developers need to generate a unique certificate for each FCM project. The certificate is then used by the FCM servers to encrypt push messages sent to users who have subscribed to receive push notifications from the website.
+
+    Overall, FCM Web Push certificates provide a secure and reliable way for websites to send push notifications to users while protecting the privacy and security of the data transmitted between the website and the user's device.
+
+## Crossbrowser limitation
+
+- ### Safari
+
+  Safari does support the Push API, which allows web developers to send push notifications to users who have subscribed to receive them. However, there are some limitations to how Safari supports push notifications:
+
+    1. [PushManager API](https://caniuse.com/mdn-api_pushmanager_registrations): Safari supports the Push API, but it does not currently support the PushManager API, which is used to subscribe and unsubscribe users to push notifications.
+    2. User Permission: In Safari, users must grant permission for a website to send push notifications. Unlike other web browsers, Safari does not support a persistent permission model, which means that users must grant permission each time they visit a website.
+    3. Push Encryption: Safari requires that push notifications be encrypted using the Elliptic Curve Diffie-Hellman (ECDH) key exchange algorithm with the P-256 curve, while other web browsers support additional encryption algorithms.
+    4. Payload Limitations: Safari imposes a limit of 2KB on the size of push notifications, which is smaller than the limit in other web browsers.
+
+  Despite these limitations, Safari's support for the Push API allows web developers to send push notifications to users who have subscribed to receive them. However, web developers must take into account the limitations of Safari when designing their web push notification systems.

@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
     "allowJs": true,
@@ -16,6 +16,10 @@
         "name": "next"
       }
     ],
+    "typeRoots": [
+      "../../node_modules/@types",
+      "./*.d.ts"
+    ],
     "types": [
       "jest",
       "node"
@@ -29,6 +33,7 @@
     ".next/types/**/*.ts",
     "../../dist/apps/web/.next/types/**/*.ts",
     "next-env.d.ts",
+    "./.next/types/**/*.ts",
     "../../apps/web/.next/types/**/*.ts"
   ],
   "exclude": [

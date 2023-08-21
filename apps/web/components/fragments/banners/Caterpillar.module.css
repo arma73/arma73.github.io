@@ -1,0 +1,47 @@
+.caterpillar {
+  --ease-out-cubic: cubic-bezier(0.215,0.61,0.355,1);
+  --ease-in-out-cubic: cubic-bezier(0.645,0.045,0.355,1);
+  --ease-in-out-sine: cubic-bezier(0.445,0.05,0.55,0.95);
+  --ease-out-expo: cubic-bezier(0.19,1,0.22,1);
+
+  .visual {
+    perspective: 200rem;
+  }
+
+  .stack {
+    grid-area: 1/1;
+    transform-style: preserve-3d;
+    transition: visibility .3s;
+  }
+
+  .card {
+    transform-origin: 25% 45%;
+    background: rgba(84,84,84,.1);
+    backdrop-filter: blur(6px);
+  }
+
+  .card:nth-child(1) {
+    transform: translateX(0%) translateY(0%) translateZ(4px) scale(0.9);
+    opacity: 0;
+  }
+
+  .card:nth-last-child(2) {
+    transform: translateX(0%) translateY(0%) translateZ(5px) scale(1);
+    opacity: 1;
+  }
+
+  .card:nth-child(3) {
+    opacity: 1;
+    transform: translateX(-20%) translateY(20%) translateZ(6px) scale(1);
+  }
+
+  .card:nth-child(4) {
+    transform: translateX(-40%) translateY(40%) translateZ(7px) scale(1);
+    opacity: 1;
+  }
+
+  .card:nth-child(5) {
+    transform: translateX(-60%) translateY(60%) translateZ(8px) scale(1);
+    opacity: 1;
+  }
+}
