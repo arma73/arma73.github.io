@@ -75,6 +75,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.10.0"
+      - name: Install Deps
+        run: npm i
+      - name: Deploy Github Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        run: npm run start
