@@ -10,11 +10,11 @@ import { siteConfig, SiteSocialLinks } from "#web/configs/site";
 export const runtime = "edge";
 
 const interRegular = fetch(
-    new URL("../../../assets/fonts/Inter-Regular.ttf", import.meta.url)
+    new URL("../../../assets/fonts/Inter-Regular.woff", import.meta.url)
 ).then(res => res.arrayBuffer());
 
 const interBold = fetch(
-    new URL("../../../assets/fonts/Inter-Bold.ttf", import.meta.url)
+    new URL("../../../assets/fonts/Inter-Bold.woff", import.meta.url)
 ).then(res => res.arrayBuffer());
 
 export async function GET(req: Request) {
@@ -71,14 +71,14 @@ export async function GET(req: Request) {
                     </div>
 
                     <div tw="flex items-center w-full justify-between">
-                        <div
-                            tw="flex items-center gap-3 text-xl"
+                        <span
+                            tw="text-xl"
                             style={{
                                 fontFamily: "Inter",
                                 fontWeight: "normal",
                             }}>
                             {siteUrl.hostname}
-                        </div>
+                        </span>
                         <div
                             tw="flex items-center text-xl"
                             style={{
