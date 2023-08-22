@@ -9,9 +9,9 @@ import { siteConfig, SiteSocialLinks } from "#web/configs/site";
 
 export const runtime = "edge";
 
-const interRegular = fetch(
-    new URL("../../../assets/fonts/Inter-Regular.woff", import.meta.url)
-).then(res => res.arrayBuffer());
+// const interRegular = fetch(
+//     new URL("../../../assets/fonts/Inter-Regular.woff", import.meta.url)
+// ).then(res => res.arrayBuffer());
 
 const interBold = fetch(
     new URL("../../../assets/fonts/Inter-Bold.woff", import.meta.url)
@@ -19,7 +19,7 @@ const interBold = fetch(
 
 export async function GET(req: Request) {
     try {
-        const fontRegular = await interRegular;
+        // const fontRegular = await interRegular;
         const fontBold = await interBold;
 
         const url = new URL(req.url);
@@ -48,9 +48,9 @@ export async function GET(req: Request) {
                     }}>
                     <div tw="flex flex-col flex-1 pb-10">
                         <div
-                            tw="flex text-xl uppercase font-bold tracking-tight"
+                            tw="flex text-xl uppercase opacity-80 font-bold tracking-tight"
                             style={{
-                                fontFamily: "Inter",
+                                fontFamily: "Inter Bold",
                                 fontWeight: "normal",
                             }}>
                             {values.type}
@@ -72,9 +72,9 @@ export async function GET(req: Request) {
 
                     <div tw="flex items-center w-full justify-between">
                         <span
-                            tw="text-xl"
+                            tw="text-xl opacity-80"
                             style={{
-                                fontFamily: "Inter",
+                                fontFamily: "Inter Bold",
                                 fontWeight: "normal",
                             }}>
                             {siteUrl.hostname}
@@ -82,11 +82,13 @@ export async function GET(req: Request) {
                         <div
                             tw="flex items-center text-xl"
                             style={{
-                                fontFamily: "Inter",
+                                fontFamily: "Inter Bold",
                                 fontWeight: "normal",
                             }}>
                             <GitHubIcon width="32" height="32" fill="#fff" />
-                            <div tw="flex ml-2">{githubProfileLink}</div>
+                            <div tw="flex ml-2 opacity-80">
+                                {githubProfileLink}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,12 +97,12 @@ export async function GET(req: Request) {
                 width: 1200,
                 height: 630,
                 fonts: [
-                    {
-                        name: "Inter",
-                        data: fontRegular,
-                        weight: 400,
-                        style: "normal",
-                    },
+                    // {
+                    //     name: "Inter",
+                    //     data: fontRegular,
+                    //     weight: 400,
+                    //     style: "normal",
+                    // },
                     {
                         name: "Inter Bold",
                         data: fontBold,
