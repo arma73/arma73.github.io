@@ -4,9 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { allArticles } from "contentlayer/generated";
 import Mdx from "#web/components/mdx";
-import { absoluteUrl, formatDate } from "#web/utils";
+import { formatDate } from "#web/utils";
 import allAuthors from "#web/collections/authors.json";
 import { Container, Title } from "@lib/ui";
+import { siteConfig } from "#web/configs/site";
 import { metaSocialGenerator } from "#web/utils";
 
 import "#web/styles/mdx.css";
@@ -16,7 +17,9 @@ async function getArticleFromParams(
     params: Partial<IArticlePageProps["params"]>
 ) {
     const slug = params?.slug?.join("/");
-    const article = allArticles.find(article => article.slugAsParams === slug);
+    const article = allArticles.find(
+        _article => _article.slugAsParams === slug
+    );
 
     if (!article) {
         return null;
@@ -59,7 +62,7 @@ export async function generateMetadata({
             title: post.title,
             description: post.description,
             type: "article",
-            url: absoluteUrl(post.slug),
+            url: `${siteConfig.url}/${post.slug}`,
             images: [
                 {
                     url: ogUrl.toString(),
