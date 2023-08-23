@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import clsx from "clsx";
 import { siteConfig } from "#web/configs/site";
 import ThemeProvider from "./_theme/ThemeProvider";
+import { Toaster } from "@lib/ui";
 
 import "#web/styles/globals.css";
 import type { ReactNode } from "react";
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     enableSystem>
                     {children}
                 </ThemeProvider>
+                <Toaster />
             </body>
         </html>
     );

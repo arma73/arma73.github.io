@@ -1,9 +1,9 @@
+import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "@lib/utils";
 
-import type { FC, HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
 import type { VariantProps } from "class-variance-authority";
-import type { PropsWithClassAndChildren } from "@lib/interfaces";
 
 export type PanelVariantProps = VariantProps<typeof panelVariants>;
 const panelVariants = cva("", {
@@ -23,20 +23,18 @@ const panelVariants = cva("", {
 
 type PanelProps = PanelVariantProps & HTMLAttributes<HTMLDivElement>;
 
-const Panel: FC<PropsWithClassAndChildren<PanelProps>> = ({
-    className,
-    children,
-    vsize = "md",
-    vtype = "bordered",
-    ...rest
-}) => {
+const Panel = forwardRef<HTMLDivElement, PanelProps>(function PanelRef(
+    { className, children, vsize = "md", vtype = "bordered", ...rest },
+    externalRef
+) {
     return (
         <div
+            ref={externalRef}
             className={cn(panelVariants({ vsize, vtype }), className)}
             {...rest}>
             {children}
         </div>
     );
-};
+});
 
 export default Panel;
