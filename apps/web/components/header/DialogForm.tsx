@@ -1,8 +1,22 @@
 /* eslint-disable max-lines */
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Input, Textarea, Label, InlineMessage, Button, Panel } from "@lib/ui";
 import * as z from "zod";
+import { useSpinDelay } from "spin-delay";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+    Input,
+    Textarea,
+    Label,
+    InlineMessage,
+    Button,
+    Panel,
+    showToast,
+} from "@lib/ui";
+import { flattenObjectValues } from "@lib/utils";
+import EmailFallbackCredentials from "./EmailFallbackCredentials";
+
+import type { IContactPostResponse } from "@lib/interfaces";
 
 const dialogSchema = z.object({
     name: z
@@ -29,8 +43,42 @@ const DialogForm = () => {
         mode: "onBlur",
         shouldFocusError: true,
     });
-    // eslint-disable-next-line no-console
-    const onSubmit = handleSubmit((data: Schema) => console.log(data));
+    const [loading, setLoading] = useState(false);
+    const showSpinner = useSpinDelay(loading, { delay: 500, minDuration: 200 });
+    const onSubmit = handleSubmit(async (data: Schema) => {
+        setLoading(true);
+        const res = await fetch("/api/contact", {
+            body: JSON.stringify(data),
+            method: "POST",
+            headers: new Headers({ "content-type": "application/json" }),
+        });
+
+        const mailed: IContactPostResponse = await res.json();
+
+        if (mailed.success) {
+            showToast({
+                description:
+                    "Thank you for reaching out to me. I have received your message and will get back to you as soon as possible.",
+            });
+        } else {
+            if ("errors" in mailed) {
+                const msgList = flattenObjectValues(mailed.errors);
+
+                showToast({
+                    title: mailed.message,
+                    description: msgList,
+                    variant: "destructive",
+                });
+            } else {
+                showToast({
+                    title: mailed.message,
+                    variant: "destructive",
+                    action: <EmailFallbackCredentials />,
+                });
+            }
+        }
+        setLoading(false);
+    });
 
     return (
         <Panel>
@@ -95,7 +143,8 @@ const DialogForm = () => {
                                 as="button"
                                 vtype="primary"
                                 type="submit"
-                                disabled={!isValid}
+                                loading={showSpinner}
+                                disabled={!isValid || loading}
                                 className="flex-none">
                                 Submit
                             </Button>
