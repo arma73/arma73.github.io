@@ -27,7 +27,7 @@ export async function GET(req: Request) {
         const githubUrl = new URL(SiteSocialLinks.GITHUB);
         const githubProfileLink = githubUrl.hostname + githubUrl.pathname;
 
-        const values = ogImageSchema.parse(
+        const values = await ogImageSchema.parseAsync(
             Object.fromEntries(url.searchParams)
         );
         const heading =
@@ -72,7 +72,7 @@ export async function GET(req: Request) {
 
                     <div tw="flex items-center w-full justify-between">
                         <div
-                            tw="flex items-center gap-3 text-xl"
+                            tw="flex items-center text-xl"
                             style={{
                                 fontFamily: "Inter",
                                 fontWeight: "normal",
