@@ -24,7 +24,7 @@ const Label: FC<ILabelProps> = ({
             aria-required={required}
             htmlFor={htmlFor}
             className={clsx(
-                "block text-sm font-medium leading-6 text-typography-text-medium",
+                "block text-sm font-medium leading-6 text-typography-text-medium w-max",
                 className
             )}
             {...rest}>
