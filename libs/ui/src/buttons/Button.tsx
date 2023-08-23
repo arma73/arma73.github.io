@@ -1,6 +1,8 @@
+/* eslint-disable max-lines */
 import Link from "next/link";
 import { cva } from "class-variance-authority";
 import { cn } from "@lib/utils";
+import { LoadingFormBtn } from "./LoadingBtn";
 
 import type {
     FC,
@@ -47,7 +49,17 @@ const btnVariants = cva(
     }
 );
 
-type ButtonBaseProps = ButtonVariantProps;
+export type LoadingVariantProps = VariantProps<typeof loadingVariants>;
+const loadingVariants = cva("", {
+    variants: {
+        loading: {
+            default: "",
+            true: `animate-spin`,
+        },
+    },
+});
+
+type ButtonBaseProps = ButtonVariantProps & LoadingVariantProps;
 
 interface ILinkButtonProps
     extends Omit<
@@ -74,14 +86,32 @@ const Button: FC<PropsWithChildren<ButtonProps>> = ({
     vsize = "md",
     disabled,
     className,
+    loading,
+    children,
     ...props
 }) => {
-    const _cn = cn(btnVariants({ vtype, disabled, vsize }), className);
+    const _cn = cn(
+        btnVariants({ vtype, disabled: loading ? true : disabled, vsize }),
+        className
+    );
+
+    if (loading) {
+        return (
+            <div className={_cn}>
+                {<LoadingFormBtn className="absolute" />}
+                <div className="invisible">{children}</div>
+            </div>
+        );
+    }
 
     return props.as === "link" ? (
-        <Link className={_cn} {...props} />
+        <Link className={_cn} {...props}>
+            {children}
+        </Link>
     ) : (
-        <button className={_cn} {...props} />
+        <button className={_cn} {...props}>
+            {children}
+        </button>
     );
 };
 
