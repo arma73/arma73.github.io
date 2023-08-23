@@ -37,6 +37,7 @@ const DialogForm = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors, isValid },
     } = useForm<Schema>({
         resolver: zodResolver(dialogSchema),
@@ -60,6 +61,7 @@ const DialogForm = () => {
                 description:
                     "Thank you for reaching out to me. I have received your message and will get back to you as soon as possible.",
             });
+            reset();
         } else {
             if ("errors" in mailed) {
                 const msgList = flattenObjectValues(mailed.errors);
