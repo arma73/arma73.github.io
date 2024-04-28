@@ -5,7 +5,7 @@ import { allArticles } from "contentlayer/generated";
 export default function sitemap(): MetadataRoute.Sitemap {
     const siteUrl = siteConfig.url;
     const articleRoutes = allArticles.map(article => ({
-        url: `${siteUrl}${article.slug}`,
+        url: `${siteUrl}/${article.slug}`,
         lastModified: article.lastmod || article.date,
     }));
 
